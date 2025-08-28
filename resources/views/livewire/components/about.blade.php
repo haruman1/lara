@@ -1,10 +1,23 @@
 <div>
-    <section id="about" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold mb-6">About Us</h2>
-            <p class="max-w-2xl mx-auto text-gray-600">
-                We are a digital agency focused on delivering innovative solutions for brands worldwide.
-            </p>
+    <div id="aboutus-section">
+        <div class='mx-auto max-w-7xl px-4 py-24 my-32 lg:px-10 bg-lightgrey rounded-3xl relative'>
+            <img src="{{ asset('images/aboutus/dots.svg') }}" alt="pattern"
+                class='absolute top-0 left-0 w-32 lg:w-48 opacity-30' />
+            <h3 class='text-center text-blue text-lg tracking-widest'>ABOUT US</h3>
+            <h4 class='text-center text-4xl lg:text-65xl font-bold'>Know more about us.</h4>
+            <div class='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 my-16 gap-x-16 lg:gap-x-32'>
+            </div>
+            @foreach ($aboutData as $data)
+                <div class='hover:bg-navyblue bg-white rounded-3xl mt-16 pt-10 pl-8 pb-10 pr-6 shadow-xl group'>
+                    <h4 class='text-4xl font-semibold  text-black mb-5 group-hover:text-white'>{{ $data['heading'] }}
+                    </h4>
+                    <img src=" {{ asset($data['imgSrc']) }} " alt="icon" class='mb-5' />
+                    <h4 class='text-lg font-normal text-black group-hover:text-offwhite mb-5'>{{ $data['paragraphs'] }}
+                    </h4>
+                    <a href="#"
+                        class='text-blue group-hover:text-lightblue font-semibold underline decoration-2 underline-offset-4'>{{ $data['link'] }}
+                        <x-heroicon-o-chevron-right class="h-5 w-5 inline" /> </a>
+            @endforeach
         </div>
-    </section>
+    </div>
 </div>
