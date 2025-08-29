@@ -19,12 +19,13 @@
                         </a>
                     @endforeach
                 </div>
-
+                @livewire('contact-form')
                 {{-- CONTACT BUTTON (opsional) --}}
-                <button
-                    class="hidden lg:block text-lg font-semibold px-6 py-2 rounded-full border hover:bg-black hover:text-white">
+                {{-- <button
+                    class="hidden lg:block text-lg font-semibold px-6 py-2 rounded-full border hover:bg-black hover:text-white"
+                    href="#contact-section">
                     Contact us
-                </button>
+                </button> --}}
 
                 {{-- MOBILE ICON --}}
                 <div class="block lg:hidden">
