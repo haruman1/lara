@@ -7,7 +7,7 @@
     <title>{{ config('app.name', 'Desgy') }}</title>
     <!-- Add the slick-theme.css if you want default styling -->
 
-    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/css/globals.css'])
+    @vite(['resources/css/globals.css'])
     @livewireStyles
 </head>
 

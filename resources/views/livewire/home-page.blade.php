@@ -13,7 +13,7 @@
     <livewire:components.joinus />
     <livewire:components.manage />
     <livewire:components.ourteam />
-    <livewire:components.testimonials />
+    <livewire:testimonial-slider />
     <livewire:components.wework />
     <livewire:components.footer />
 </div>

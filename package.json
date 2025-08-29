@@ -17,6 +17,7 @@
     "dependencies": {
         "prettier-plugin-blade": "^2.1.21",
         "react-slick": "^0.31.0",
-        "slick-carousel": "^1.8.1"
+        "slick-carousel": "^1.8.1",
+        "swiper": "^11.2.10"
     }
 }
