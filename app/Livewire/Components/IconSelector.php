@@ -4,10 +4,10 @@ namespace App\Livewire\Components;
 
 use Livewire\Component;
 
-class Insta extends Component
+class IconSelector extends Component
 {
     public function render()
     {
-        return view('livewire.components.insta');
+        return view('livewire.components.icon-selector');
     }
 }

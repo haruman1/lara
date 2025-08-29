@@ -4,10 +4,10 @@ namespace App\Livewire\Components;
 
 use Livewire\Component;
 
-class Wework extends Component
+class TeamSelections extends Component
 {
     public function render()
     {
-        return view('livewire.components.wework');
+        return view('livewire.components.team-selections');
     }
 }
