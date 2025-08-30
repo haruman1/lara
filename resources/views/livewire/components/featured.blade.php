@@ -1,8 +1,8 @@
 <!-- Approach -->
 <section id="approach">
-    <div>
+    <div class="relative bg-gray-50 dark:bg-gray-900 transition-colors duration-500">
         <!-- Features -->
-        <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+        <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto ">
             <div class="max-w-2xl mx-auto text-center mb-12">
                 <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-white">
                     Featured In
@@ -48,7 +48,7 @@
                             <h2 class="font-bold text-3xl lg:text-4xl text-gray-800 dark:text-neutral-200">
                                 Collaborative tools to design user experience
                             </h2>
-                            <p class="text-gray-500 dark:text-neutral-500">
+                            <p class="text-gray-500 dark:text-white dark:text-neutral-500">
                                 Use our tools to explore your ideas and make your vision come true. Then share your work
                                 easily.
                             </p>
@@ -67,7 +67,8 @@
                                     </svg>
                                 </span>
                                 <div class="grow">
-                                    <span class="text-sm sm:text-base text-gray-500 dark:text-neutral-500">
+                                    <span
+                                        class="text-sm sm:text-base text-gray-500 dark:text-white dark:text-neutral-500">
                                         <span class="font-bold">Less routine</span> – more creativity
                                     </span>
                                 </div>
@@ -83,7 +84,8 @@
                                     </svg>
                                 </span>
                                 <div class="grow">
-                                    <span class="text-sm sm:text-base text-gray-500 dark:text-neutral-500">
+                                    <span
+                                        class="text-sm sm:text-base text-gray-500 dark:text-white dark:text-neutral-500">
                                         Hundreds of thousands saved
                                     </span>
                                 </div>
@@ -99,7 +101,8 @@
                                     </svg>
                                 </span>
                                 <div class="grow">
-                                    <span class="text-sm sm:text-base text-gray-500 dark:text-neutral-500">
+                                    <span
+                                        class="text-sm sm:text-base text-gray-500 dark:text-white dark:text-neutral-500">
                                         Scale budgets <span class="font-bold">efficiently</span>
                                     </span>
                                 </div>
