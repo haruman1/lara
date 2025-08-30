@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Kumon') }} - Login</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/css/globals.css'])
 </head>
 
 <body class="bg-gray-50">
@@ -54,7 +54,79 @@
                 @endif
 
                 {{-- Email & Password --}}
-                <div class="space-y-4">
+
+
+                <div class="w-full p-4 bg-white rounded-lg shadow-md dark:text-white">
+                    <label for="email" class="block text-sm font-medium text-gray-700">Email address</label>
+                    <div class="max-w-sm space-y-3">
+                        <div class="relative">
+                            <input id="email" name="email" type="email" autocomplete="email" required
+                                value="{{ old('email') }}"
+                                class="py-2.5 sm:py-3 px-4 block w-full border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 checked:border-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                                placeholder="Enter Email">
+                            <div
+                                class="absolute inset-y-0 start-0 flex items-center pointer-events-none ps-4 peer-disabled:opacity-50 peer-disabled:pointer-events-none">
+
+                            </div>
+                        </div>
+                        <label for="hs-toggle-password" class="block text-sm mb-2 dark:text-white">Password</label>
+                        <div class="relative">
+                            <input id="hs-toggle-password" name="password" type="password"
+                                autocomplete="current-password" required
+                                class="py-2.5 sm:py-3 px-4 block w-full border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 checked:border-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                            <button type="button"
+                                data-hs-toggle-password='{
+      "target": "#hs-toggle-password"
+    }'
+                                class="absolute inset-y-0 end-0 flex items-center z-20 px-3 cursor-pointer text-gray-400 rounded-e-md focus:outline-hidden focus:text-blue-600 dark:text-neutral-600 dark:focus:text-blue-500">
+                                <svg class="shrink-0 size-3.5" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path class="hs-password-active:hidden" d="M9.88 9.88a3 3 0 1 0 4.24 4.24"></path>
+                                    <path class="hs-password-active:hidden"
+                                        d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68">
+                                    </path>
+                                    <path class="hs-password-active:hidden"
+                                        d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61">
+                                    </path>
+                                    <line class="hs-password-active:hidden" x1="2" x2="22" y1="2"
+                                        y2="22"></line>
+                                    <path class="hidden hs-password-active:block"
+                                        d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
+                                    <circle class="hidden hs-password-active:block" cx="12" cy="12" r="3">
+                                    </circle>
+                                </svg>
+                            </button>
+                        </div>
+                        <p class="hidden text-xs text-red-600 mt-2" id="password-error">8+ characters required</p>
+                    </div>
+                    {{-- <div class="flex items-center">
+                        <input id="remember" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                        <label for="remember" class="ml-2 block text-sm text-gray-900">
+                            Remember me
+                        </label>
+                    </div> --}}
+                    <div class="flex -ml-px items-center mb-4">
+                        <input type="checkbox"
+                            class="shrink-0 mt-0.5 border-gray-200 rounded-sm text-blue-600 focus:ring-blue-500 checked:border-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
+                            id="hs-default-checkbox" name="remember" type="checkbox">
+                        <label for="hs-default-checkbox"
+                            class="text-sm text-gray-500 ms-3 dark:text-neutral-400">Remember me</label>
+                    </div>
+                    <div>
+                        <button type="submit"
+                            class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-hidden focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
+                            Login disini
+                        </button>
+                    </div>
+                    <div class="mt-6 text-center text-sm text-gray-600">
+                        Belum punya akun?
+                        <a href="{{ url('/register') }}" class="font-medium text-blue-600 hover:text-blue-500">
+                            Daftar di sini
+                        </a>
+                    </div>
+                </div>
+                {{-- <div class="space-y-4">
                     <div>
                         <label for="email" class="block text-sm font-medium text-gray-700">Email address</label>
                         <input id="email" name="email" type="email" autocomplete="email" required
@@ -73,42 +145,14 @@
                                   focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                             placeholder="Enter your password">
                     </div>
-                </div>
+                </div> --}}
 
                 {{-- Remember Me --}}
-                <div class="flex items-center">
-                    <input id="remember" name="remember" type="checkbox"
-                        class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
-                    <label for="remember" class="ml-2 block text-sm text-gray-900">
-                        Remember me
-                    </label>
-                </div>
+
 
                 {{-- Sign In Button --}}
-                <div>
-                    <button type="submit"
-                        class="group relative w-full flex justify-center py-2 px-4 border border-transparent 
-                               text-sm font-medium rounded-md text-white bg-blue-600 
-                               hover:bg-blue-700 focus:outline-none focus:ring-2 
-                               focus:ring-offset-2 focus:ring-blue-500">
-                        <span class="absolute left-0 inset-y-0 flex items-center pl-3">
-                            <svg class="h-5 w-5 text-blue-500 group-hover:text-blue-400" viewBox="0 0 20 20"
-                                fill="currentColor">
-                                <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0
-                                  012 2v5a2 2 0 01-2 2H5a2 2
-                                  0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3
-                                  3 0 016 0z" clip-rule="evenodd" />
-                            </svg>
-                        </span>
-                        Sign in
-                    </button>
-                </div>
-                <div class="mt-6 text-center text-sm text-gray-600">
-                    Belum punya akun?
-                    <a href="{{ url('/register') }}" class="font-medium text-blue-600 hover:text-blue-500">
-                        Daftar di sini
-                    </a>
-                </div>
+
+
 
                 {{-- Social Login --}}
                 <div class="mt-6">

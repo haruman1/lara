@@ -3,6 +3,14 @@
     <div>
         <!-- Features -->
         <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+            <div class="max-w-2xl mx-auto text-center mb-12">
+                <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-white">
+                    Featured In
+                </h2>
+                <p class="mt-4 text-lg text-gray-600 dark:text-gray-400">
+                    Our customers are our biggest fans. Read some of their stories.
+                </p>
+            </div>
             <!-- Grid -->
             <div class="lg:grid lg:grid-cols-12 lg:gap-16 lg:items-center">
                 <div class="lg:col-span-7">

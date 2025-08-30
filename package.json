@@ -17,6 +17,7 @@
     },
     "dependencies": {
         "@headlessui/react": "^2.2.7",
+        "@preline/toggle-password": "^3.2.3",
         "preline": "^3.2.3",
         "prettier-plugin-blade": "^2.1.21"
     }
