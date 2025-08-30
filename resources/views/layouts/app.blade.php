@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="transition-colors duration-500 ease-in-out">
 
 <head>
     <meta charset="utf-8">
@@ -7,8 +7,22 @@
     <title>{{ config('app.name', 'haruman') }}</title>
     <!-- Add the slick-theme.css if you want default styling -->
 
-    @vite(['resources/css/globals.css', 'resources/js/app.js'])
+    @vite(['resources/css/prelineui.css', 'resources/js/app.js'])
     @livewireStyles
+    <script>
+        (function() {
+            const html = document.documentElement;
+            const storedTheme = localStorage.getItem('hs_theme');
+            const isSystemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+            if (storedTheme === 'dark' || (!storedTheme && isSystemDark)) {
+                html.classList.add('dark');
+            } else {
+                html.classList.remove('dark');
+            }
+        })();
+    </script>
+
 </head>
 
 <body class="antialiased">

@@ -1,145 +1,142 @@
-<!-- Icon Blocks -->
-<div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 items-center gap-6 md:gap-10">
-        <!-- Card -->
-        <div class="size-full bg-white shadow-lg rounded-lg p-5 dark:bg-neutral-900">
-            <div class="flex items-center gap-x-4 mb-3">
-                <div
-                    class="inline-flex justify-center items-center size-15.5 rounded-full border-4 border-blue-50 bg-blue-100 dark:border-blue-900 dark:bg-blue-800">
-                    <svg class="shrink-0 size-6 text-blue-600 dark:text-blue-400" xmlns="http://www.w3.org/2000/svg"
-                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="13.5" cy="6.5" r=".5" />
-                        <circle cx="17.5" cy="10.5" r=".5" />
-                        <circle cx="8.5" cy="7.5" r=".5" />
-                        <circle cx="6.5" cy="12.5" r=".5" />
-                        <path
-                            d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z" />
-                    </svg>
-                </div>
-                <div class="shrink-0">
-                    <h3 class="block text-lg font-semibold text-gray-800 dark:text-white">Build your portfolio</h3>
-                </div>
-            </div>
-            <p class="text-gray-600 dark:text-neutral-400">The simplest way to keep your portfolio always up-to-date.
+<section id="works">
+    <!-- Icon Blocks -->
+    <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+        <div class="max-w-2xl mx-auto text-center mb-12">
+            <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-white">
+                What We Do Best
+            </h2>
+            <p class="mt-4 text-lg text-gray-600 dark:text-gray-400">
+                Our main features and advantages
             </p>
         </div>
-        <!-- End Card -->
+        <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 items-center gap-2">
+                <!-- Icon Block -->
+                <a class="group flex flex-col justify-center hover:bg-gray-50 focus:outline-hidden focus:bg-gray-50 rounded-xl p-4 md:p-7 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
+                    href="#">
+                    <div class="flex justify-center items-center size-12 bg-blue-600 rounded-xl">
+                        <svg class="shrink-0 size-6 text-white" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="10" height="14" x="3" y="8" rx="2" />
+                            <path d="M5 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2h-2.4" />
+                            <path d="M8 18h.01" />
+                        </svg>
+                    </div>
+                    <div class="mt-5">
+                        <h3
+                            class="group-hover:text-gray-600 text-lg font-semibold text-gray-800 dark:text-white dark:group-hover:text-gray-400">
+                            Responsive</h3>
+                        <p class="mt-1 text-gray-600 dark:text-neutral-400">Responsive, and mobile-first project on the
+                            web
+                        </p>
+                        <span
+                            class="mt-2 inline-flex items-center gap-x-1.5 text-sm text-blue-600 decoration-2 group-hover:underline group-focus:underline font-medium">
+                            Learn more
+                            <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24"
+                                height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m9 18 6-6-6-6" />
+                            </svg>
+                        </span>
+                    </div>
+                </a>
+                <!-- End Icon Block -->
 
-        <!-- Card -->
-        <div class="size-full bg-white shadow-lg rounded-lg p-5 dark:bg-neutral-900">
-            <div class="flex items-center gap-x-4 mb-3">
-                <div
-                    class="inline-flex justify-center items-center size-15.5 rounded-full border-4 border-blue-50 bg-blue-100 dark:border-blue-900 dark:bg-blue-800">
-                    <svg class="shrink-0 size-6 text-blue-600 dark:text-blue-400" xmlns="http://www.w3.org/2000/svg"
-                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M2 3h20" />
-                        <path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3" />
-                        <path d="m7 21 5-5 5 5" />
-                    </svg>
-                </div>
-                <div class="shrink-0">
-                    <h3 class="block text-lg font-semibold text-gray-800 dark:text-white">Get freelance work</h3>
-                </div>
-            </div>
-            <p class="text-gray-600 dark:text-neutral-400">New design projects delivered to your inbox each morning.</p>
-        </div>
-        <!-- End Card -->
+                <!-- Icon Block -->
+                <a class="group flex flex-col justify-center hover:bg-gray-50 focus:outline-hidden focus:bg-gray-50 rounded-xl p-4 md:p-7 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
+                    href="#">
+                    <div class="flex justify-center items-center size-12 bg-blue-600 rounded-xl">
+                        <svg class="shrink-0 size-6 text-white" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 7h-9" />
+                            <path d="M14 17H5" />
+                            <circle cx="17" cy="17" r="3" />
+                            <circle cx="7" cy="7" r="3" />
+                        </svg>
+                    </div>
+                    <div class="mt-5">
+                        <h3
+                            class="group-hover:text-gray-600 text-lg font-semibold text-gray-800 dark:text-white dark:group-hover:text-gray-400">
+                            Customizable</h3>
+                        <p class="mt-1 text-gray-600 dark:text-neutral-400">Components are easily customized and
+                            extendable
+                        </p>
+                        <span
+                            class="mt-2 inline-flex items-center gap-x-1.5 text-sm text-blue-600 decoration-2 group-hover:underline group-focus:underline font-medium">
+                            Learn more
+                            <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24"
+                                height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m9 18 6-6-6-6" />
+                            </svg>
+                        </span>
+                    </div>
+                </a>
+                <!-- End Icon Block -->
 
-        <!-- Card -->
-        <div class="size-full bg-white shadow-lg rounded-lg p-5 dark:bg-neutral-900">
-            <div class="flex items-center gap-x-4 mb-3">
-                <div
-                    class="inline-flex justify-center items-center size-15.5 rounded-full border-4 border-blue-50 bg-blue-100 dark:border-blue-900 dark:bg-blue-800">
-                    <svg class="shrink-0 size-6 text-blue-600 dark:text-blue-400" xmlns="http://www.w3.org/2000/svg"
-                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7" />
-                        <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
-                        <path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4" />
-                        <path d="M2 7h20" />
-                        <path
-                            d="M22 7v3a2 2 0 0 1-2 2v0a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12v0a2 2 0 0 1-2-2V7" />
-                    </svg>
-                </div>
-                <div class="shrink-0">
-                    <h3 class="block text-lg font-semibold text-gray-800 dark:text-white">Sell your goods</h3>
-                </div>
-            </div>
-            <p class="text-gray-600 dark:text-neutral-400">Get your goods in front of millions of potential customers
-                with ease.</p>
-        </div>
-        <!-- End Card -->
+                <!-- Icon Block -->
+                <a class="group flex flex-col justify-center hover:bg-gray-50 focus:outline-hidden focus:bg-gray-50 rounded-xl p-4 md:p-7 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
+                    href="#">
+                    <div class="flex justify-center items-center size-12 bg-blue-600 rounded-xl">
+                        <svg class="shrink-0 size-6 text-white" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                        </svg>
+                    </div>
+                    <div class="mt-5">
+                        <h3
+                            class="group-hover:text-gray-600 text-lg font-semibold text-gray-800 dark:text-white dark:group-hover:text-gray-400">
+                            Documentation</h3>
+                        <p class="mt-1 text-gray-600 dark:text-neutral-400">Every component and plugin is well
+                            documented
+                        </p>
+                        <span
+                            class="mt-2 inline-flex items-center gap-x-1.5 text-sm text-blue-600 decoration-2 group-hover:underline group-focus:underline font-medium">
+                            Learn more
+                            <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24"
+                                height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m9 18 6-6-6-6" />
+                            </svg>
+                        </span>
+                    </div>
+                </a>
+                <!-- End Icon Block -->
 
-        <!-- Card -->
-        <div class="size-full bg-white shadow-lg rounded-lg p-5 dark:bg-neutral-900">
-            <div class="flex items-center gap-x-4 mb-3">
-                <div
-                    class="inline-flex justify-center items-center size-15.5 rounded-full border-4 border-blue-50 bg-blue-100 dark:border-blue-900 dark:bg-blue-800">
-                    <svg class="shrink-0 size-6 text-blue-600 dark:text-blue-400" xmlns="http://www.w3.org/2000/svg"
-                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M5.5 8.5 9 12l-3.5 3.5L2 12l3.5-3.5Z" />
-                        <path d="m12 2 3.5 3.5L12 9 8.5 5.5 12 2Z" />
-                        <path d="M18.5 8.5 22 12l-3.5 3.5L15 12l3.5-3.5Z" />
-                        <path d="m12 15 3.5 3.5L12 22l-3.5-3.5L12 15Z" />
-                    </svg>
-                </div>
-                <div class="shrink-0">
-                    <h3 class="block text-lg font-semibold text-gray-800 dark:text-white">Get freelance work</h3>
-                </div>
+                <!-- Icon Block -->
+                <a class="group flex flex-col justify-center hover:bg-gray-50 focus:outline-hidden focus:bg-gray-50 rounded-xl p-4 md:p-7 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
+                    href="#">
+                    <div class="flex justify-center items-center size-12 bg-blue-600 rounded-xl">
+                        <svg class="shrink-0 size-6 text-white" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2v5Z" />
+                            <path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1" />
+                        </svg>
+                    </div>
+                    <div class="mt-5">
+                        <h3
+                            class="group-hover:text-gray-600 text-lg font-semibold text-gray-800 dark:text-white dark:group-hover:text-gray-400">
+                            24/7 Support</h3>
+                        <p class="mt-1 text-gray-600 dark:text-neutral-400">Contact us 24 hours a day, 7 days a week
+                        </p>
+                        <span
+                            class="mt-2 inline-flex items-center gap-x-1.5 text-sm text-blue-600 decoration-2 group-hover:underline group-focus:underline font-medium">
+                            Learn more
+                            <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24"
+                                height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m9 18 6-6-6-6" />
+                            </svg>
+                        </span>
+                    </div>
+                </a>
+                <!-- End Icon Block -->
             </div>
-            <p class="text-gray-600 dark:text-neutral-400">New design projects delivered to your inbox each morning.</p>
         </div>
-        <!-- End Card -->
-
-        <!-- Card -->
-        <div class="size-full bg-white shadow-lg rounded-lg p-5 dark:bg-neutral-900">
-            <div class="flex items-center gap-x-4 mb-3">
-                <div
-                    class="inline-flex justify-center items-center size-15.5 rounded-full border-4 border-blue-50 bg-blue-100 dark:border-blue-900 dark:bg-blue-800">
-                    <svg class="shrink-0 size-6 text-blue-600 dark:text-blue-400" xmlns="http://www.w3.org/2000/svg"
-                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path
-                            d="M16.466 7.5C15.643 4.237 13.952 2 12 2 9.239 2 7 6.477 7 12s2.239 10 5 10c.342 0 .677-.069 1-.2" />
-                        <path d="m15.194 13.707 3.814 1.86-1.86 3.814" />
-                        <path
-                            d="M19 15.57c-1.804.885-4.274 1.43-7 1.43-5.523 0-10-2.239-10-5s4.477-5 10-5c4.838 0 8.873 1.718 9.8 4" />
-                    </svg>
-                </div>
-                <div class="shrink-0">
-                    <h3 class="block text-lg font-semibold text-gray-800 dark:text-white">Sell your goods</h3>
-                </div>
-            </div>
-            <p class="text-gray-600 dark:text-neutral-400">Get your goods in front of millions of potential customers
-                with ease.</p>
-        </div>
-        <!-- End Card -->
-
-        <!-- Card -->
-        <div class="size-full bg-white shadow-lg rounded-lg p-5 dark:bg-neutral-900">
-            <div class="flex items-center gap-x-4 mb-3">
-                <div
-                    class="inline-flex justify-center items-center size-15.5 rounded-full border-4 border-blue-50 bg-blue-100 dark:border-blue-900 dark:bg-blue-800">
-                    <svg class="shrink-0 size-6 text-blue-600 dark:text-blue-400" xmlns="http://www.w3.org/2000/svg"
-                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path
-                            d="M8.3 10a.7.7 0 0 1-.626-1.079L11.4 3a.7.7 0 0 1 1.198-.043L16.3 8.9a.7.7 0 0 1-.572 1.1Z" />
-                        <rect x="3" y="14" width="7" height="7" rx="1" />
-                        <circle cx="17.5" cy="17.5" r="3.5" />
-                    </svg>
-                </div>
-                <div class="shrink-0">
-                    <h3 class="block text-lg font-semibold text-gray-800 dark:text-white">Build your portfolio</h3>
-                </div>
-            </div>
-            <p class="text-gray-600 dark:text-neutral-400">The simplest way to keep your portfolio always up-to-date.
-            </p>
-        </div>
-        <!-- End Card -->
-    </div>
-</div>
-<!-- End Icon Blocks -->
+        <!-- End Icon Blocks -->
+</section>

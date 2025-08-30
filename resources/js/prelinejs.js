@@ -1,6 +1,3 @@
-import "./bootstrap";
-import "preline";
-import "@preline/toggle-password";
 window.setTheme = function (theme) {
     const html = document.documentElement;
     if (theme === "dark") {
@@ -17,5 +14,6 @@ window.setTheme = function (theme) {
             html.classList.remove("dark");
         }
     }
+    // Dispatch event jika diperlukan
     window.dispatchEvent(new Event("on-hs-appearance-change"));
 };
