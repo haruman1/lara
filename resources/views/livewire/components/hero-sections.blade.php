@@ -1,5 +1,5 @@
 <!-- End Hero -->
-<section id="hero">
+<section id="landing">
     <!-- Hero -->
     <div class="relative bg-white dark:bg-neutral-900 bg-gray-50 transition-colors duration-500">
         <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-16">

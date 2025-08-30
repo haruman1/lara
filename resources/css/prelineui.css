@@ -19,3 +19,6 @@ body,
     transition-duration: 400ms;
     transition-timing-function: ease;
 }
+.nav-link.active {
+    @apply text-blue-600 active:text-blue-600 dark:active:text-blue-500 font-semibold;
+}
