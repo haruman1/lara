@@ -1,6 +1,8 @@
 import "./bootstrap";
 import "preline";
 import "@preline/toggle-password";
+import * as Preline from "preline";
+window.Preline = Preline;
 window.setTheme = function (theme) {
     const html = document.documentElement;
     if (theme === "dark") {

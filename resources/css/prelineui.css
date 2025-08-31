@@ -1,5 +1,8 @@
 @import "tailwindcss";
-
+@import "preline";
+/* @import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities"; */
 /* Aktifkan Preline agar Tailwind scan JS-nya */
 @source "./node_modules/preline/dist/*.js";
 
@@ -14,11 +17,11 @@
 /* Transisi smooth untuk warna background & teks */
 html,
 body,
-* {
+/* * {
     transition-property: background-color, border-color, color, fill, stroke;
     transition-duration: 400ms;
     transition-timing-function: ease;
-}
-.nav-link.active {
+} */
+/* .nav-link.active {
     @apply text-blue-600 active:text-blue-600 dark:active:text-blue-500 font-semibold;
-}
+} */
