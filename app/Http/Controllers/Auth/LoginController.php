@@ -32,7 +32,7 @@ class LoginController extends Controller
 
             // Role-based redirect
             if ($user->hasRole('admin')) {
-                return redirect()->intended(Filament::getHomeUrl());
+                return redirect()->intended(Filament::getUrl());
             } elseif ($user->hasRole(['users', 'guests'])) {
                 return redirect()->intended('/users');
             }
@@ -43,11 +43,15 @@ class LoginController extends Controller
 
         throw ValidationException::withMessages([
             'email' => __('auth.failed'),
+            'password' => __('auth.failed'),
         ]);
     }
 
     public function logout(Request $request)
     {
+        if (! Auth::check()) {
+            return redirect('/login');
+        }
         Auth::logout();
 
         $request->session()->invalidate();

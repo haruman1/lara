@@ -30,11 +30,12 @@
 
         <!-- Button Group -->
         <div class="md:order-3 flex items-center gap-x-3">
-            <div class="md:ps-3">
+            <div class="md:ps-6">
                 <a class="group inline-flex items-center gap-x-2 py-2 px-3 bg-[#ff0] font-medium text-sm text-nowrap text-neutral-800 rounded-full focus:outline-hidden"
-                    href="#">
-                    Request demo
+                    href="{{ route('login') }}">
+                    Sign In
                 </a>
+
             </div>
 
             <div class="md:hidden">

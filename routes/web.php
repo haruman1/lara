@@ -34,6 +34,8 @@ Route::post('/login', [AuthLoginController::class, 'login'])
 Route::post('/logout', [AuthLoginController::class, 'logout'])
     ->middleware('auth')
     ->name('logout');
+Route::get('/logout', [AuthLoginController::class, 'logout'])
+    ->middleware('auth');
 
 // Admin routes (Filament will handle /kumon automatically)
 Route::middleware(['auth', RoleBasedAccess::class . ':admin'])

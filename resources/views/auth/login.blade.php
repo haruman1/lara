@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Kumon') }} - Login</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/css/globals.css'])
+    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/prelinejs.js'])
 </head>
 
 <body class="bg-gray-50">
@@ -247,6 +247,7 @@
             </form>
         </div>
     </div>
+    <livewire:components.float-button />
 </body>
 
 </html>
