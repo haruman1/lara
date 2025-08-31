@@ -14,7 +14,10 @@ class LoginController extends Controller
     {
         return view('auth.login');
     }
-
+    public function showRegisterForm()
+    {
+        return view('auth.register');
+    }
     public function login(Request $request)
     {
         $request->validate([
