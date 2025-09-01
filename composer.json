@@ -7,8 +7,11 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "brunocfalcao/blade-feather-icons": "^5.0",
         "codeat3/blade-simple-icons": "^7.9",
+        "davidhsianturi/blade-bootstrap-icons": "^2.1",
         "filament/filament": "^4.0",
+        "hasnayeen/blade-eva-icons": "^2.1",
         "laravel/framework": "^12.0",
         "laravel/socialite": "^5.23",
         "laravel/tinker": "^2.10.1",

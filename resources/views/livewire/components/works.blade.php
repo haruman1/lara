@@ -3,23 +3,43 @@
     <div class="relative bg-white dark:bg-neutral-900 bg-gray-50 transition-colors duration-500">
         <div class=" max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
             <!-- Header -->
-            <div class="max-w-2xl mx-auto text-center mb-12">
-                <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-white">
-                    We Work
-                </h2>
-                <p class="mt-4 text-lg text-gray-600 dark:text-gray-400">
-                    Tools and platforms we use to empower collaboration and productivity.
-                </p>
-            </div>
+
             <!-- Grid -->
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Card -->
                 <div
                     class="group flex flex-col h-full bg-white border border-gray-200 shadow-2xs rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70">
                     <div class="h-52 flex flex-col justify-center items-center bg-blue-600 rounded-t-xl">
-                        <svg class="size-28" width="56" height="56" viewBox="0 0 56 56" fill="none"
+                        <svg class="size-28" xmlns="http://www.w3.org/2000/svg" width="56" height="56"
+                            viewBox="0 0 56 56" fill="none">
+                            <!-- Background putih -->
+                            <rect width="56" height="56" rx="8" fill="white" />
+
+                            <!-- Garis koneksi -->
+                            <line x1="28" y1="18" x2="16" y2="38" stroke="#4A90E2"
+                                stroke-width="2" />
+                            <line x1="28" y1="18" x2="40" y2="38" stroke="#50E3C2"
+                                stroke-width="2" />
+                            <line x1="16" y1="38" x2="40" y2="38" stroke="#F5A623"
+                                stroke-width="2" />
+
+                            <!-- Node atas (kosong) -->
+                            <circle cx="28" cy="18" r="5" fill="none" stroke="#4A90E2"
+                                stroke-width="2" />
+
+                            <!-- Node kiri bawah -->
+                            <circle cx="16" cy="38" r="5" fill="#50E3C2" />
+
+                            <!-- Node kanan bawah -->
+                            <circle cx="40" cy="38" r="5" fill="#F5A623" />
+                        </svg>
+
+                        {{-- <svg class="size-28" width="56" height="56" viewBox="0 0 56 56" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <rect width="56" height="56" rx="10" fill="white" />
+
+
+
                             <path
                                 d="M20.2819 26.7478C20.1304 26.5495 19.9068 26.4194 19.6599 26.386C19.4131 26.3527 19.1631 26.4188 18.9647 26.5698C18.848 26.6622 18.7538 26.78 18.6894 26.9144L10.6019 43.1439C10.4874 43.3739 10.4686 43.6401 10.5496 43.884C10.6307 44.1279 10.805 44.3295 11.0342 44.4446C11.1681 44.5126 11.3163 44.5478 11.4664 44.5473H22.7343C22.9148 44.5519 23.0927 44.5037 23.2462 44.4084C23.3998 44.3132 23.5223 44.1751 23.5988 44.011C26.0307 38.9724 24.5566 31.3118 20.2819 26.7478Z"
                                 fill="url(#paint0_linear_2204_541)" />
@@ -33,17 +53,17 @@
                                     <stop offset="0.92" stop-color="#2684FF" />
                                 </linearGradient>
                             </defs>
-                        </svg>
+                        </svg> --}}
                     </div>
                     <div class="p-4 md:p-6">
                         <span class="block mb-1 text-xs font-semibold uppercase text-blue-600 dark:text-blue-500">
-                            Atlassian API
+                            Jaringan
                         </span>
                         <h3 class="text-xl font-semibold text-gray-800 dark:text-neutral-300 dark:hover:text-white">
-                            Atlassian
+                            Jaringan
                         </h3>
                         <p class="mt-3 dark:text-white text-gray-500 dark:text-neutral-500">
-                            A software that develops products for software developers and developments.
+                            Visualisasikan arsitektur dan alur kerja untuk memberi gambaran proses.
                         </p>
                     </div>
                     <div
@@ -64,14 +84,28 @@
                 <div
                     class="group flex flex-col h-full bg-white border border-gray-200 shadow-2xs rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70">
                     <div class="h-52 flex flex-col justify-center items-center bg-rose-500 rounded-t-xl">
-                        <svg class="size-28" width="56" height="56" viewBox="0 0 56 56" fill="none"
+                        {{-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 14.25h13.5m-13.5 0a3 3 0 0 1-3-3m3 3a3 3 0 1 0 0 6h13.5a3 3 0 1 0 0-6m-16.5-3a3 3 0 0 1 3-3h13.5a3 3 0 0 1 3 3m-19.5 0a4.5 4.5 0 0 1 .9-2.7L5.737 5.1a3.375 3.375 0 0 1 2.7-1.35h7.126c1.062 0 2.062.5 2.7 1.35l2.587 3.45a4.5 4.5 0 0 1 .9 2.7m0 0a3 3 0 0 1-3 3m0 3h.008v.008h-.008v-.008Zm0-6h.008v.008h-.008v-.008Zm-3 6h.008v.008h-.008v-.008Zm0-6h.008v.008h-.008v-.008Z" />
+</svg>
+ --}}
+                        {{-- <svg class="size-28" width="56" height="56" viewBox="0 0 56 56" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <rect width="56" height="56" rx="10" fill="white" />
                             <g clip-path="url(#clip0_2204_541)">
-                                <path
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M5.25 14.25h13.5m-13.5 0a3 3 0 0 1-3-3m3 3a3 3 0 1 0 0 6h13.5a3 3 0 1 0 0-6m-16.5-3a3 3 0 0 1 3-3h13.5a3 3 0 0 1 3 3m-19.5 0a4.5 4.5 0 0 1 .9-2.7L5.737 5.1a3.375 3.375 0 0 1 2.7-1.35h7.126c1.062 0 2.062.5 2.7 1.35l2.587 3.45a4.5 4.5 0 0 1 .9 2.7m0 0a3 3 0 0 1-3 3m0 3h.008v.008h-.008v-.008Zm0-6h.008v.008h-.008v-.008Zm-3 6h.008v.008h-.008v-.008Zm0-6h.008v.008h-.008v-.008Z"
+                                    fill="url(#paint0_radial_2204_541)" /> --}}
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 56 56" width="56"
+                            height="56" stroke="currentColor" class="size-28">
+                            <rect width="56" height="56" rx="10" fill="white" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M5.25 14.25h13.5m-13.5 0a3 3 0 0 1-3-3m3 3a3 3 0 1 0 0 6h13.5a3 3 0 1 0 0-6m-16.5-3a3 3 0 0 1 3-3h13.5a3 3 0 0 1 3 3m-19.5 0a4.5 4.5 0 0 1 .9-2.7L5.737 5.1a3.375 3.375 0 0 1 2.7-1.35h7.126c1.062 0 2.062.5 2.7 1.35l2.587 3.45a4.5 4.5 0 0 1 .9 2.7m0 0a3 3 0 0 1-3 3m0 3h.008v.008h-.008v-.008Zm0-6h.008v.008h-.008v-.008Zm-3 6h.008v.008h-.008v-.008Zm0-6h.008v.008h-.008v-.008Z"
+                                transform="translate(15, 15)" />
+                        </svg>
+                        {{-- <path
                                     d="M37.0409 28.8697C33.1968 28.8697 30.0811 31.9854 30.0811 35.8288C30.0811 39.6726 33.1968 42.789 37.0409 42.789C40.8843 42.789 44 39.6726 44 35.8288C44 31.9854 40.8843 28.8697 37.0409 28.8697ZM18.9594 28.8701C15.116 28.8704 12 31.9854 12 35.8292C12 39.6726 15.116 42.7886 18.9594 42.7886C22.8032 42.7886 25.9192 39.6726 25.9192 35.8292C25.9192 31.9854 22.8032 28.8701 18.9591 28.8701H18.9594ZM34.9595 20.1704C34.9595 24.0138 31.8438 27.1305 28.0004 27.1305C24.1563 27.1305 21.0406 24.0138 21.0406 20.1704C21.0406 16.3269 24.1563 13.2109 28.0003 13.2109C31.8438 13.2109 34.9591 16.3269 34.9591 20.1704H34.9595Z"
-                                    fill="url(#paint0_radial_2204_541)" />
-                            </g>
+                                    fill="url(#paint0_radial_2204_541)" /> --}}
+                        {{-- </g>
                             <defs>
                                 <radialGradient id="paint0_radial_2204_541" cx="0" cy="0" r="1"
                                     gradientUnits="userSpaceOnUse"
@@ -85,7 +119,7 @@
                                         transform="translate(12 13.2096)" />
                                 </clipPath>
                             </defs>
-                        </svg>
+                        </svg> --}}
                     </div>
                     <div class="p-4 md:p-6">
                         <span class="block mb-1 text-xs font-semibold uppercase text-rose-600 dark:text-rose-500">

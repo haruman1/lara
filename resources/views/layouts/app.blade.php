@@ -10,19 +10,6 @@
 
     @vite(['resources/css/prelineui.css', 'resources/js/app.js'])
     @livewireStyles
-    <script>
-        (function() {
-            const html = document.documentElement;
-            const storedTheme = localStorage.getItem('hs_theme');
-            const isSystemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-            if (storedTheme === 'dark' || (!storedTheme && isSystemDark)) {
-                html.classList.add('dark');
-            } else {
-                html.classList.remove('dark');
-            }
-        })();
-    </script>
 
 </head>
 

@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login - Aplikasi Saya</title>
-    @vite('resources/css/prelineui.css', 'resources/js/app.js')
+
+    @vite(['resources/css/prelineui.css', 'resources/js/app.js'])
 </head>
 
 <body class="h-full">
@@ -176,102 +177,11 @@
         </div>
     </div>
 
-    @vite('resources/js/app.js')
-    <script src="{{ asset('vendor/preline/preline.js') }}"></script>
+
 </body>
 {{-- Social Login --}}
-<div class="mt-6">
-    <div class="relative">
-        <div class="absolute inset-0 flex items-center">
-            <div class="w-full border-t border-gray-300"></div>
-        </div>
-        <div class="relative flex justify-center text-sm">
-            <span class="px-2 bg-gray-50 text-gray-500">Atau masuk dengan</span>
-        </div>
-    </div>
 
-    <div class="flex gap-3 justify-center mt-4">
-        {{-- GitHub --}}
-        <div class="relative group">
-            <a href="{{ route('social.redirect', 'github') }}"
-                class="flex justify-center items-center px-4 py-2 border border-gray-300 rounded-md 
-                  shadow-sm bg-white text-gray-700 hover:bg-gray-50">
-                {{-- Inline SVG GitHub --}}
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.6-1.5-1.3-1.9-1.3-1.9-1.1-.7.1-.7.1-.7
-                         1.2.1 1.8 1.2 1.8 1.2 1 .1.7 2.4 3.6 1.7v-1.6c-2.6-.3-5.4-1.3-5.4-5.8 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.6.1-3.3 0 0 1-.3 3.3
-                         1.2a11.4 11.4 0 0 1 6 0C18 5.4 19 5.7 19 5.7c.6 1.7.2 3 .1 3.3.8.9 1.2 2 1.2 3.2 0 4.6-2.8 5.4-5.5 5.7v1.7c0 .4.2.8.8.6
-                         4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.6 18.4.5 12 .5z" />
-                </svg>
-            </a>
-            {{-- Custom Tooltip --}}
-            <div
-                class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 
-                    hidden group-hover:flex px-2 py-1 rounded-md bg-gray-800 text-white text-md shadow-lg">
-                Login dengan GitHub
-            </div>
-        </div>
-
-        {{-- Google --}}
-        <div class="relative group">
-            <a href="{{ route('social.redirect', 'google') }}"
-                class="flex justify-center items-center px-4 py-2 border border-gray-300 rounded-md 
-                  shadow-sm bg-white text-gray-700 hover:bg-gray-50">
-                {{-- Inline SVG Google --}}
-                <svg class="w-5 h-5" viewBox="0 0 48 48">
-                    <path fill="#EA4335"
-                        d="M24 9.5c3.9 0 6.6 1.7 8.1 3.1l5.9-5.9C34.6 3.6 29.8 1.5 24 1.5 14.5 1.5 6.4 7.4 2.8 15.7l6.9 5.4C11.7 15.2 17.4 9.5 24 9.5z" />
-                    <path fill="#4285F4"
-                        d="M46.1 24.6c0-1.5-.1-3.1-.4-4.6H24v9.1h12.4c-.5 2.6-2.1 4.8-4.5 6.3l7 5.4c4.1-3.8 6.5-9.4 6.5-16.2z" />
-                    <path fill="#FBBC05"
-                        d="M9.7 28.6c-.7-2-.9-4.2-.9-6.6s.3-4.5.9-6.6l-6.9-5.4C1.9 14.4 1 19.1 1 22s.9 7.6 1.9 10.6l6.8-5.3z" />
-                    <path fill="#34A853"
-                        d="M24 47c6.5 0 12-2.1 16-5.7l-7-5.4c-2 1.4-4.6 2.3-9 2.3-6.6 0-12.3-5.6-14.3-12.9l-6.9 5.4C6.3 41.1 14.5 47 24 47z" />
-                </svg>
-            </a>
-            {{-- Custom Tooltip --}}
-            <div
-                class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 
-                    hidden group-hover:flex px-2 py-1 rounded-md bg-gray-800 text-white text-md shadow-lg">
-                Login dengan Google
-            </div>
-        </div>
-
-        {{-- X (Twitter baru) --}}
-        <div class="relative group">
-            <a href="{{ route('social.redirect', 'twitter-oauth-2') }}"
-                class="flex justify-center items-center px-4 py-2 border border-gray-300 rounded-md 
-                  shadow-sm bg-white text-gray-700 hover:bg-gray-50">
-                {{-- Inline SVG X --}}
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
-                    <path
-                        d="M18.244 2H21.5l-7.84 9.01L22 22h-6.77l-5.3-6.84L4.1 22H.833l8.37-9.625L.5 2h6.918l4.787 6.15L18.244 2z" />
-                </svg>
-            </a>
-            {{-- Custom Tooltip --}}
-            <div
-                class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 
-                    hidden group-hover:flex px-2 py-1 rounded-md bg-gray-800 text-white text-md shadow-lg">
-                Login dengan X
-            </div>
-        </div>
-    </div>
-
-
-
-    {{-- Floating Button Component --}}
-    <livewire:components.float-button />
+{{-- Floating Button Component --}}
+<livewire:components.float-button />
 
 </html>
-
-
-
-
-
-{{-- </form>
-        </div>
-    </div> --}}
-
-{{-- </body>
-
-</html> --}}

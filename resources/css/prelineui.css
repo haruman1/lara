@@ -1,12 +1,5 @@
 @import "tailwindcss";
-@import "preline";
-/* @import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities"; */
-/* Aktifkan Preline agar Tailwind scan JS-nya */
 @source "./node_modules/preline/dist/*.js";
-
-/* Import varian tambahan Preline */
 @import "preline/variants.css";
 
 /* Aktifkan dark mode berbasis class di html */
