@@ -2,10 +2,14 @@
 
 use App\Http\Controllers\Auth\LoginController as AuthLoginController;
 use App\Http\Controllers\Auth\SocialAuthController;
+use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\LoginController;
 use App\Http\Middleware\RoleBasedAccess;
+use App\Livewire\Components\TestDemo as ComponentsTestDemo;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\HomePage;
+use App\Livewire\TestDemo;
 
 Route::get('/', HomePage::class);
 
@@ -23,6 +27,10 @@ Route::group(['prefix' => 'auth'], function () {
         ->name('social.callback');
 });
 
+
+Route::get('translations/{locale}', [LocalizationController::class, 'changeLocale'])->name('lang.switch');
+
+Route::get('test-demo', ComponentsTestDemo::class)->name('test.demo');
 // Authentication routes
 Route::get('/login', [AuthLoginController::class, 'showLoginForm'])
     ->middleware('guest')

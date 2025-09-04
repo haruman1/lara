@@ -1,6 +1,40 @@
-<div class="fixed bottom-5 right-5 z-50">
+<!-- Floating Buttons Container -->
+@vite(['resources/js/bahasa.js', 'resources/js/theme.js'])
+<div class="fixed bottom-5 right-5 z-50 flex items-center space-x-2">
+    <livewire:components.loading-overlay />
+    <!-- Language Button -->
     <div class="hs-dropdown relative inline-flex">
-        <!-- Floating button -->
+        <!-- Floating button for language -->
+        <button type="button"
+            class="hs-dropdown-toggle inline-flex items-center gap-x-2 rounded-full bg-green-600 text-white px-4 py-2 text-sm font-medium shadow-md hover:bg-green-700 focus:outline-none transition-colors duration-300">
+            🌐 <span id="current-lang">Indonesia</span>
+            <svg class="hs-dropdown-open:rotate-180 w-5 h-5 text-white transition-transform duration-200 dark:inline"
+                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+        </button>
+
+        <!-- Dropdown menu for language -->
+        <div
+            class="hs-dropdown-menu hidden transition-[opacity,margin] duration-200 mt-2 min-w-[8rem] bg-white dark:bg-gray-800 shadow-md rounded-xl p-2 space-y-1 absolute bottom-full mb-2">
+            <button type="button" onclick="setLanguage('id')"
+                class="flex items-center w-full text-left rounded-lg px-3 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-150">
+                🇮🇩 Indonesia
+            </button>
+            <button type="button" onclick="setLanguage('en')"
+                class="flex items-center w-full text-left rounded-lg px-3 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-150">
+                🇬🇧 English
+            </button>
+            <button type="button" onclick="setLanguage('ja')"
+                class="flex items-center w-full text-left rounded-lg px-3 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-150">
+                🇯🇵 日本語
+            </button>
+        </div>
+    </div>
+
+    <!-- Theme Button (Existing) -->
+    <div class="hs-dropdown relative inline-flex">
+        <!-- Floating button for theme -->
         <button type="button"
             class="hs-dropdown-toggle inline-flex items-center gap-x-2 rounded-full bg-blue-600 text-white px-4 py-2 text-sm font-medium shadow-md hover:bg-blue-700 focus:outline-none transition-colors duration-300">
             <span class="theme-icon">
@@ -17,15 +51,15 @@
                 </svg>
             </span>
             Theme
-            <svg class="w-4 h-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                stroke="currentColor">
+            <svg class="hs-dropdown-open:rotate-180 w-5 h-5 text-white transition-transform duration-200 dark:inline"
+                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>
         </button>
 
-        <!-- Dropdown menu -->
+        <!-- Dropdown menu for theme -->
         <div
-            class="hs-dropdown-menu hidden transition-[opacity,margin] duration-200 mt-2 min-w-[8rem] bg-white dark:bg-gray-800 shadow-md rounded-xl p-2 space-y-1">
+            class="hs-dropdown-menu hidden transition-[opacity,margin] duration-200 mt-2 min-w-[8rem] bg-white dark:bg-gray-800 shadow-md rounded-xl p-2 space-y-1 absolute bottom-full mb-2">
 
             <button onclick="setTheme('light')"
                 class="block w-full text-left rounded-lg px-3 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200">

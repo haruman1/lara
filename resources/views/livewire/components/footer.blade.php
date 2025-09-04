@@ -100,6 +100,56 @@
                     <div class="flex flex-wrap items-center gap-3">
                         <!-- Language Dropdown -->
                         <div class="hs-dropdown [--placement:top-left] relative inline-flex">
+                            @php
+                                $languages = [
+                                    'en' => [
+                                        'name' => 'English (US)',
+                                        'flag' =>
+                                            '<svg class="shrink-0 size-3.5 rounded-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><g fill-rule="evenodd"><path fill="#bd3d44" d="M0 0h247v10H0zm0 20h247v10H0z" transform="scale(3.9385)" /><path fill="#fff" d="M0 10h247v10H0zm0 20h247v10H0z" transform="scale(3.9385)" /></g><path fill="#192f5d" d="M0 0h98.8v70H0z" transform="scale(3.9385)" /></svg>',
+                                    ],
+                                    'de' => [
+                                        'name' => 'Deutsch',
+                                        'flag' =>
+                                            '<svg class="shrink-0 size-3 rounded-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#ffce00" d="M0 341.3h512V512H0z"/><path d="M0 0h512v170.7H0z"/><path fill="#d00" d="M0 170.7h512v170.6H0z"/></svg>',
+                                    ],
+                                    'dk' => [
+                                        'name' => 'Dansk',
+                                        'flag' =>
+                                            '<svg class="shrink-0 size-3 rounded-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#c8102e" d="M0 0h512.1v512H0z"/><path fill="#fff" d="M144 0h73.1v512H144z"/><path fill="#fff" d="M0 219.4h512.1v73.2H0z"/></svg>',
+                                    ],
+                                    'it' => [
+                                        'name' => 'Italiano',
+                                        'flag' =>
+                                            '<svg class="shrink-0 size-3 rounded-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><g fill-rule="evenodd"><path fill="#fff" d="M0 0h512v512H0z"/><path fill="#009246" d="M0 0h170.7v512H0z"/><path fill="#ce2b37" d="M341.3 0H512v512H341.3z"/></g></svg>',
+                                    ],
+                                    'zh' => [
+                                        'name' => '中文 (繁體)',
+                                        'flag' =>
+                                            '<svg class="shrink-0 size-3 rounded-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#de2910" d="M0 0h512v512H0z"/><path fill="#ffde00" d="M128 128l76.8 0 0 76.8-76.8 0z"/></svg>',
+                                    ],
+                                ];
+                            @endphp
+
+                            <div
+                                class="hs-dropdown-menu w-40 z-10 bg-white shadow-md rounded-lg p-2 dark:bg-neutral-800 dark:border dark:border-neutral-700">
+                                @foreach ($languages as $code => $lang)
+                                    <button onlick="switchLanguage('{{ $code }}')" {{-- href="{{ route('lang.switch', $code) }}" --}}
+                                        class="{{ app()->getLocale() == $code ? 'active' : '' }} flex items-center gap-x-2 py-2 px-3 rounded-lg text-sm 
+                   text-gray-800 hover:bg-gray-100 
+                   dark:text-neutral-400 dark:hover:bg-neutral-700 
+                   dark:hover:text-neutral-300 dark:focus:bg-neutral-700 dark:focus:text-neutral-300">
+                                        {!! $lang['flag'] !!}
+                                        {{ $lang['name'] }}
+                                    </button>
+                                @endforeach
+                            </div>
+
+                            {{-- @foreach (config('app.available_locales') as $langCode => $langName)
+                                <button onclick="switchLanguage('{{ $langCode }}')"
+                                    class="{{ app()->getLocale() == $langCode ? 'active' : '' }}">
+                                    {{ $langName }}
+                                </button>
+                            @endforeach
                             <button id="hs-footer-language-dropdown" type="button"
                                 class="hs-dropdown-toggle py-2 px-3 inline-flex items-center gap-x-2 text-sm rounded-lg border border-gray-200 bg-white text-gray-800 shadow-2xs hover:bg-gray-50 focus:outline-hidden focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
                                 aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
@@ -207,7 +257,7 @@
                                     </svg>
                                     中文 (繁體)
                                 </a>
-                            </div>
+                            </div> --}}
                         </div>
                         <!-- End Language Dropdown -->
 

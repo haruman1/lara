@@ -1,3 +1,5 @@
+import "preline";
+import "@preline/toggle-password";
 document.addEventListener("DOMContentLoaded", function () {
     const links = document.querySelectorAll("#navbar .nav-link");
 
