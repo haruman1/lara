@@ -27,7 +27,7 @@ export async function setLanguage(locale) {
                   : "Japanese";
 
         // simpan ke localStorage
-        localStorage.setItem("locale", locale);
+        localStorage.setItem("app_locale", locale);
     } catch (error) {
         console.error("Error loading translations:", error);
     } finally {
@@ -39,6 +39,6 @@ export async function setLanguage(locale) {
 }
 
 export function initLanguage() {
-    const savedLang = localStorage.getItem("locale") || "id";
+    const savedLang = localStorage.getItem("app_locale") || "id";
     setLanguage(savedLang);
 }
