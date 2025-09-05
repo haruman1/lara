@@ -7,10 +7,13 @@
             <!-- Logo -->
             <a class="flex-none rounded-md text-xl inline-block font-semibold focus:outline-hidden focus:opacity-80"
                 href="../templates/agency/index.html" aria-label="Preline">
-                <img src="https://bcompnetsolutions.com/assets/images/logo.png" class="w-28 h-auto" width="116"
-                    height="32" viewBox="0 0 116 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Logo Light -->
+                <img src="/images/icon/zd3rcd6ftavhpy4xgki9.webp" class="w-28 h-auto dark:hidden" width="116"
+                    height="32" alt="Logo Light">
 
-                </img>
+                <!-- Logo Dark -->
+                <img src="/images/icon/wcern2cczvex3oqhqzpf.webp" class="w-28 h-auto hidden dark:block" width="116"
+                    height="32" alt="Logo Dark">
             </a>
             <!-- End Logo -->
 
@@ -23,7 +26,7 @@
         <div class="md:order-3 flex items-center gap-x-3">
             <div class="md:ps-6">
                 <a class="group inline-flex items-center gap-x-2 py-2 px-3 bg-[#ff0] font-medium text-sm text-nowrap text-neutral-800 rounded-full focus:outline-hidden"
-                    href="{{ route('login') }}">
+                    data-lang-key="sign-in" href="{{ route('login') }}">
                     Sign In
                 </a>
 
@@ -58,18 +61,18 @@
             aria-labelledby="hs-navbar-floating-dark-collapse">
             <div class="flex flex-col md:flex-row md:items-center md:justify-end gap-y-3 py-2 md:py-0 md:ps-7">
                 <a class="pe-3 ps-px sm:px-3 md:py-4 text-sm text-white hover:text-neutral-300 focus:outline-hidden focus:text-blue-600 dark:text-white dark:hover:text-neutral-300 dark:focus:text-blue-500"
-                    href="#landing" aria-current="page" data-target="landing">Home</a>
+                    href="#landing" aria-current="page" data-target="landing" data-lang-key="link-1">Home</a>
                 <a class="pe-3 ps-px sm:px-3 md:py-4 text-sm text-white hover:text-neutral-300 focus:outline-hidden focus:text-neutral-300"
-                    href="#works" data-target="works">Work</a>
+                    href="#works" data-target="works" data-lang-key="link-2">Work</a>
                 <a class="pe-3 ps-px sm:px-3 md:py-4 text-sm text-white hover:text-neutral-300 focus:outline-hidden focus:text-neutral-300"
-                    href="#featured" data-target="featured">Featured</a>
+                    href="#featured" data-target="featured" data-lang-key="link-3">Featured</a>
 
                 <a class="pe-3 ps-px sm:px-3 md:py-4 text-sm text-white hover:text-neutral-300 focus:outline-hidden focus:text-neutral-300"
-                    href="#best-features" data-target="best-features">Features</a>
+                    href="#best-features" data-target="best-features" data-lang-key="link-4">Features</a>
                 <a class="pe-3 ps-px sm:px-3 md:py-4 text-sm text-white hover:text-neutral-300 focus:outline-hidden focus:text-neutral-300"
-                    href="#teams" data-target="teams">Team</a>
+                    href="#teams" data-target="teams" data-lang-key="link-5">Team</a>
                 <a class="pe-3 ps-px sm:px-3 md:py-4 text-sm text-white hover:text-neutral-300 focus:outline-hidden focus:text-neutral-300"
-                    href="#faq" data-target="faq">Faq</a>
+                    href="#faq" data-target="faq" data-lang-key="link-6">Faq</a>
                 <!-- Dropdown Link -->
                 <div
                     class="hs-dropdown [--strategy:static] md:[--strategy:absolute] [--adaptive:none] md:[--trigger:hover] [--auto-close:inside] md:inline-block">

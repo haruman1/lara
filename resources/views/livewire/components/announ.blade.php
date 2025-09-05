@@ -1,6 +1,6 @@
 <!-- Announcement Banner -->
-<div>
-    <div class="bg-white/60 backdrop-blur-lg dark:bg-neutral-900/60">
+<section id="announ">
+    <div class="bg-white dark:bg-neutral-900 bg-gray-50 transition-colors duration-500">
         <div class="max-w-[85rem] px-4 py-4 sm:px-6 lg:px-8 mx-auto">
             <!-- Grid -->
             <div class="grid justify-center sm:grid-cols-2 sm:items-center gap-4">
@@ -43,5 +43,6 @@
             <!-- End Grid -->
         </div>
     </div>
-</div>
+</section>
+
 <!-- End Announcement Banner -->
