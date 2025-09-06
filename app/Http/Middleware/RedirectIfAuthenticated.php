@@ -21,13 +21,14 @@ class RedirectIfAuthenticated
 
                 // Role-based redirect for authenticated users
                 if ($user->hasRole('admin')) {
-                    return redirect(Filament::getHomeUrl());
+                    return redirect('/kumon');
                 } elseif ($user->hasRole(['users', 'guests'])) {
-                    return redirect(env('APP_URL') . env('APP_PORT', '/users'));
+                    return redirect('/users');
                 }
-
-                return redirect('/users');
             }
+            // If no valid role, logout and redirect to login
+            Auth::logout();
+            return redirect(Filament::getUrl())->with('error', 'Unauthorized access.');
         }
 
         return $next($request);

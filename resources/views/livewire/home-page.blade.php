@@ -1,19 +1,21 @@
 {{-- resources/views/livewire/home-page.blade.php --}}
-<div>
+<div class="w-full top-0 bg-white dark:bg-gray-900">
+
     <livewire:components.navbar />
-    <livewire:components.banner />
-    <livewire:components.about />
-    <livewire:components.articles />
-    <livewire:components.beliefs />
-    <livewire:components.dedicated />
-    <livewire:components.digital />
-    <livewire:components.faq />
-    <livewire:components.featured />
-    <livewire:components.insta />
-    <livewire:components.joinus />
-    <livewire:components.manage />
-    <livewire:components.ourteam />
-    <livewire:components.testimonials />
-    <livewire:components.wework />
+    <livewire:components.float-button />
+    <livewire:components.hero-sections />
+    <livewire:components.services />
+    <livewire:components.about-us />
+    <livewire:components.informations />
+    {{-- <livewire:components.featured /> --}}
+
+    {{-- <livewire:components.icon-selector /> --}}
+    {{-- <livewire:components.team-selections /> --}}
+    <livewire:components.show-blog />
+    {{-- <livewire:components.latest-news /> --}}
+
+    {{-- <livewire:components.faq /> --}}
+    <livewire:components.contact-us />
+    <livewire:components.subscribe />
     <livewire:components.footer />
 </div>

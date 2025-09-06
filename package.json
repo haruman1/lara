@@ -7,14 +7,23 @@
         "dev": "vite"
     },
     "devDependencies": {
+        "@tailwindcss/forms": "^0.5.10",
         "@tailwindcss/vite": "^4.0.0",
         "axios": "^1.11.0",
         "concurrently": "^9.0.1",
         "laravel-vite-plugin": "^2.0.0",
-        "tailwindcss": "^4.0.0",
+        "tailwindcss": "^4.1.12",
         "vite": "^7.0.4"
     },
     "dependencies": {
-        "prettier-plugin-blade": "^2.1.21"
+        "@headlessui/react": "^2.2.7",
+        "@preline/file-upload": "^3.2.3",
+        "@preline/toggle-password": "^3.2.3",
+        "dropzone": "^6.0.0-beta.2",
+        "lodash": "^4.17.21",
+        "postcss": "^8.5.6",
+        "preline": "^3.2.3",
+        "prettier-plugin-blade": "^2.1.21",
+        "tailwindcss-animated": "^2.0.0"
     }
 }

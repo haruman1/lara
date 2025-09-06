@@ -2,12 +2,16 @@
 
 use App\Http\Controllers\Auth\LoginController as AuthLoginController;
 use App\Http\Controllers\Auth\SocialAuthController;
+use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\LoginController;
 use App\Http\Middleware\RoleBasedAccess;
+use App\Livewire\Components\TestDemo as ComponentsTestDemo;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\HomePage;
+use App\Livewire\TestDemo;
 
-Route::get('/', HomePage::class);
+Route::get('/', HomePage::class)->name('home');
 
 Route::group(['prefix' => 'auth'], function () {
     Route::get('/{provider}/redirect', [SocialAuthController::class, 'redirect'])
@@ -23,6 +27,10 @@ Route::group(['prefix' => 'auth'], function () {
         ->name('social.callback');
 });
 
+
+Route::get('translations/{locale}', [LocalizationController::class, 'changeLocale'])->name('lang.switch');
+
+Route::get('test-demo', ComponentsTestDemo::class)->name('test.demo');
 // Authentication routes
 Route::get('/login', [AuthLoginController::class, 'showLoginForm'])
     ->middleware('guest')
@@ -34,6 +42,8 @@ Route::post('/login', [AuthLoginController::class, 'login'])
 Route::post('/logout', [AuthLoginController::class, 'logout'])
     ->middleware('auth')
     ->name('logout');
+Route::get('/logout', [AuthLoginController::class, 'logout'])
+    ->middleware('auth');
 
 // Admin routes (Filament will handle /kumon automatically)
 Route::middleware(['auth', RoleBasedAccess::class . ':admin'])

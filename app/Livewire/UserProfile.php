@@ -20,12 +20,13 @@ class UserProfile extends Component
 
     #[Validate('nullable|same:password')]
     public $password_confirmation;
-
+    public $avatar;
     public function mount()
     {
         $user = Auth::user();
         $this->name = $user->name;
         $this->email = $user->email;
+        $this->avatar = $user->avatar;
     }
 
     public function updateProfile()

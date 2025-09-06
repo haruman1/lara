@@ -4,6 +4,7 @@ namespace App\Providers\Filament;
 
 use App\Filament\Pages\Auth\Login;
 use App\Http\Middleware\RedirectIfAuthenticated;
+use Filament\Actions\Action;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -29,6 +30,11 @@ class KumonPanelProvider extends PanelProvider
             ->default()
             ->id('kumon')
             ->path('kumon')
+            ->userMenuItems([
+                'logout' => fn(Action $action) => $action->label('Log out ')->url(route('logout'))->icon('heroicon-o-arrow-left-on-rectangle'),
+                // ...
+            ])
+
             ->colors([
                 'primary' => Color::Teal,
             ])
@@ -55,7 +61,7 @@ class KumonPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
-                RedirectIfAuthenticated::class,
-            ]);
+                // RedirectIfAuthenticated::class,
+            ])->authGuard('web');
     }
 }
