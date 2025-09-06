@@ -1,11 +1,12 @@
 <!-- Team -->
 <section id="teams">
-    <div class="relative bg-white dark:bg-neutral-900 bg-gray-50 transition-colors duration-500">
+    <div class="relative bg-white dark:bg-gray-900 bg-gray-50 transition-colors duration-500">
         <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
             <!-- Title -->
             <div class="max-w-2xl mx-auto text-center mb-10 lg:mb-14">
-                <h2 class="text-2xl font-bold md:text-4xl md:leading-tight dark:text-white">Our leadership</h2>
-                <p class="mt-1 text-gray-600 dark:text-neutral-400">Creative people</p>
+                <h2 class="text-2xl font-bold md:text-4xl md:leading-tight dark:text-white" data-lang-key="team-header">
+                    Our leadership</h2>
+                <p class="mt-1 text-gray-600 dark:text-neutral-400" data-lang-key="team-subheader">Creative people</p>
             </div>
             <!-- End Title -->
 
@@ -20,7 +21,7 @@
                             alt="Avatar">
                         <div class="grow">
                             <h3 class="font-medium text-gray-800 dark:text-neutral-200">
-                                David Forren
+
                             </h3>
                             <p class="text-xs uppercase text-gray-500 dark:text-neutral-500">
                                 Founder / CEO
