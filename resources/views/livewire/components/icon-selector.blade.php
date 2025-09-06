@@ -2,14 +2,6 @@
     <!-- Icon Blocks -->
     <div class="relative bg-white dark:bg-neutral-900 bg-gray-50 transition-colors duration-500">
         <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-            <div class="max-w-2xl mx-auto text-center mb-12">
-                <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-white">
-                    What We Do Best
-                </h2>
-                <p class="mt-4 text-lg text-gray-600 dark:text-gray-400">
-                    Our main features and advantages
-                </p>
-            </div>
             <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
                 <div class="grid sm:grid-cols-2 lg:grid-cols-4 items-center gap-2">
                     <!-- Icon Block -->

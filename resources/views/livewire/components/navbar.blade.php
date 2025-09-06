@@ -63,12 +63,12 @@
                 <a class="pe-3 ps-px sm:px-3 md:py-4 text-sm text-white hover:text-neutral-300 focus:outline-hidden focus:text-blue-600 dark:text-white dark:hover:text-neutral-300 dark:focus:text-blue-500"
                     href="#landing" aria-current="page" data-target="landing" data-lang-key="link-1">Home</a>
                 <a class="pe-3 ps-px sm:px-3 md:py-4 text-sm text-white hover:text-neutral-300 focus:outline-hidden focus:text-neutral-300"
-                    href="#works" data-target="works" data-lang-key="link-2">Work</a>
+                    href="#services" data-target="services" data-lang-key="link-2">Layanan kami</a>
                 <a class="pe-3 ps-px sm:px-3 md:py-4 text-sm text-white hover:text-neutral-300 focus:outline-hidden focus:text-neutral-300"
-                    href="#featured" data-target="featured" data-lang-key="link-3">Featured</a>
+                    href="#aboutus" data-target="featured" data-lang-key="link-3">Tentang kami</a>
 
                 <a class="pe-3 ps-px sm:px-3 md:py-4 text-sm text-white hover:text-neutral-300 focus:outline-hidden focus:text-neutral-300"
-                    href="#best-features" data-target="best-features" data-lang-key="link-4">Features</a>
+                    href="#informations" data-target="informations" data-lang-key="link-4">Informasi</a>
                 <a class="pe-3 ps-px sm:px-3 md:py-4 text-sm text-white hover:text-neutral-300 focus:outline-hidden focus:text-neutral-300"
                     href="#teams" data-target="teams" data-lang-key="link-5">Team</a>
                 <a class="pe-3 ps-px sm:px-3 md:py-4 text-sm text-white hover:text-neutral-300 focus:outline-hidden focus:text-neutral-300"
