@@ -1,8 +1,6 @@
 import "./bootstrap";
 import "preline";
 import "@preline/toggle-password";
-import AOS from "aos";
-import "aos/dist/aos.css";
 import { setLanguage, initLanguage } from "./bahasa";
 import * as Preline from "preline";
 
@@ -17,16 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
     HSStaticMethods.autoInit();
 
     // init AOS (Animate On Scroll)
-    AOS.init({
-        duration: 800, // durasi animasi
-        once: false, // animasi hanya sekali
-        mirror: true, // animasi saat scroll ke atas
-        startEvent: "DOMContentLoaded", // event untuk memulai animasi
-        anchorPlacement: "top-bottom", // posisi awal animasi
-        offset: 100, // offset animasi
-        easing: "ease-in-out", // easing animasi
-        delay: 100, // delay animasi
-    });
 });
 
 // === THEME HANDLER ===

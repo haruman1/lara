@@ -34,7 +34,7 @@ export async function setLanguage(locale) {
         // minimal loading 3 detik
         setTimeout(() => {
             overlay.classList.add("hidden");
-        }, 3000);
+        }, 100);
     }
 }
 
