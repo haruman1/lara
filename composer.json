@@ -8,7 +8,9 @@
     "require": {
         "php": "^8.2",
         "brunocfalcao/blade-feather-icons": "^5.0",
+        "codeat3/blade-ikonate": "^1.6",
         "codeat3/blade-simple-icons": "^7.9",
+        "codeat3/blade-system-uicons": "^1.8",
         "davidhsianturi/blade-bootstrap-icons": "^2.1",
         "filament/filament": "^4.0",
         "hasnayeen/blade-eva-icons": "^2.1",

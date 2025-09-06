@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Route;
 use App\Livewire\HomePage;
 use App\Livewire\TestDemo;
 
-Route::get('/', HomePage::class);
+Route::get('/', HomePage::class)->name('home');
 
 Route::group(['prefix' => 'auth'], function () {
     Route::get('/{provider}/redirect', [SocialAuthController::class, 'redirect'])
