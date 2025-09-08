@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login - Aplikasi Saya</title>
+    <title data-lang-key="title">Bcomptech Solutions Sign In</title>
 
     @vite(['resources/css/prelineui.css', 'resources/js/app.js'])
 </head>
@@ -13,8 +13,17 @@
 <body class="h-full">
     <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
         <div class="sm:mx-auto sm:w-full sm:max-w-md">
-            <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900 dark:text-white">Aplikasi Saya
+            <h2 class="mt-5 text-center text-3xl font-bold tracking-tight text-gray-900 dark:text-white">Bcomptech
+                Solutions <span
+                    class="mt-6 text-center text-3xl font-bold tracking-tight text-blue-600 dark:text-blue-500"
+                    data-lang-key="sign-in">Sign
+                    In</span>
+
             </h2>
+            <p class="mt-2 text-center text-sm text-gray-600 dark:text-neutral-400">
+                Welcome back! Please sign in to your account.
+            </p>
+
         </div>
 
         <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-md">
@@ -22,11 +31,12 @@
                 class="bg-white border border-gray-200 rounded-xl shadow-2xs dark:bg-neutral-900 dark:border-neutral-700">
                 <div class="p-4 sm:p-7">
                     <div class="text-center">
-                        <h1 class="block text-2xl font-bold text-gray-800 dark:text-white">Sign in</h1>
-                        <p class="mt-2 text-sm text-gray-600 dark:text-neutral-400">
+                        <h1 class="block text-2xl font-bold text-gray-800 dark:text-white" data-lang-key="sign-in">Sign
+                            in</h1>
+                        <p class="mt-2 text-sm text-gray-600 dark:text-neutral-400" data-lang-key="sign-in-sub">
                             Don't have an account yet?
                             <a class="text-blue-600 decoration-2 hover:underline focus:outline-hidden focus:underline font-medium dark:text-blue-500"
-                                href="{{ route('login') }}">
+                                href="{{ route('login') }}" data-lang-key="sign-up">
                                 Sign up here
                             </a>
                         </p>
@@ -94,7 +104,7 @@
                             Or</div>
 
                         <!-- Form -->
-                        <form method="POST" action="{{ route('login') }}">
+                        <form method="POST" action="{{ route('login.post') }}">
                             @csrf
                             <div class="grid gap-y-4">
                                 <!-- Form Group -->

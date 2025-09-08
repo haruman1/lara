@@ -23,11 +23,15 @@
             </button>
             <button type="button" onclick="setLanguage('en')"
                 class="flex items-center w-full text-left rounded-lg px-3 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-150">
-                🇬🇧 English
+                🇺🇸 English
             </button>
             <button type="button" onclick="setLanguage('ja')"
                 class="flex items-center w-full text-left rounded-lg px-3 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-150">
                 🇯🇵 日本語
+            </button>
+            <button type="button" onclick="setLanguage('de')"
+                class="flex items-center w-full text-left rounded-lg px-3 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-150">
+                🇩🇪 Deutsch
             </button>
         </div>
     </div>
