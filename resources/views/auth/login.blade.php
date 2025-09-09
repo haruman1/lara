@@ -77,10 +77,11 @@
                         <div class="button-group mb-2">
                             <a type="submit" href="{{ route('social.redirect', 'twitter-oauth-2') }}"
                                 class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-2xs hover:bg-gray-50 focus:outline-hidden focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                                    class="w-5 h-5">
+                                <svg class="shrink-0 size-3.5" width="48" height="50" viewBox="0 0 48 50"
+                                    fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path
-                                        d="M18.244 2H21.5l-7.84 9.01L22 22h-6.77l-5.3-6.84L4.1 22H.833l8.37-9.625L.5 2h6.918l4.787 6.15L18.244 2z" />
+                                        d="M28.5665 20.7714L46.4356 0H42.2012L26.6855 18.0355L14.2931 0H0L18.7397 27.2728L0 49.0548H4.23464L20.6196 30.0087L33.7069 49.0548H48L28.5655 20.7714H28.5665ZM22.7666 27.5131L5.76044 3.18778H12.2646L42.2032 46.012H35.699L22.7666 27.5142V27.5131Z"
+                                        fill="currentColor"></path>
                                 </svg>
                                 Sign in with X (Twitter)
                             </a>

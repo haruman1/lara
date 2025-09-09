@@ -13,10 +13,8 @@
                 <x-select name="category" wire:model.live="category">
                     <option value="">All categories</option>
                     @foreach ($categories as $category)
-                        <option
-                            value="{{ $category->slug }}"
-                            @if ($activeCategory && $activeCategory->slug === $category->slug) selected @endif
-                        >{{ $category->name }}</option>
+                        <option value="{{ $category->slug }}" @if ($activeCategory && $activeCategory->slug === $category->slug) selected @endif>
+                            {{ $category->name }}</option>
                     @endforeach
                 </x-select>
 
@@ -43,7 +41,6 @@
                     <x-button label="Load more" wire:click="loadMore"></x-button>
                 </div>
             @endif
-
         @else
             <div class="my-16 text-center">There are no posts</div>
         @endif

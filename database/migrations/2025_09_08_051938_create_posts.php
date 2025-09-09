@@ -22,7 +22,7 @@ return new class extends Migration
             $table->text('footer_blocks')->nullable();
             $table->text('main_image_url')->nullable();
             $table->text('main_image_upload')->nullable();
-            $table->foreignId('categories_id')
+            $table->foreignId('category_id')
                 ->constrained('categories')
                 ->restrictOnDelete();
             $table->boolean('is_featured')->default(false);

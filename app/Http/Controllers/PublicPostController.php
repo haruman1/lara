@@ -19,6 +19,6 @@ class PublicPostController extends Controller
         // Increment views asynchronously would be preferable; simple increment for demo:
         $post->increment('views');
 
-        return view('posts.show', compact('post'));
+        return view('post.show', compact('post'));
     }
 }

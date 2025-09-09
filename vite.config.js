@@ -14,6 +14,11 @@ export default defineConfig({
                 "resources/js/bahasa.js",
                 "resources/js/theme.js",
                 "resources/js/dropdown.js",
+                "resources/js/admin.js",
+                "resources/js/theme.js",
+
+                "resources/css/blog.css",
+                "resources/css/filament/admin/theme.css",
             ],
             refresh: true,
         }),
