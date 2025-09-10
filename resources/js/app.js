@@ -3,15 +3,17 @@ import "preline";
 import "@preline/toggle-password";
 import { setLanguage, initLanguage } from "./bahasa";
 import * as Preline from "preline";
+import { initScrollSpy, initBackToTop } from "./scrollspy";
 
 window.Preline = Preline;
 
 document.addEventListener("DOMContentLoaded", () => {
     // init bahasa
     initLanguage();
+    initScrollSpy();
+    initBackToTop();
     window.setLanguage = setLanguage;
 
-    // init preline (biar semua dropdown jalan otomatis)
     HSStaticMethods.autoInit();
 
     // init AOS (Animate On Scroll)

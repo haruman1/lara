@@ -37,11 +37,11 @@
 
                 <div>
                     <h4 class="text-xs font-semibold text-gray-900 uppercase dark:text-neutral-100"
-                        data-lang-key="link-1"></h4>
+                        data-lang-key="footer-header-1">Perusahaan</h4>
 
                     <div class="mt-3 grid space-y-3 text-sm">
                         <p><a class="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:outline-hidden focus:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200"
-                                href="#" data-lang-key="link-2"></a></p>
+                                href="#" data-lang-key="link-2"></a> </p>
                         <p><a class="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:outline-hidden focus:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200"
                                 href="#" data-lang-key="link-3"></a></p>
                         <p><a class="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:outline-hidden focus:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200"

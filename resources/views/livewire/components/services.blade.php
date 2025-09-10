@@ -8,7 +8,7 @@
                     data-lang-key="services-header">
                     Layanan kami
                 </h2>
-                <p class="mt-4 text-lg text-gray-600 dark:text-gray-400">
+                <p class="mt-4 text-lg text-gray-600 dark:text-gray-400" data-lang-key="services-subheader">
                     Pelajari lebih lanjut tentang layanan yang kami tawarkan.
                 </p>
             </div>

@@ -9,9 +9,10 @@
     <title data-lang-key="title">Bcomptech Solutions</title>
     <meta name="title" content="bcompnetsolutions Best Solutions for your website" />
     <meta name="description" data-lang-key="description" content="Bcompnet merupakan jasa jasa" />
-    <meta name="keywords" content="bcompnet, bcompnetsolutions, bcomptech, bcomptechsolutions, jasa pembuatan website, jasa pembuatan aplikasi, jasa pembuatan sistem informasi" />
+    <meta name="keywords"
+        content="bcompnet, bcompnetsolutions, bcomptech, bcomptechsolutions, jasa pembuatan website, jasa pembuatan aplikasi, jasa pembuatan sistem informasi" />
     <meta name="author" content="haruman" />
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="http://demo.bcompnetsolutions.com/" />
@@ -26,7 +27,7 @@
     <meta property="twitter:description" content="Bcompnet merupakan jasa jasa" />
     {{-- <meta property="twitter:image" content="https://metatags.io/images/meta-tags.png" /> --}}
 
-   
+
 
 
 

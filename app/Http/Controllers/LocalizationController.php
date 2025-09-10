@@ -17,7 +17,7 @@ class LocalizationController extends Controller
     public function changeLocale(string $locale)
     {
         // Pastikan locale yang diminta valid
-        if (! in_array($locale, ['en', 'id', 'ja'])) {
+        if (! in_array($locale, ['en', 'id', 'ja', 'de'])) {
             return response()->json(['error' => 'Locale tidak valid'], 400);
         }
 

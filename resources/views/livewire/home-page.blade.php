@@ -7,14 +7,11 @@
     <livewire:components.services />
     <livewire:components.about-us />
     <livewire:components.informations />
-    {{-- <livewire:components.featured /> --}}
 
-    {{-- <livewire:components.icon-selector /> --}}
-    {{-- <livewire:components.team-selections /> --}}
     <livewire:components.show-blog />
-    {{-- <livewire:components.latest-news /> --}}
 
-    {{-- <livewire:components.faq /> --}}
+
+
     <livewire:components.contact-us />
     <livewire:components.subscribe />
     <livewire:components.footer />

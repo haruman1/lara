@@ -1,0 +1,66 @@
+name: Deploy Laravel 12 to aaPanel with Rsync
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout source
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      # 2. Setup PHP
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.3"
+          extensions: mbstring, bcmath, intl, mysql, xml, curl
+
+      # 3. Install composer dependencies
+      - name: Install Composer Dependencies
+        run: composer install --no-dev --optimize-autoloader
+
+      # 4. Setup Node.js & Build assets (Vite)
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "20"
+
+      - name: Build Frontend
+        run: |
+          npm install
+          npm run build
+
+      # 5. Deploy with rsync
+      - name: Rsync to VPS
+        uses: burnett01/rsync-deployments@7.0.1
+        with:
+          switches: -avz --delete --exclude='.git' --exclude='node_modules'
+          path: ./
+          remote_path: /www/wwwroot/domainmu.com
+          remote_host: ${{ secrets.SSH_HOST }}
+          remote_user: ${{ secrets.SSH_USER }}
+          remote_key: ${{ secrets.SSH_KEY }}
+          remote_port: ${{ secrets.SSH_PORT }}
+
+      # 6. Run artisan commands on VPS
+      - name: Run Artisan on VPS
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            cd /www/wwwroot/domainmu.com
+            php artisan migrate --force
+            php artisan config:cache
+            php artisan route:cache
+            php artisan view:cache
+            chown -R www:www /www/wwwroot/domainmu.com/storage /www/wwwroot/domainmu.com/bootstrap/cache
+            chmod -R 775 /www/wwwroot/domainmu.com/storage /www/wwwroot/domainmu.com/bootstrap/cache

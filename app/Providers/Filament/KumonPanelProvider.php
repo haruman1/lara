@@ -4,6 +4,7 @@ namespace App\Providers\Filament;
 
 use App\Filament\Pages\Auth\Login;
 use App\Http\Middleware\RedirectIfAuthenticated;
+use Awcodes\StickyHeader\StickyHeaderPlugin;
 use Filament\Actions\Action;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
@@ -21,6 +22,7 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Pboivin\FilamentPeek\FilamentPeekPlugin;
 
 class KumonPanelProvider extends PanelProvider
 {
@@ -47,6 +49,12 @@ class KumonPanelProvider extends PanelProvider
             ->widgets([
                 AccountWidget::class,
                 // FilamentInfoWidget::class,
+            ])->plugins([
+                FilamentPeekPlugin::make()
+                    ->disablePluginStyles(),
+
+                StickyHeaderPlugin::make()
+                    ->stickOnListPages(false),
             ])
             ->middleware([
                 EncryptCookies::class,
@@ -59,6 +67,7 @@ class KumonPanelProvider extends PanelProvider
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
             ])
+            ->viteTheme('resources/css/filament/admin/theme.css')
             ->authMiddleware([
                 Authenticate::class,
                 // RedirectIfAuthenticated::class,

@@ -1,13 +1,14 @@
-<section id="contact-us">
+<section id="contact">
     <div class="bg-white dark:bg-neutral-900 bg-gray-50 transition-colors duration-500">
         <!-- Contact Us -->
         <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
             <div class="max-w-2xl lg:max-w-5xl mx-auto">
                 <div class="text-center">
-                    <h1 class="text-3xl font-bold text-gray-800 sm:text-4xl dark:text-white">
-                        {{ __('messages.contact') }}
+                    <h1 class="text-3xl font-bold text-gray-800 sm:text-4xl dark:text-white"
+                        data-lang-key="contact-header">
+                        Kontak Kami
                     </h1>
-                    <p class="mt-1 text-gray-600 dark:text-neutral-400">
+                    <p class="mt-1 text-gray-600 dark:text-neutral-400" data-lang-key="contact-subheader">
                         We'd love to talk about how we can help you.
                     </p>
                 </div>
@@ -16,7 +17,8 @@
                     <!-- Card -->
                     <div
                         class="flex flex-col border border-gray-200 rounded-xl p-4 sm:p-6 lg:p-8 dark:border-neutral-700">
-                        <h2 class="mb-8 text-xl font-semibold text-gray-800 dark:text-neutral-200">
+                        <h2 class="mb-8 text-xl font-semibold text-gray-800 dark:text-neutral-200"
+                            data-lang-key="contact-subheader-2">
                             Fill in the form
                         </h2>
 
@@ -29,7 +31,7 @@
                                         <input type="text" name="hs-firstname-contacts-1"
                                             id="hs-firstname-contacts-1"
                                             class="py-2.5 sm:py-3 px-4 block w-full border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
-                                            placeholder="First Name">
+                                            placeholder="First Name" required>
                                     </div>
 
                                     <div>
@@ -67,12 +69,13 @@
 
                             <div class="mt-4 grid">
                                 <button type="submit"
-                                    class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-hidden focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">Send
+                                    class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-hidden focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
+                                    data-lang-key="contact-button">Send
                                     inquiry</button>
                             </div>
 
                             <div class="mt-3 text-center">
-                                <p class="text-sm text-gray-500 dark:text-neutral-500">
+                                <p class="text-sm text-gray-500 dark:text-neutral-500" data-lang-key="contact-feedback">
                                     We'll get back to you in 1-2 business days.
                                 </p>
                             </div>
@@ -87,10 +90,12 @@
                             <x-heroicon-o-map-pin class="shrink-3 size-6 mt-1.5 text-gray-800 dark:text-neutral-200"
                                 width="24" height="24" />
                             <div class="grow">
-                                <h3 class="font-semibold text-gray-800 dark:text-neutral-200">Our office</h3>
+                                <h3 class="font-semibold text-gray-800 dark:text-neutral-200"
+                                    data-lang-key="contact-info-header">Our office</h3>
                                 <p class="mt-1 text-sm text-gray-500 dark:text-neutral-500">Cilegon, Ciwandan 42445</p>
                                 <a class="mt-2 inline-flex items-center gap-x-2 text-sm font-medium text-gray-600 hover:text-gray-800 focus:outline-hidden focus:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200"
-                                    href="#jangan-lupa-untuk-mengunjungi-kantor-kami">
+                                    href="#jangan-lupa-untuk-mengunjungi-kantor-kami"
+                                    data-lang-key="contact-info-header-view">
                                     View map
                                     <svg class="shrink-0 size-2.5 transition ease-in-out group-hover:translate-x-1 group-focus:translate-x-1"
                                         width="16" height="16" viewBox="0 0 16 16" fill="none"
@@ -110,10 +115,11 @@
                             <x-heroicon-o-phone class="shrink-0 size-6 mt-1.5 text-gray-800 dark:text-neutral-200"
                                 width="24" height="24" />
                             <div class="grow">
-                                <h3 class="font-semibold text-gray-800 dark:text-neutral-200">Call us</h3>
+                                <h3 class="font-semibold text-gray-800 dark:text-neutral-200"
+                                    data-lang-key="contact-info-phone">Call us</h3>
                                 <p class="mt-1 text-sm text-gray-500 dark:text-neutral-500">+628 9535 1589 462</p>
                                 <a class="mt-2 inline-flex items-center gap-x-2 text-sm font-medium text-gray-600 hover:text-gray-800 focus:outline-hidden focus:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200"
-                                    href="tel:+628 9535 1589 462">
+                                    href="tel:+628 9535 1589 462" data-lang-key="contact-info-phone-call">
                                     Make a call
                                     <svg class="shrink-0 size-2.5 transition ease-in-out group-hover:translate-x-1 group-focus:translate-x-1"
                                         width="16" height="16" viewBox="0 0 16 16" fill="none"
