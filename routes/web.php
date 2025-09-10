@@ -57,15 +57,15 @@ Route::get('/p/{token}', [PublicPostController::class, 'show'])->name('post.show
 //     ->group(function () {
 //         // Additional admin routes if needed
 // routes/web.php
+Route::get('/contact', [PageController::class, 'contact'])->name('page.contact');
 Route::group(['prefix' => 'blog'], function () {
     Route::get('/', [PostController::class, 'index'])->name('post.index');
     Route::get('/{slug}', [PostController::class, 'show'])->name('post.show');
 });
-Route::get('/contact', [PageController::class, 'contact'])->name('page.contact');
+
 Route::get('/preview/{post}', function (Post $post) {
-    return view('blog.preview', compact('post'));
+    return view('blog.post', compact('post'));
 })->name('posts.preview');
-Route::get('/contact', [PageController::class, 'contact'])->name('page.contact');
 Route::get('/{slug}', [PageController::class, 'show'])->name('page.show');
 
 //     });
