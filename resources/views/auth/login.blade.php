@@ -11,6 +11,7 @@
 </head>
 
 <body class="h-full">
+
     <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
         <div class="sm:mx-auto sm:w-full sm:max-w-md">
             <h2 class="mt-5 text-center text-3xl font-bold tracking-tight text-gray-900 dark:text-white">Bcomptech

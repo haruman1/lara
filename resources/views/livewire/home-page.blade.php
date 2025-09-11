@@ -5,7 +5,7 @@
     <livewire:components.float-button />
     <livewire:components.hero-sections />
     <livewire:components.services />
-    <livewire:components.about-us />
+
     <livewire:components.informations />
 
     <livewire:components.show-blog />

@@ -1,5 +1,16 @@
-<section id="aboutus" class="bg-gray-50 dark:bg-gray-900 py-16">
-    <div class="max-w-6xl mx-auto px-6 lg:px-8">
+<?php
+
+use function Livewire\Volt\{mount, state, on, action};
+
+mount(function () {
+    dispatch('updateHeader', 'Dashboard');
+    dispatch('updateFooter', 'Footer khusus Dashboard');
+});
+?>
+
+<section id="aboutus" class="w-full top-0 bg-white dark:bg-gray-900">
+    <livewire:components.navbar />
+    <div class="max-w-6xl mx-auto px-6 lg:px-8 py-16">
         <!-- Header -->
         <div class="text-center mb-12">
             <h2 class="text-3xl font-bold text-gray-900 dark:text-white" data-lang-key="about-us-header">Tentang Kami</h2>
@@ -58,5 +69,8 @@
 
         <!-- Manajemen (Our Leaders) -->
         <livewire:components.team-selections />
+        <livewire:components.float-button />
+
     </div>
+    <livewire:components.footer />
 </section>

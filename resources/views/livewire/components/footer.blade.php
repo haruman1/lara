@@ -24,7 +24,7 @@
 
                     <div class="mt-3 grid space-y-3 text-sm">
                         <p><a class="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:outline-hidden focus:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200"
-                                href="#">Pricing</a></p>
+                                href="#"></a></p>
                         <p><a class="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:outline-hidden focus:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200"
                                 href="#">Changelog</a></p>
                         <p><a class="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:outline-hidden focus:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200"
@@ -164,12 +164,12 @@
     </footer>
     </div>
     <!-- ====== End Footer  ====== -->
-    <script>
+    {{-- <script>
         document.addEventListener("DOMContentLoaded", () => {
             // aktifkan klik manual
-            window.setActiveNav();
+
             // aktifkan scroll spy
             window.observeActiveSection();
         });
-    </script>
+    </script> --}}
 </section>
