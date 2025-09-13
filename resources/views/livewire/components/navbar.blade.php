@@ -23,7 +23,7 @@
         <div class="md:order-3 flex items-center gap-x-3">
             <div class="md:ps-6">
                 <a class="group inline-flex items-center gap-x-2 py-2 px-3 bg-[#ff0] font-medium text-sm text-nowrap text-neutral-800 rounded-full focus:outline-hidden"
-                    data-lang-key="sign-in" href="{{ route('login') }}">
+                    data-lang-key="sign-in" href="{{ route('login') }}" wire:navigate>
                     Sign In
                 </a>
             </div>
@@ -58,15 +58,17 @@
             <div class="flex flex-col md:flex-row md:items-center md:justify-end gap-y-3 py-2 md:py-0 md:ps-7">
 
                 <!-- Navigation Links -->
-                <a href="#landing" aria-current="page" data-target="landing" data-lang-key="link-1"
+                <a href="{{ route('home') }}" wire:navigate data-target="landing" data-lang-key="link-1"
+                    aria-current="{{ request()->is('/') || request()->is('home') ? 'page' : 'false' }}"
                     class="pe-3 ps-px sm:px-3 md:py-4 text-sm 
-                   text-white hover:text-neutral-300 focus:outline-hidden
-                   border-b-2 border-transparent 
-                   aria-[current=page]:border-[#ff0] aria-[current=page]:text-[#ff0]">
+          text-white hover:text-neutral-300 focus:outline-hidden
+          border-b-2 border-transparent 
+          aria-[current=page]:border-[#ff0] aria-[current=page]:text-[#ff0]">
                     Home
                 </a>
 
-                <a href="#services" data-target="services" data-lang-key="link-2"
+
+                <a href="/services" wire:navigate data-target="services" data-lang-key="link-2"
                     class="pe-3 ps-px sm:px-3 md:py-4 text-sm 
                    text-white hover:text-neutral-300 focus:outline-hidden
                    border-b-2 border-transparent 
@@ -74,7 +76,7 @@
                     Layanan kami
                 </a>
 
-                <a href="#aboutus" data-target="aboutus" data-lang-key="link-3"
+                <a href="{{ route('about.page') }}" wire:navigate data-target="aboutus" data-lang-key="link-3"
                     class="pe-3 ps-px sm:px-3 md:py-4 text-sm 
                    text-white hover:text-neutral-300 focus:outline-hidden
                    border-b-2 border-transparent 
@@ -82,21 +84,21 @@
                     Tentang kami
                 </a>
 
-                <a href="#informations" data-target="informations" data-lang-key="link-4"
+                <a href="/acak" wire:navigate data-target="informations" data-lang-key="link-4"
                     class="pe-3 ps-px sm:px-3 md:py-4 text-sm 
                    text-white hover:text-neutral-300 focus:outline-hidden
                    border-b-2 border-transparent 
                    aria-[current=page]:border-[#ff0] aria-[current=page]:text-[#ff0]">
                     Informasi
                 </a>
-                <a href="#news" data-target="news"
+                <a href="{{ route('post.index') }}" wire:navigate data-target="news"
                     class="pe-3 ps-px sm:px-3 md:py-4 text-sm 
                    text-white hover:text-neutral-300 focus:outline-hidden
                    border-b-2 border-transparent 
                    aria-[current=page]:border-[#ff0] aria-[current=page]:text-[#ff0]">
                     News
                 </a>
-                <a href="#contact" data-target="contact" data-lang-key="link-5"
+                <a href="/acal" wire:navigate data-target="contact" data-lang-key="link-5"
                     class="pe-3 ps-px sm:px-3 md:py-4 text-sm 
                    text-white hover:text-neutral-300 focus:outline-hidden
                    border-b-2 border-transparent 

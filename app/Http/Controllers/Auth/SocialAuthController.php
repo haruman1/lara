@@ -10,7 +10,7 @@ use Laravel\Socialite\Facades\Socialite;
 
 class SocialAuthController extends Controller
 {
-    private $allowedProviders = ['google', 'github', 'twitter-oauth-2', 'x']; // 'twitter-oauth-2' untuk X (Twitter baru), 'twitter' untuk Twitter lama
+    private $allowedProviders = ['google', 'github', 'twitter-oauth-2',]; // 'twitter-oauth-2' untuk X (Twitter baru), 'twitter' untuk Twitter lama
 
     public function redirect($provider)
     {

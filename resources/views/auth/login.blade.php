@@ -11,6 +11,7 @@
 </head>
 
 <body class="h-full">
+
     <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
         <div class="sm:mx-auto sm:w-full sm:max-w-md">
             <h2 class="mt-5 text-center text-3xl font-bold tracking-tight text-gray-900 dark:text-white">Bcomptech
@@ -124,13 +125,12 @@
                                             </svg>
                                         </div>
                                     </div>
-                                    @error('email')
-                                        <p class="text-xs text-red-600 mt-2" id="email-error">{{ $message }}</p>
+                                    @if ($errors->has('email'))
+                                        <p class="text-xs text-red-600 mt-2">{{ $errors->first('email') }}</p>
                                     @else
-                                        <p class="hidden text-xs text-red-600 mt-2" id="email-error">Please include a
-                                            valid
-                                            email address so we can get back to you</p>
-                                    @enderror
+                                        <p class="hidden text-xs text-red-600 mt-2">Please include a valid email address
+                                            so we can get back to you</p>
+                                    @endif
                                 </div>
                                 <!-- End Form Group -->
 
@@ -154,12 +154,11 @@
                                             </svg>
                                         </div>
                                     </div>
-                                    @error('password')
-                                        <p class="text-xs text-red-600 mt-2" id="password-error">{{ $message }}</p>
+                                    @if ($errors->has('email'))
+                                        <p class="text-xs text-red-600 mt-2">{{ $errors->first('password') }}</p>
                                     @else
-                                        <p class="hidden text-xs text-red-600 mt-2" id="password-error">8+ characters
-                                            required</p>
-                                    @enderror
+                                        <p class="hidden text-xs text-red-600 mt-2">Password required</p>
+                                    @endif
                                 </div>
                                 <!-- End Form Group -->
 

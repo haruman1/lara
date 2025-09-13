@@ -1,47 +1,23 @@
 export function initScrollSpy() {
-    const navLinks = document.querySelectorAll("#navbar a[href^='#']");
-    const sections = [];
+    const currentPath = window.location.pathname;
+    const navLinks = Array.from(
+        document.querySelectorAll("#navbar a[data-target]"),
+    );
 
-    // Ambil semua section berdasarkan href
+    // highlight link berdasarkan pathname aktif
     navLinks.forEach((link) => {
-        const id = link.getAttribute("href").slice(1);
-        const section = document.getElementById(id);
-        if (section) {
-            sections.push(section);
+        const href = link.getAttribute("href");
+        if (!href) return;
 
-            // Smooth scroll on click
-            link.addEventListener("click", (e) => {
-                e.preventDefault();
-                section.scrollIntoView({ behavior: "smooth", block: "start" });
-            });
+        const url = new URL(href, window.location.origin);
+        if (url.pathname === currentPath) {
+            link.setAttribute("aria-current", "page");
+        } else {
+            link.removeAttribute("aria-current");
         }
     });
-
-    function onScroll() {
-        const scrollPos = window.scrollY + 100; // offset biar lebih rapi
-        let current = null;
-
-        sections.forEach((section) => {
-            if (
-                scrollPos >= section.offsetTop &&
-                scrollPos < section.offsetTop + section.offsetHeight
-            ) {
-                current = section.id;
-            }
-        });
-
-        navLinks.forEach((link) => {
-            if (link.getAttribute("href").slice(1) === current) {
-                link.setAttribute("aria-current", "page");
-            } else {
-                link.removeAttribute("aria-current");
-            }
-        });
-    }
-
-    window.addEventListener("scroll", onScroll);
-    onScroll(); // jalankan sekali pas load
 }
+
 export function initBackToTop() {
     const btn = document.getElementById("backToTop");
 

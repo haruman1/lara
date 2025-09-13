@@ -18,6 +18,14 @@ class LoginController extends Controller
     {
         return view('auth.register');
     }
+    public function sendFailedLoginResponse(Request $request)
+    {
+        throw ValidationException::withMessages([
+            'email' => __('These credentials do not match our records.'),
+            'password' => __('These credentials do not match our records.'),
+            'remember' => __('These credentials do not match our records.'),
+        ]);
+    }
     public function login(Request $request)
     {
         $request->validate([
@@ -36,30 +44,36 @@ class LoginController extends Controller
             // Role-based redirect
             if ($user->hasRole('admin')) {
                 return redirect()->intended(Filament::getUrl());
+                var_dump($user->getRoleNames());
             } elseif ($user->hasRole(['users', 'guests'])) {
                 return redirect()->intended('/users');
             }
 
             // Fallback redirect
-            return redirect()->intended('/users');
+            throw ValidationException::withMessages([
+                'email' => __('Kamu bukan admin'),
+                'password' => __('Kamu bukan admin'),
+            ]);
+        } else {
+            return $this->sendFailedLoginResponse($request);
         }
 
         throw ValidationException::withMessages([
-            'email' => __('auth.failed'),
-            'password' => __('auth.failed'),
+            'email' => __('Email Incorrect.'),
+            'password' => __('Password Incorrect.'),
         ]);
     }
 
     public function logout(Request $request)
     {
         if (! Auth::check()) {
-            return redirect('/login');
+            return redirect('/sign-out');
         }
         Auth::logout();
 
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/login');
+        return redirect('/sign-out');
     }
 }

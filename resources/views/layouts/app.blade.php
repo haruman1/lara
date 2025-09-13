@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <!-- Primary Meta Tags -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title data-lang-key="title">Bcomptech Solutions</title>
+    <title data-lang-key="title">{{ $title ?? 'Default Title' }}</title>
     <meta name="title" content="bcompnetsolutions Best Solutions for your website" />
     <meta name="description" data-lang-key="description" content="Bcompnet merupakan jasa jasa" />
     <meta name="keywords"
@@ -33,7 +33,7 @@
 
     @vite(['resources/css/prelineui.css', 'resources/js/app.js'])
     @livewireStyles
-
+    @livewireScriptConfig
 </head>
 
 <body
@@ -41,6 +41,7 @@
 
     {{ $slot }}
     @livewireScripts
+    @livewireScriptConfig
 
 </body>
 
