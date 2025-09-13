@@ -33,7 +33,7 @@
 
     @vite(['resources/css/prelineui.css', 'resources/js/app.js'])
     @livewireStyles
-
+    @livewireScriptConfig
 </head>
 
 <body
@@ -41,6 +41,7 @@
 
     {{ $slot }}
     @livewireScripts
+    @livewireScriptConfig
 
 </body>
 

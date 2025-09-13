@@ -125,13 +125,12 @@
                                             </svg>
                                         </div>
                                     </div>
-                                    @error('email')
-                                        <p class="text-xs text-red-600 mt-2" id="email-error">{{ $message }}</p>
+                                    @if ($errors->has('email'))
+                                        <p class="text-xs text-red-600 mt-2">{{ $errors->first('email') }}</p>
                                     @else
-                                        <p class="hidden text-xs text-red-600 mt-2" id="email-error">Please include a
-                                            valid
-                                            email address so we can get back to you</p>
-                                    @enderror
+                                        <p class="hidden text-xs text-red-600 mt-2">Please include a valid email address
+                                            so we can get back to you</p>
+                                    @endif
                                 </div>
                                 <!-- End Form Group -->
 
@@ -155,12 +154,11 @@
                                             </svg>
                                         </div>
                                     </div>
-                                    @error('password')
-                                        <p class="text-xs text-red-600 mt-2" id="password-error">{{ $message }}</p>
+                                    @if ($errors->has('email'))
+                                        <p class="text-xs text-red-600 mt-2">{{ $errors->first('password') }}</p>
                                     @else
-                                        <p class="hidden text-xs text-red-600 mt-2" id="password-error">8+ characters
-                                            required</p>
-                                    @enderror
+                                        <p class="hidden text-xs text-red-600 mt-2">Password required</p>
+                                    @endif
                                 </div>
                                 <!-- End Form Group -->
 
