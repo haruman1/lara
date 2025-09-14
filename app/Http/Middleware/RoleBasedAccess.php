@@ -13,25 +13,27 @@ class RoleBasedAccess
     public function handle(Request $request, Closure $next, string $role): Response
     {
         if (!Auth::check()) {
-            return redirect(Filament::getHomeUrl());
+            return redirect(route('login'))->with('error', 'Unauthorized access. Please log in.');
         }
 
         $user = Auth::user();
 
-        // Check if user has the required role
-        if (!$user->hasRole($role)) {
-            // Redirect based on user's actual role
-            if ($user->hasRole('admin')) {
-                return redirect(Filament::getHomeUrl());
-            } elseif ($user->hasRole(['users', 'guests'])) {
-                return redirect('/users');
-            }
-
-            // If no valid role, logout and redirect to login
-            Auth::logout();
-            return redirect(Filament::getUrl())->with('error', 'Unauthorized access.');
+        // Kalau role sesuai dengan yang dibutuhkan
+        if ($user->hasRole($role)) {
+            return $next($request);
         }
 
-        return $next($request);
+        // Kalau role tidak sesuai, cek fallback role user
+        if ($user->hasRole('admin')) {
+            return redirect(Filament::getHomeUrl());
+        }
+
+        if ($user->hasAnyRole(['users',])) {
+            return redirect('/users');
+        }
+
+        // Jika tidak ada role valid, logout
+        Auth::logout();
+        return redirect(route('login'))->with('error', 'Unauthorized access.');
     }
 }

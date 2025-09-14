@@ -28,7 +28,7 @@ class RedirectIfAuthenticated
             }
             // If no valid role, logout and redirect to login
             Auth::logout();
-            return redirect(Filament::getUrl())->with('error', 'Unauthorized access.');
+            return redirect(route('login'))->with('error', 'Unauthorized access.');
         }
 
         return $next($request);
