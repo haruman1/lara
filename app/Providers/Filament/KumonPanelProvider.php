@@ -70,7 +70,7 @@ class KumonPanelProvider extends PanelProvider
             ])
             ->viteTheme('resources/css/filament/admin/theme.css')
             ->authMiddleware([
-                Authenticate::class,
+                // Authenticate::class,
                 RoleBasedAccess::class . ':admin',
             ])->authGuard('web');
     }
