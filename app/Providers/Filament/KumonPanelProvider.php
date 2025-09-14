@@ -4,6 +4,7 @@ namespace App\Providers\Filament;
 
 use App\Filament\Pages\Auth\Login;
 use App\Http\Middleware\RedirectIfAuthenticated;
+use App\Http\Middleware\RoleBasedAccess;
 use Awcodes\StickyHeader\StickyHeaderPlugin;
 use Filament\Actions\Action;
 use Filament\Http\Middleware\Authenticate;
@@ -70,7 +71,7 @@ class KumonPanelProvider extends PanelProvider
             ->viteTheme('resources/css/filament/admin/theme.css')
             ->authMiddleware([
                 Authenticate::class,
-                // RedirectIfAuthenticated::class,
+                RoleBasedAccess::class . ':admin',
             ])->authGuard('web');
     }
 }

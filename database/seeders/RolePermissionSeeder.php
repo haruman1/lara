@@ -49,7 +49,7 @@ class RolePermissionSeeder extends Seeder
         ]);
 
         $guestRole = Role::create([
-            'name' => 'guests',
+            'name' => 'guest',
             'guard_name' => 'web'
         ]);
         $guestRole->givePermissionTo([
