@@ -15,10 +15,7 @@ class LoginController extends Controller
         return view('auth.login');
     }
 
-    public function showRegisterForm()
-    {
-        return view('auth.register');
-    }
+
 
     protected function sendFailedLoginResponse(Request $request)
     {

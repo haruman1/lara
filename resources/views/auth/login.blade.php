@@ -37,7 +37,7 @@
                         <p class="mt-2 text-sm text-gray-600 dark:text-neutral-400" data-lang-key="sign-in-sub">
                             Don't have an account yet?
                             <a class="text-blue-600 decoration-2 hover:underline focus:outline-hidden focus:underline font-medium dark:text-blue-500"
-                                href="{{ route('login') }}" data-lang-key="sign-up">
+                                href="{{ route('signup') }}">
                                 Sign up here
                             </a>
                         </p>

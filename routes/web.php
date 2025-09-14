@@ -1,6 +1,8 @@
 <?php
-
+// Controllers
 use App\Http\Controllers\Auth\LoginController as AuthLoginController;
+use App\Http\Controllers\Auth\RegisterController as AuthRegisterController;
+
 use App\Http\Controllers\Auth\SocialAuthController;
 use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\PageController;
@@ -14,6 +16,7 @@ use App\Livewire\Components\TestDemo;
 use App\Livewire\UserDashboard;
 use App\Livewire\UserProfile;
 use App\Livewire\Components\AboutUs;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -49,7 +52,9 @@ Route::prefix('auth')->group(function () {
 */
 Route::middleware('guest')->group(function () {
     Route::get('/sign-in', [AuthLoginController::class, 'showLoginForm'])->name('login');
+    Route::get('/sign-up', [AuthRegisterController::class, 'showRegisterForm'])->name('signup');
     Route::post('/sign-in', [AuthLoginController::class, 'login'])->name('login.post');
+    Route::post('/sign-up', [AuthRegisterController::class, 'register'])->name('signup.post');
 });
 
 Route::middleware('auth')->group(function () {
