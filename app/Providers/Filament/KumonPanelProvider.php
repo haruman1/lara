@@ -24,6 +24,8 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Pboivin\FilamentPeek\FilamentPeekPlugin;
+use Illuminate\Support\Facades\Auth;
+use pxlrbt\FilamentSpotlight\SpotlightPlugin;
 
 class KumonPanelProvider extends PanelProvider
 {
@@ -34,8 +36,22 @@ class KumonPanelProvider extends PanelProvider
             ->id('kumon')
             ->path('kumon')
             ->userMenuItems([
-                'logout' => fn(Action $action) => $action->label('Log out ')->url(route('logout'))->icon('heroicon-o-arrow-left-on-rectangle'),
-                // ...
+                'logout' => fn() => Action::make('logout')
+                    ->label('Log out')
+                    ->icon('heroicon-o-arrow-left-on-rectangle')
+                    ->color('danger')
+                    ->requiresConfirmation() // wajib biar modal muncul
+                    ->modalHeading('Log out')
+                    ->modalDescription('Are you sure you want to log out?')
+                    ->modalSubmitActionLabel('Yes, log out')
+                    ->action(function () {
+                        Auth::guard('web')->logout();
+
+                        session()->invalidate();
+                        session()->regenerateToken();
+
+                        return redirect()->route('login');
+                    }),
             ])
 
             ->colors([
@@ -51,6 +67,7 @@ class KumonPanelProvider extends PanelProvider
                 AccountWidget::class,
                 // FilamentInfoWidget::class,
             ])->plugins([
+                SpotlightPlugin::make(),
                 FilamentPeekPlugin::make()
                     ->disablePluginStyles(),
 

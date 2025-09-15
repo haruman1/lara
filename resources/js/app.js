@@ -1,21 +1,34 @@
 import "./bootstrap";
 import "preline";
 import "@preline/toggle-password";
+import "@preline/collapse";
 import { setLanguage, initLanguage } from "./bahasa";
 import * as Preline from "preline";
-import { initScrollSpy, initBackToTop } from "./scrollspy";
+import { initScrollSpy } from "./scrollspy";
 import { initDropdown } from "./dropdown";
 window.Preline = Preline;
-
 document.addEventListener("DOMContentLoaded", () => {
     // init bahasa
     initLanguage();
     initScrollSpy();
-
+    HSCollapse.autoInit();
     window.setLanguage = setLanguage;
-
     HSStaticMethods.autoInit();
+    // Extra: kalau klik di luar navbar → auto close
+    document.addEventListener("click", (e) => {
+        const navbar = document.querySelector("#hs-navbar-floating-dark");
+        const burger = document.querySelector("[data-hs-collapse]");
 
+        if (!navbar || !burger) return;
+
+        if (
+            navbar.classList.contains("open") &&
+            !navbar.contains(e.target) &&
+            !burger.contains(e.target)
+        ) {
+            HSCollapse.hide("#hs-navbar-floating-dark");
+        }
+    });
     // init AOS (Animate On Scroll)
 });
 // ketika Livewire sudah siap (awal booting)
@@ -27,7 +40,6 @@ document.addEventListener("livewire:load", () => {
 // setiap kali berpindah halaman dengan wire:navigate
 document.addEventListener("livewire:navigated", () => {
     initLanguage();
-
     initDropdown();
     HSStaticMethods.autoInit();
     const links = document.querySelectorAll("a[wire\\:navigate]");

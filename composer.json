@@ -25,6 +25,7 @@
         "livewire/volt": "*",
         "mews/purifier": "^3.4",
         "pboivin/filament-peek": "3.0",
+        "pxlrbt/filament-spotlight": "^2.0",
         "socialiteproviders/github": "*",
         "socialiteproviders/google": "*",
         "socialiteproviders/twitter": "*",

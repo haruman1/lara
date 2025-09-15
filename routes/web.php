@@ -7,7 +7,7 @@ use App\Http\Controllers\Auth\SocialAuthController;
 use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
-use App\Http\Middleware\RoleBasedAccess;
+
 use Illuminate\Support\Facades\Route;
 
 // Livewire Components
@@ -15,8 +15,10 @@ use App\Livewire\HomePage;
 use App\Livewire\Components\TestDemo;
 use App\Livewire\UserDashboard;
 use App\Livewire\UserProfile;
+use App\Livewire\Components\Services;
 use App\Livewire\Components\AboutUs;
 
+use App\Livewire\Components\ContactUs;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,10 +26,14 @@ use App\Livewire\Components\AboutUs;
 |--------------------------------------------------------------------------
 */
 
-Route::get('/', HomePage::class)->name('home');
-Route::get('/about', AboutUs::class)->name('about.page');
-Route::get('/contact', [PageController::class, 'contact'])->name('page.contact');
-Route::get('test-demo', TestDemo::class)->name('test.demo');
+Route::middleware('seo')->group(function () {
+    Route::get('/', HomePage::class)->name('home');
+    Route::get('/about', AboutUs::class)->name('page.about')->defaults('slug', 'about');
+    Route::get('/services', Services::class)->name('page.services');
+    Route::get('/contact', ContactUs::class)->name('page.contact')->defaults('slug', 'contact');
+    Route::get('test-demo', TestDemo::class)->name('test.demo');
+});
+
 
 /*
 |--------------------------------------------------------------------------

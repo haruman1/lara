@@ -64,41 +64,33 @@
           text-white hover:text-neutral-300 focus:outline-hidden
           border-b-2 border-transparent 
           aria-[current=page]:border-[#ff0] aria-[current=page]:text-[#ff0]">
-                    Home
+                    Beranda
                 </a>
 
 
-                <a href="/services" wire:navigate data-target="services" data-lang-key="link-2"
+                <a href="{{ route('page.services') }}" wire:navigate data-target="services" data-lang-key="link-2"
                     class="pe-3 ps-px sm:px-3 md:py-4 text-sm 
                    text-white hover:text-neutral-300 focus:outline-hidden
                    border-b-2 border-transparent 
                    aria-[current=page]:border-[#ff0] aria-[current=page]:text-[#ff0]">
-                    Layanan kami
+                    Layanan
                 </a>
 
-                <a href="{{ route('about.page') }}" wire:navigate data-target="aboutus" data-lang-key="link-3"
+                <a href="{{ route('page.about') }}" wire:navigate data-target="about" data-lang-key="link-3"
                     class="pe-3 ps-px sm:px-3 md:py-4 text-sm 
                    text-white hover:text-neutral-300 focus:outline-hidden
                    border-b-2 border-transparent 
                    aria-[current=page]:border-[#ff0] aria-[current=page]:text-[#ff0]">
-                    Tentang kami
+                    Tentang
                 </a>
-
-                <a href="/acak" wire:navigate data-target="informations" data-lang-key="link-4"
+                <a href="{{ route('post.index') }}" wire:navigate data-target="news" data-lang-key="link-4"
                     class="pe-3 ps-px sm:px-3 md:py-4 text-sm 
                    text-white hover:text-neutral-300 focus:outline-hidden
                    border-b-2 border-transparent 
                    aria-[current=page]:border-[#ff0] aria-[current=page]:text-[#ff0]">
-                    Informasi
+                    Berita dan acara
                 </a>
-                <a href="{{ route('post.index') }}" wire:navigate data-target="news"
-                    class="pe-3 ps-px sm:px-3 md:py-4 text-sm 
-                   text-white hover:text-neutral-300 focus:outline-hidden
-                   border-b-2 border-transparent 
-                   aria-[current=page]:border-[#ff0] aria-[current=page]:text-[#ff0]">
-                    News
-                </a>
-                <a href="/acal" wire:navigate data-target="contact" data-lang-key="link-5"
+                <a href="{{ route('page.contact') }}" wire:navigate data-target="contact" data-lang-key="link-5"
                     class="pe-3 ps-px sm:px-3 md:py-4 text-sm 
                    text-white hover:text-neutral-300 focus:outline-hidden
                    border-b-2 border-transparent 

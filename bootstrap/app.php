@@ -16,6 +16,7 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'role' => RedirectIfAuthenticated::class,
             'roleAccess' => RoleBasedAccess::class,
+            'seo' => \App\Http\Middleware\SeoMiddleware::class,
 
 
         ]);

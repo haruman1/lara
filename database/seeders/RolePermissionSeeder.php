@@ -77,6 +77,6 @@ class RolePermissionSeeder extends Seeder
             'email' => 'guest@kumon.com',
             'password' => Hash::make('password'),
         ]);
-        $guest->assignRole('guests');
+        $guest->assignRole('guest');
     }
 }

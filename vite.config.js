@@ -10,6 +10,7 @@ export default defineConfig({
                 "resources/js/prelinejs.js",
                 "resources/css/app.css",
                 "resources/js/app.js",
+                "resources/js/app.min.js",
                 "resources/js/upload.js",
                 "resources/js/bahasa.js",
                 "resources/js/theme.js",

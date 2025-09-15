@@ -1,4 +1,5 @@
-<section id="services">
+<section id="services" class="w-full top-0 bg-white dark:bg-gray-900">
+    <livewire:components.navbar />
     <!-- Card Blog -->
     <div class="relative group bg-white dark:bg-neutral-900 bg-gray-50 transition-colors duration-500">
         <div class=" max-w-full px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
