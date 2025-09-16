@@ -65,7 +65,7 @@ Route::middleware('guest')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::post('/sign-out', [AuthLoginController::class, 'logout'])->name('logout');
-    Route::get('/sign-out', [AuthLoginController::class, 'logout'])->name('logout');
+    Route::get('/sign-out', [AuthLoginController::class, 'logout'])->name('logout.get');
 });
 
 /*
