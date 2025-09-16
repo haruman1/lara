@@ -28,11 +28,7 @@
 
 <body
     class="antialiased font-sans text-gray-800 bg-gray-100 w-full flex flex-col min-h-screen items-center justify-center">
-
-    {{ $slot }}
-    @livewireScripts
-    @livewireScriptConfig
-
+    <div id="scrollspy"> {{ $slot }} @livewireScripts @livewireScriptConfig </div>
 </body>
 
 </html>

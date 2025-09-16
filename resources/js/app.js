@@ -4,53 +4,45 @@ import "@preline/toggle-password";
 import "@preline/collapse";
 import { setLanguage, initLanguage } from "./bahasa";
 import * as Preline from "preline";
-import { initPrelineDropdownFix } from "./scrollspy";
+// import { initPrelineDropdownFix } from "./scrollspy";
 import { initDropdown } from "./dropdown";
 window.Preline = Preline;
 document.addEventListener("DOMContentLoaded", () => {
     // init bahasa
     initLanguage();
-    initPrelineDropdownFix();
 
     window.setLanguage = setLanguage;
+    window.addEventListener("load", function () {
+        document.querySelectorAll("[data-collapse-toggle]").forEach((btn) => {
+            btn.addEventListener("click", function () {
+                const targetId = btn.getAttribute("data-collapse-toggle");
+                const target = document.querySelector(targetId);
+
+                if (!target) return;
+
+                // tutup kalau lagi open
+                if (!target.classList.contains("hidden")) {
+                    target.classList.add("hidden");
+                    btn.querySelector("svg")?.classList.remove("rotate-180");
+                } else {
+                    target.classList.remove("hidden");
+                    btn.querySelector("svg")?.classList.add("rotate-180");
+                }
+            });
+        });
+    });
 });
-window.addEventListener("popstate", function () {
-    const navbar = window.navbar;
-    if (navbar) {
-        const currentPage = navbar.getActivePage();
-        navbar.setActiveMenuItem(currentPage);
-    }
-});
+
 // ketika Livewire sudah siap (awal booting)
 document.addEventListener("livewire:load", () => {
     console.log("Livewire loaded, running navbar init...");
-    initPrelineDropdownFix();
 });
 
 // setiap kali berpindah halaman dengan wire:navigate
 document.addEventListener("livewire:navigated", () => {
     initLanguage();
-    initPrelineDropdownFix();
 
     // initDropdown();
-    HSStaticMethods.autoInit();
-    // const links = document.querySelectorAll("a[wire\\:navigate]");
-    // const currentPath =
-    //     window.location.pathname === "/" ? "/home" : window.location.pathname;
-
-    // links.forEach((link) => {
-    //     link.removeAttribute("aria-current");
-
-    //     // samakan dengan href tanpa query
-    //     let linkPath = new URL(link.href).pathname;
-    //     if (linkPath === "/" || linkPath === "/home") {
-    //         linkPath = "/home"; // anggap root = home
-    //     }
-
-    //     if (currentPath === linkPath) {
-    //         link.setAttribute("aria-current", "page");
-    //     }
-    // });
 });
 // === THEME HANDLER ===
 window.setTheme = function (themeName) {
