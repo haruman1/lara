@@ -1,4 +1,4 @@
-<section id="landing" class="w-full top-0 bg-white dark:bg-gray-900 pt-16 scroll-mt-14">
+<section id="landing" class="w-full top-0 bg-white dark:bg-gray-900">
     <!-- Hero -->
     <!-- Hero -->
     <div

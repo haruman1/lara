@@ -1,107 +1,83 @@
-<!-- ========== HEADER ========== -->
-<header
-    class="sticky top-4 inset-x-0 flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full before:absolute before:inset-0 before:max-w-5xl before:mx-2 lg:before:mx-auto before:rounded-[26px] before:bg-neutral-800/30 before:backdrop-blur-md">
-    <nav class="relative max-w-5xl w-full flex flex-wrap md:flex-nowrap basis-full items-center justify-between py-2 ps-5 pe-2 md:py-0 mx-2 lg:mx-auto"
-        id="navbar">
-
-        <!-- Logo -->
-        <div class="flex items-center">
-            <a class="flex-none rounded-md text-xl inline-block font-semibold focus:outline-hidden focus:opacity-80"
-                href="#landing" aria-label="Preline">
+<!-- Navbar -->
+<section id="navbar">
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white border-b dark:bg-neutral-900 dark:border-neutral-700">
+        <nav class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+            <!-- Logo -->
+            <a href="#"
+                class="flex-none rounded-md text-xl inline-block font-semibold focus:outline-hidden focus:opacity-80"
+                aria-label="Logo Bcompnet">
                 <!-- Logo Light -->
                 <img src="/images/icon/zd3rcd6ftavhpy4xgki9.webp" class="w-28 h-auto dark:hidden" width="116"
                     height="32" alt="Logo Light">
-
                 <!-- Logo Dark -->
                 <img src="/images/icon/wcern2cczvex3oqhqzpf.webp" class="w-28 h-auto hidden dark:block" width="116"
                     height="32" alt="Logo Dark">
             </a>
-        </div>
-        <!-- End Logo -->
 
-        <!-- Button Group -->
-        <div class="md:order-3 flex items-center gap-x-3">
-            <div class="md:ps-6">
-                <a class="group inline-flex items-center gap-x-2 py-2 px-3 bg-[#ff0] font-medium text-sm text-nowrap text-neutral-800 rounded-full focus:outline-hidden"
-                    data-lang-key="sign-in" href="{{ route('login') }}" wire:navigate>
-                    Sign In
-                </a>
+            <!-- Menu -->
+            <div class="flex items-center gap-6 ml-auto">
+                <!-- PRODUCT Dropdown -->
+                <div class="hs-dropdown relative">
+                    <button type="button"
+                        class="hs-dropdown-toggle flex items-center font-medium text-gray-700 hover:text-blue-600">
+                        PRODUCT
+                        <svg class="ml-1 size-4 text-gray-500 transition-transform hs-dropdown-open:rotate-180"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+
+                    <!-- Mega Menu -->
+                    <div
+                        class="hs-dropdown-menu hidden lg:absolute top-full mt-2 right-0 z-40 w-[700px] bg-white border shadow-md rounded-lg transition-[opacity,margin] duration-200 hs-dropdown-open:opacity-100 opacity-0 hs-dropdown-open:mt-2 mt-0 dark:bg-neutral-900 dark:border-neutral-700">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 px-6 py-8">
+                            <!-- Column 1 -->
+                            <div>
+                                <h3 class="font-semibold text-gray-900 mb-3">Explore</h3>
+                                <ul class="space-y-2">
+                                    <li><a href="/overview" class="text-gray-700 hover:text-blue-600">Overview &
+                                            Demo</a></li>
+                                    <li><a href="/cloud" class="text-gray-700 hover:text-blue-600">Cloud
+                                            <span class="ml-1 px-1.5 py-0.5 text-xs bg-red-500 text-white rounded">Free
+                                                Trial</span></a>
+                                    </li>
+                                    <li><a href="/features" class="text-gray-700 hover:text-blue-600">Features</a></li>
+                                    <li><a href="/integrations"
+                                            class="text-gray-700 hover:text-blue-600">Integrations</a></li>
+                                </ul>
+                            </div>
+
+                            <!-- Column 2 -->
+                            <div>
+                                <h3 class="font-semibold text-gray-900 mb-3">Monitor Anything</h3>
+                                <ul class="space-y-2">
+                                    <li><a href="/network" class="text-gray-700 hover:text-blue-600">Network</a></li>
+                                    <li><a href="/server" class="text-gray-700 hover:text-blue-600">Server</a></li>
+                                    <li><a href="/cloud" class="text-gray-700 hover:text-blue-600">Cloud</a></li>
+                                    <li><a href="/vmware" class="text-gray-700 hover:text-blue-600">VMware</a></li>
+                                </ul>
+                            </div>
+
+                            <!-- Column 3 -->
+                            <div>
+                                <h3 class="font-semibold text-gray-900 mb-3">About Product</h3>
+                                <ul class="space-y-2">
+                                    <li><a href="/release" class="text-gray-700 hover:text-blue-600">Release Notes</a>
+                                    </li>
+                                    <li><a href="/security" class="text-gray-700 hover:text-blue-600">Security
+                                            Policy</a></li>
+                                    <li><a href="/roadmap" class="text-gray-700 hover:text-blue-600">Roadmap</a></li>
+                                    <li><a href="/license" class="text-gray-700 hover:text-blue-600">License</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Other Links -->
+                <a href="/solutions" class="font-medium text-gray-700 hover:text-blue-600">SOLUTIONS</a>
+                <a href="/about" class="font-medium text-gray-700 hover:text-blue-600">ABOUT</a>
             </div>
-
-            <div class="md:hidden">
-                <button type="button"
-                    class="hs-collapse-toggle size-9 flex justify-center items-center text-sm font-semibold rounded-full bg-neutral-800 text-white disabled:opacity-50 disabled:pointer-events-none"
-                    id="hs-navbar-floating-dark-collapse" aria-expanded="false" aria-controls="hs-navbar-floating-dark"
-                    aria-label="Toggle navigation" data-hs-collapse="#hs-navbar-floating-dark">
-                    <svg class="hs-collapse-open:hidden shrink-0 size-4" xmlns="http://www.w3.org/2000/svg"
-                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="3" x2="21" y1="6" y2="6" />
-                        <line x1="3" x2="21" y1="12" y2="12" />
-                        <line x1="3" x2="21" y1="18" y2="18" />
-                    </svg>
-                    <svg class="hs-collapse-open:block hidden shrink-0 size-4" xmlns="http://www.w3.org/2000/svg"
-                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M18 6 6 18" />
-                        <path d="m6 6 12 12" />
-                    </svg>
-                </button>
-            </div>
-        </div>
-        <!-- End Button Group -->
-
-        <!-- Collapse -->
-        <div id="hs-navbar-floating-dark"
-            class="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow md:block"
-            aria-labelledby="hs-navbar-floating-dark-collapse">
-            <div class="flex flex-col md:flex-row md:items-center md:justify-end gap-y-3 py-2 md:py-0 md:ps-7">
-
-                <!-- Navigation Links -->
-                <a href="{{ route('home') }}" wire:navigate data-target="landing" data-lang-key="link-1"
-                    aria-current="{{ request()->is('/') || request()->is('home') ? 'page' : 'false' }}"
-                    class="pe-3 ps-px sm:px-3 md:py-4 text-sm 
-          text-white hover:text-neutral-300 focus:outline-hidden
-          border-b-2 border-transparent 
-          aria-[current=page]:border-[#ff0] aria-[current=page]:text-[#ff0]">
-                    Beranda
-                </a>
-
-
-                <a href="{{ route('page.services') }}" wire:navigate data-target="services" data-lang-key="link-2"
-                    class="pe-3 ps-px sm:px-3 md:py-4 text-sm 
-                   text-white hover:text-neutral-300 focus:outline-hidden
-                   border-b-2 border-transparent 
-                   aria-[current=page]:border-[#ff0] aria-[current=page]:text-[#ff0]">
-                    Layanan
-                </a>
-
-                <a href="{{ route('page.about') }}" wire:navigate data-target="about" data-lang-key="link-3"
-                    class="pe-3 ps-px sm:px-3 md:py-4 text-sm 
-                   text-white hover:text-neutral-300 focus:outline-hidden
-                   border-b-2 border-transparent 
-                   aria-[current=page]:border-[#ff0] aria-[current=page]:text-[#ff0]">
-                    Tentang
-                </a>
-                <a href="{{ route('post.index') }}" wire:navigate data-target="news" data-lang-key="link-4"
-                    class="pe-3 ps-px sm:px-3 md:py-4 text-sm 
-                   text-white hover:text-neutral-300 focus:outline-hidden
-                   border-b-2 border-transparent 
-                   aria-[current=page]:border-[#ff0] aria-[current=page]:text-[#ff0]">
-                    Berita dan acara
-                </a>
-                <a href="{{ route('page.contact') }}" wire:navigate data-target="contact" data-lang-key="link-5"
-                    class="pe-3 ps-px sm:px-3 md:py-4 text-sm 
-                   text-white hover:text-neutral-300 focus:outline-hidden
-                   border-b-2 border-transparent 
-                   aria-[current=page]:border-[#ff0] aria-[current=page]:text-[#ff0]">
-                    Kontak
-                </a>
-                <!-- End Navigation Links -->
-
-            </div>
-        </div>
-        <!-- End Collapse -->
-    </nav>
-</header>
-<!-- ========== END HEADER ========== -->
+        </nav>
+    </header>
+</section>
