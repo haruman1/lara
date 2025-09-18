@@ -11,6 +11,8 @@
     "require": {
         "php": "^8.2",
         "awcodes/filament-sticky-header": "*",
+        "blade-ui-kit/blade-heroicons": "^2.6",
+        "blade-ui-kit/blade-icons": "^1.8",
         "brunocfalcao/blade-feather-icons": "^5.0",
         "codeat3/blade-ikonate": "^1.6",
         "codeat3/blade-simple-icons": "^7.9",

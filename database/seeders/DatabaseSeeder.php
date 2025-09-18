@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             RolePermissionSeeder::class,
-
+            NavbarSeeder::class,
             BlogSeeder::class,
             SeoPageSeeder::class,
         ]);

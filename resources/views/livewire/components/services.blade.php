@@ -323,4 +323,5 @@
         </div>
     </div>
     <!-- End Card Blog -->
+    <livewire:components.float-button />
 </section>

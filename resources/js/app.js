@@ -4,14 +4,16 @@ import "@preline/toggle-password";
 import "@preline/collapse";
 import { setLanguage, initLanguage } from "./bahasa";
 import * as Preline from "preline";
-// import { initPrelineDropdownFix } from "./scrollspy";
+import { initNavbar } from "./Navbar";
 import { initDropdown } from "./dropdown";
 window.Preline = Preline;
 document.addEventListener("DOMContentLoaded", () => {
+    initNavbar();
     // init bahasa
-    initLanguage();
 
+    initLanguage();
     window.setLanguage = setLanguage;
+
     window.addEventListener("load", function () {
         document.querySelectorAll("[data-collapse-toggle]").forEach((btn) => {
             btn.addEventListener("click", function () {
@@ -41,8 +43,6 @@ document.addEventListener("livewire:load", () => {
 // setiap kali berpindah halaman dengan wire:navigate
 document.addEventListener("livewire:navigated", () => {
     initLanguage();
-
-    // initDropdown();
 });
 // === THEME HANDLER ===
 window.setTheme = function (themeName) {
