@@ -15,23 +15,45 @@ class SeoPageForm
     {
         return $schema
             ->components([
-                TextInput::make('slug')
-                    ->label('Slug / Path')
-                    ->required()
-                    ->unique(ignoreRecord: true)
-                    ->placeholder('contoh: home, about, contact'),
+                Section::make('Form SEO Page')
+                    ->schema([
+                        Select::make('slug')
+                            ->label('Slug / Path')
+                            ->relationship(
+                                name: 'pageLink',
+                                titleAttribute: 'slug',
+                            )
+                            ->unique(ignoreRecord: true)
+                            ->placeholder('Pilih halaman...')
+                            ->helperText('Contoh: about, contact, products/item-1, dll. Jangan gunakan karakter "/" di awal.')
+                            ->afterStateUpdated(fn($state, callable $set) => $set('manual_slug', null)),
 
-                TextInput::make('title')
-                    ->label('Title')
-                    ->required(),
+                        TextInput::make('title')
+                            ->label('Title')
+                            ->required(),
 
-                Textarea::make('meta_description')
-                    ->label('Meta Description')
-                    ->rows(3),
+                        Textarea::make('meta_description')
+                            ->label('Meta Description')
+                            ->rows(3),
 
-                TextInput::make('meta_keywords')
-                    ->label('Meta Keywords')
-                    ->placeholder('kata kunci dipisahkan koma'),
+                        TextInput::make('meta_keywords')
+                            ->label('Meta Keywords')
+                            ->placeholder('kata kunci dipisahkan koma'),
+
+                        TextInput::make('manual_slug')
+                            ->label('Manual Slug')
+                            ->helperText('Isi jika ingin menimpa slug/path default dari halaman. Akan otomatis diubah jadi slug format.')
+                            ->placeholder('Contoh: About Us → about-us')
+                            ->unique(ignoreRecord: true)
+                            ->nullable(),
+                    ])
+                    ->rules([
+                        'slug' => 'required_without:manual_slug',
+                        'manual_slug' => 'required_without:slug',
+                    ])
+                    ->collapsible()
+                    ->columns(1)
+                    ->columnSpanFull(), // ✅ ini bikin section Form SEO Page full ke bawah
 
                 Section::make('Open Graph (Facebook, WA, LinkedIn)')
                     ->schema([

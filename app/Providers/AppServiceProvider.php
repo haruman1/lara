@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
+use App\Models\Navbar;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -12,7 +13,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        view()->composer('partials.navbar', function ($view) {
+            $menus = Navbar::with('children')
+                ->whereNull('parent_id')
+                ->orderBy('order')
+                ->get();
+
+            $view->with('menus', $menus);
+        });
     }
 
     /**

@@ -15,11 +15,14 @@ class NavbarsTable
     {
         return $table
             ->columns([
-                TextColumn::make('name')
+                TextColumn::make('title')
+                    ->label('Nama Menu')
                     ->searchable(),
                 TextColumn::make('slug')
                     ->searchable(),
-                TextColumn::make('parent_id')
+                TextColumn::make('parent.title') // relasi parent -> field title
+                    ->label('Parent Title')
+                    ->sortable()
                     ->searchable(),
                 TextColumn::make('order')
                     ->searchable(),

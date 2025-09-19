@@ -1,3 +1,5 @@
+
+
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -13,10 +15,16 @@ return new class extends Migration
     {
         Schema::create('pages', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
-            $table->string('slug')->unique();
             $table->string('title');
+            $table->string('image')->nullable();
+            $table->string('slug')->unique();
             $table->text('content');
+            $table->string('author_id')->nullable();
+            $table->foreign('author_id')
+                ->references('author_id')->on('users')
+                ->onDelete('set null');
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

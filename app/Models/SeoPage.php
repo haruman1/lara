@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class SeoPage extends Model
 {
@@ -11,6 +12,7 @@ class SeoPage extends Model
     protected $fillable = [
         // Basic
         'slug',
+        'manual_slug',
         'title',
         'meta_description',
         'meta_keywords',
@@ -28,4 +30,27 @@ class SeoPage extends Model
         'twitter_description',
         'twitter_image',
     ];
+
+
+
+    protected static function booted()
+    {
+        static::saving(function ($model) {
+            // Kalau ada manual_slug, auto slugify
+            if (!empty($model->manual_slug)) {
+                $model->manual_slug = Str::slug($model->manual_slug);
+
+                // Jika slug kosong, isi slug dari manual_slug
+                if (empty($model->slug)) {
+                    $model->slug = $model->manual_slug;
+                }
+            }
+        });
+    }
+
+
+    public function pageLink()
+    {
+        return $this->belongsTo(Pages::class, 'slug', 'slug');
+    }
 }

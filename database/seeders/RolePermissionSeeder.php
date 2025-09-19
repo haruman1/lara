@@ -12,6 +12,8 @@ class RolePermissionSeeder extends Seeder
 {
     public function run(): void
     {
+        // HAPUS DULU BIAR BERSIH
+
         // Reset cached roles and permissions
         app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
 
@@ -60,6 +62,7 @@ class RolePermissionSeeder extends Seeder
         $admin = User::create([
             'name' => 'Admin User',
             'email' => 'admin@kumon.com',
+            'author_id' => 'ADM001',
             'password' => Hash::make('password'),
         ]);
         $admin->assignRole('admin');
@@ -68,6 +71,7 @@ class RolePermissionSeeder extends Seeder
         $user = User::create([
             'name' => 'Regular User',
             'email' => 'user@kumon.com',
+            'author_id' => 'USR001',
             'password' => Hash::make('password'),
         ]);
         $user->assignRole('users');
@@ -75,6 +79,7 @@ class RolePermissionSeeder extends Seeder
         $guest = User::create([
             'name' => 'Guest User',
             'email' => 'guest@kumon.com',
+            'author_id' => 'GST001',
             'password' => Hash::make('password'),
         ]);
         $guest->assignRole('guest');

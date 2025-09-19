@@ -19,12 +19,15 @@ return new class extends Migration
             $table->integer('order')->default(0); // Urutan menu
             $table->boolean('is_active')->default(true); // Bisa aktif/nonaktif
             $table->string('icon')->nullable(); // Icon menu (opsional)
-
+            $table->enum('type', ['link', 'dropdown', 'mega'])->default('link');
+            $table->string('group')->nullable(); // untuk kolom/section pada mega menu
 
             $table->timestamps();
 
             // Foreign key untuk parent
-            $table->foreign('parent_id')->references('id')->on('navbars')->onDelete('cascade');
+            $table->foreign('parent_id')
+                ->references('id')->on('pages')
+                ->onDelete('set null');
         });
     }
 

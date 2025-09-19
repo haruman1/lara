@@ -19,9 +19,9 @@ class SeoPageResource extends Resource
 {
     protected static ?string $model = SeoPage::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = 'iconpark-seo-o';
     protected static string|UnitEnum|null $navigationGroup = 'Pengaturan Website';
-    protected static ?string $recordTitleAttribute = 'SEO Page';
+    protected static ?string $recordTitleAttribute = 'SEO';
     protected static ?string $modelLabel = 'SEO Page';
 
     public static function form(Schema $schema): Schema

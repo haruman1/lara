@@ -40,6 +40,7 @@ Route::middleware('seo')->group(function () {
 | Change Language/Locale
 |--------------------------------------------------------------------------
 */
+
 Route::get('translations/{locale}', [LocalizationController::class, 'changeLocale'])
     ->name('lang.switch');
 /*
@@ -102,4 +103,7 @@ Route::fallback(function () {
 | Dynamic Page Slug (keep last)
 |--------------------------------------------------------------------------
 */
-Route::get('/{slug}', [PageController::class, 'show'])->name('page.show');
+
+Route::get('/{slug}', [PageController::class, 'show'])
+    ->middleware('prevent.collision')
+    ->name('page.show');

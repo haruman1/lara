@@ -45,15 +45,17 @@ class NavbarForm
                     $name = pathinfo($file, PATHINFO_FILENAME);
                     $fullName = $prefix ? "{$prefix}-{$name}" : $name;
 
-                    $icons[$fullName] = self::humanizeIconName($fullName);
+                    // langsung simpan string biasa
+                    $icons[$fullName] = $fullName;
                 }
             }
         }
 
         asort($icons);
 
-        return $icons; // key = heroicon-o-home, value = "Home"
+        return $icons; // contoh: ['heroicon-o-home' => 'heroicon-o-home']
     }
+
 
 
     public static function configure(Schema $schema): Schema
@@ -64,15 +66,30 @@ class NavbarForm
                 ->required()
                 ->maxLength(15),
 
-            TextInput::make('slug')
-                ->label('URL atau #')
-                ->required()
-                ->maxLength(25)
-                ->helperText('Gunakan "#" jika menu memiliki dropdown'),
+            Select::make('slug')
+                ->label('URL dari Halaman')
+                ->options(function ($record) {
+                    $options = \App\Models\Pages::pluck('slug', 'slug')->toArray();
 
-            TextInput::make('parent_id')
-                ->label('Parent ID')
+                    // Pastikan value lama tetap ada biar valid
+                    if ($record && $record->slug && !isset($options[$record->slug])) {
+                        $options[$record->slug] = $record->slug;
+                    }
+
+                    return $options;
+                })
+                ->searchable()
                 ->nullable()
+                ->placeholder('Pilih halaman...'),
+            TextInput::make('manual_slug')
+                ->label('Atau Manual URL')
+                ->helperText('Isi jika tidak pilih halaman. Akan otomatis dijadikan slug.')
+                ->placeholder('contoh: about-us')
+                ->nullable(),
+            Select::make('parent_id')
+                ->label('Parent Menu')
+                ->nullable()
+                ->relationship('parent', 'title') // sudah benar setelah perbaikan model
                 ->helperText('Kosongkan jika menu utama'),
 
             TextInput::make('order')
@@ -83,17 +100,18 @@ class NavbarForm
 
             Select::make('icon')
                 ->label('Icon Menu (opsional)')
-                ->options(
-                    collect(static::getHeroicons())
-                        ->mapWithKeys(fn($label, $icon) => [
-                            $icon => "<x-{$icon} class='w-5 h-5' /> {$label}",
-                        ])
-                        ->toArray()
-                )
+                ->options(function ($get) {
+                    $icons = static::getHeroicons();
+                    $recordIcon = $get('icon');
+                    // pastikan value lama tetap ada
+                    if ($recordIcon && !isset($icons[$recordIcon])) {
+                        $icons[$recordIcon] = $recordIcon;
+                    }
+                    return $icons;
+                })
                 ->searchable()
-                ->allowHtml() // supaya icon tampil, bukan sebagai string HTML
                 ->nullable()
-                ->helperText('Pilih icon dari Heroicons')
+                ->helperText('Icon dari https://blade-ui-kit.com/. Gunakan kit, kosongkan jika tidak perlu.')
         ]);
     }
 }
