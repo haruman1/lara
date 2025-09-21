@@ -1,8 +1,8 @@
 <!-- ========== HEADER ========== -->
 <header
-    class="sticky top-0 md:top-4 md:sticky md:flex flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full bg-white border-b border-gray-200 dark:bg-neutral-800 dark:border-neutral-700">
+    class="sticky top-0 md:top-0 md:sticky md:flex flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full bg-white border-b border-gray-400 px-4 md:px-6 lg:px-8 dark:bg-neutral-800 dark:border-neutral-700 md:gap-3 py-2 px-4 sm:px-6 lg:px-8">
     <nav
-        class="relative max-w-[85rem] w-full mx-auto flex items-center justify-between md:gap-6 py-2 px-6 sm:px-8 lg:px-10">
+        class="relative max-w-[85rem] w-full mx-auto md:flex md:items-center md:justify-between md:gap-3 py-2 px-4 sm:px-6 lg:px-8">
 
         <!-- Logo -->
         <div class="flex justify-between items-center gap-x-3">
@@ -46,7 +46,7 @@
                                 <!-- Single Link -->
                                 <a href="{{ $menu->url }}"
                                     class="p-2 flex items-center text-sm text-gray-800 hover:bg-gray-100 rounded-lg dark:text-neutral-200 dark:hover:bg-neutral-700">
-                                    @svg($menu->icon, 'shrink-0 size-4 me-3 md:me-2 block ')
+                                    @svg($menu->icon, 'shrink-0 size-4 me-2 block ')
                                     {{ $menu->title }}
                                 </a>
                             @elseif($menu->type === 'dropdown')
@@ -66,11 +66,13 @@
                                         class="hs-dropdown-menu hidden absolute bg-white shadow-md mt-2 rounded-lg py-2 w-48 dark:bg-neutral-800">
                                         @foreach ($menu->children as $child)
                                             <a href="{{ $child->url }}"
-                                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-700">
-                                                {{ $child->title }}
+                                                class="flex items-center px-4 py-2 text-sm text-gray-800 hover:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-700">
+                                                @svg($child->icon, 'shrink-0 size-4 me-2')
+                                                <span>{{ $child->title }}</span>
                                             </a>
                                         @endforeach
                                     </div>
+
                                 </div>
                             @elseif($menu->type === 'mega')
                                 <!-- Mega Menu -->

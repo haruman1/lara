@@ -27,7 +27,12 @@ class SeoPageForm
                             ->placeholder('Pilih halaman...')
                             ->helperText('Contoh: about, contact, products/item-1, dll. Jangan gunakan karakter "/" di awal.')
                             ->afterStateUpdated(fn($state, callable $set) => $set('manual_slug', null)),
-
+                        TextInput::make('manual_slug')
+                            ->label('Manual Slug')
+                            ->helperText('Isi jika ingin menimpa slug/path default dari halaman. Akan otomatis diubah jadi slug format.')
+                            ->placeholder('Contoh: About Us → about-us')
+                            ->unique(ignoreRecord: true)
+                            ->nullable(),
                         TextInput::make('title')
                             ->label('Title')
                             ->required(),
@@ -40,16 +45,8 @@ class SeoPageForm
                             ->label('Meta Keywords')
                             ->placeholder('kata kunci dipisahkan koma'),
 
-                        TextInput::make('manual_slug')
-                            ->label('Manual Slug')
-                            ->helperText('Isi jika ingin menimpa slug/path default dari halaman. Akan otomatis diubah jadi slug format.')
-                            ->placeholder('Contoh: About Us → about-us')
-                            ->unique(ignoreRecord: true)
-                            ->nullable(),
-                    ])
-                    ->rules([
-                        'slug' => 'required_without:manual_slug',
-                        'manual_slug' => 'required_without:slug',
+
+
                     ])
                     ->collapsible()
                     ->columns(1)

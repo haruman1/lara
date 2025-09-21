@@ -2,6 +2,7 @@
 
 use App\Http\Middleware\RedirectIfAuthenticated;
 use App\Http\Middleware\RoleBasedAccess;
+use \App\Http\Middleware\SeoMiddleware;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -17,7 +18,7 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'role' => RedirectIfAuthenticated::class,
             'roleAccess' => RoleBasedAccess::class,
-            'seo' => \App\Http\Middleware\SeoMiddleware::class,
+            'seo' => SeoMiddleware::class,
             'prevent.collision' => PreventRouteCollision::class,
 
 
