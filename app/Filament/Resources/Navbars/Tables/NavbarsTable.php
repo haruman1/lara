@@ -28,6 +28,8 @@ class NavbarsTable
                     ->searchable(),
                 TextColumn::make('icon')
                     ->searchable(),
+                TextColumn::make('group')
+                    ->searchable(),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

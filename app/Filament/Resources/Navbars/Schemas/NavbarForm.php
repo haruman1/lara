@@ -8,6 +8,7 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 use BladeUI\Icons\Factory as IconFactory;
+use Filament\Schemas\Components\Section;
 
 class NavbarForm
 {
@@ -65,33 +66,44 @@ class NavbarForm
                 ->label('Nama Menu')
                 ->required()
                 ->maxLength(15),
+            Section::make('Link / URL Menu')
+                ->schema([
+                    Select::make('slug')
+                        ->label('URL dari Halaman')
+                        ->options(function ($record) {
+                            $options = \App\Models\Pages::pluck('slug', 'slug')->toArray();
 
-            Select::make('slug')
-                ->label('URL dari Halaman')
-                ->options(function ($record) {
-                    $options = \App\Models\Pages::pluck('slug', 'slug')->toArray();
+                            // Pastikan value lama tetap ada biar valid
+                            if ($record && $record->slug && !isset($options[$record->slug])) {
+                                $options[$record->slug] = $record->slug;
+                            }
 
-                    // Pastikan value lama tetap ada biar valid
-                    if ($record && $record->slug && !isset($options[$record->slug])) {
-                        $options[$record->slug] = $record->slug;
-                    }
-
-                    return $options;
-                })
-                ->searchable()
-                ->nullable()
-                ->placeholder('Pilih halaman...'),
-            TextInput::make('manual_slug')
-                ->label('Atau Manual URL')
-                ->helperText('Isi jika tidak pilih halaman. Akan otomatis dijadikan slug.')
-                ->placeholder('contoh: about-us')
-                ->nullable(),
-            Select::make('parent_id')
-                ->label('Parent Menu')
-                ->nullable()
-                ->relationship('parent', 'title') // sudah benar setelah perbaikan model
-                ->helperText('Kosongkan jika menu utama'),
-
+                            return $options;
+                        })
+                        ->searchable()
+                        ->nullable()
+                        ->placeholder('Pilih halaman...'),
+                    TextInput::make('manual_slug')
+                        ->label('Atau Manual URL')
+                        ->helperText('Isi jika tidak pilih halaman. Akan otomatis dijadikan slug.')
+                        ->placeholder('contoh: about-us')
+                        ->nullable(),
+                    TextInput::make('group')
+                        ->label('Group Menu')
+                        ->helperText('Isi jika menu ini termasuk dalam grup tertentu. Contoh: Explore, Resources, Company, dll.'),
+                    Select::make('type')
+                        ->label('Tipe Menu')
+                        ->options([
+                            'mega' => 'Mega Menu',
+                            'link' => 'Link Eksternal',
+                        ])->helperText('Pilih tipe menu. Mega Menu untuk menu dengan banyak kolom. Link Eksternal untuk menu yang mengarah ke luar website.')
+                        ->default('link'),
+                    Select::make('parent_id')
+                        ->label('Parent Menu')
+                        ->nullable()
+                        ->relationship('parent', 'title') // sudah benar setelah perbaikan model
+                        ->helperText('Kosongkan jika menu utama'),
+                ])->columns(2)->columnSpanFull()->collapsible(), // biar section Link / URL Menu full ke bawah
             TextInput::make('order')
                 ->label('Urutan Menu')
                 ->required()

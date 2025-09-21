@@ -22,13 +22,20 @@
     <meta name="twitter:description" content="{{ $seoTwitterDescription ?? '' }}">
     <meta name="twitter:image" content="{{ $seoTwitterImage ?? asset('default-twitter.png') }}">
     @vite(['resources/css/prelineui.css', 'resources/js/app.js'])
+
     @livewireStyles
     @livewireScriptConfig
 </head>
 
-<body
-    class="antialiased font-sans text-gray-800 bg-gray-100 w-full flex flex-col min-h-screen items-center justify-center">
+<body class="antialiased font-sans text-gray-800 bg-gray-100 w-full flex flex-col min-h-screen">
     <div id="scrollspy"> {{ $slot }} @livewireScripts @livewireScriptConfig </div>
+    <livewire:components.float-button />
 </body>
+{{-- <script>
+    window.addEventListener("load", () => {
+        console.log("Page fully loaded, running HSStaticMethods.autoInit...");
+        window.HSStaticMethods.autoInit();
+    });
+</script> --}}
 
 </html>

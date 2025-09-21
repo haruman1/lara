@@ -1,21 +1,34 @@
-// resources/js/dropdown.js
+export function initMegaMenu() {
+    const megaBtn = document.getElementById("hs-mega-menu");
+    const megaDropdown = document.getElementById("hs-mega-menu-dropdown");
 
-export function initDropdown() {
-    const dropdownToggles = document.querySelectorAll(".hs-dropdown-toggle");
+    if (!megaBtn || !megaDropdown) return;
 
-    dropdownToggles.forEach((toggle) => {
-        toggle.addEventListener("click", function () {
-            const dropdownMenu = this.nextElementSibling;
-            dropdownMenu.classList.toggle("hidden");
-        });
+    // Toggle manual (klik tombol)
+    megaBtn.addEventListener("click", (e) => {
+        console.log("Tombol mega menu diklik");
+        e.stopPropagation();
+
+        if (megaDropdown.classList.contains("hidden")) {
+            // buka
+            megaDropdown.classList.remove("hidden", "opacity-0");
+            megaDropdown.classList.add("block");
+            megaBtn.setAttribute("aria-expanded", "true");
+        } else {
+            // tutup
+            megaDropdown.classList.add("hidden", "opacity-0");
+            megaDropdown.classList.remove("block");
+            megaBtn.setAttribute("aria-expanded", "false");
+        }
     });
 
-    // Tutup dropdown ketika klik di luar
+    // Klik di luar area => tutup
     document.addEventListener("click", (e) => {
-        if (!e.target.matches(".hs-dropdown-toggle")) {
-            document.querySelectorAll(".hs-dropdown-menu").forEach((menu) => {
-                menu.classList.add("hidden");
-            });
+        console.log("Klik di luar area");
+        if (!megaDropdown.contains(e.target) && !megaBtn.contains(e.target)) {
+            megaDropdown.classList.add("hidden", "opacity-0");
+            megaDropdown.classList.remove("block");
+            megaBtn.setAttribute("aria-expanded", "false");
         }
     });
 }

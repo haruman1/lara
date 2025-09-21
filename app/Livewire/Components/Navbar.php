@@ -10,12 +10,13 @@ class Navbar extends Component
     public $menus;
     public function mount()
     {
-        // Ambil menu root + anaknya (rekursif)
-        $this->menus = NavbarModel::whereNull('parent_id')
-            ->where('is_active', true)
-            ->with('children')
-            ->orderBy('order')
-            ->get();
+        $this->menus = cache()->rememberForever('navbar_header', function () {
+            return NavbarModel::whereNull('parent_id')
+                ->where('group', 'header')
+                ->with('children')
+                ->orderBy('order')
+                ->get();
+        });
     }
     public function render()
     {

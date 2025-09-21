@@ -9,104 +9,120 @@ class NavbarSeeder extends Seeder
 {
     public function run(): void
     {
+        // Bersihkan data lama
         Navbar::truncate();
 
-        // Menu Mega
-        $product = Navbar::create([
-            'title' => 'Product',
-            'slug' => '#',
-            'order' => 1,
-            'is_active' => true,
-            'icon' => 'heroicon-o-cube',
-            'type' => 'mega',
-        ]);
-
-        // Kolom 1 - Explore
+        // =============================
+        // 1. Normal link
+        // =============================
         Navbar::create([
-            'title' => 'Zabbix Overview & Demo',
-            'slug' => '/product/overview',
-            'parent_id' => $product->id,
+            'title' => 'Home',
+            'slug' => 'home',
+            'manual_slug' => '/',
+            'group' => 'header',
             'order' => 1,
-            'is_active' => true,
-            'icon' => 'heroicon-o-play-circle',
-            'group' => 'Explore Zabbix',
+            'type' => 'link',
+            'icon' => 'heroicon-o-home',
         ]);
 
         Navbar::create([
-            'title' => 'Zabbix Cloud',
-            'slug' => '/product/cloud',
-            'parent_id' => $product->id,
+            'title' => 'About',
+            'slug' => 'about',
+            'manual_slug' => '/about',
+            'group' => 'header',
             'order' => 2,
-            'is_active' => true,
-            'icon' => 'heroicon-o-cloud',
-            'group' => 'Explore Zabbix',
+            'type' => 'link',
+            'icon' => 'heroicon-o-information-circle',
         ]);
 
-        Navbar::create([
-            'title' => 'Features',
-            'slug' => '/product/features',
-            'parent_id' => $product->id,
+        // =============================
+        // 2. Dropdown
+        // =============================
+        $services = Navbar::create([
+            'title' => 'Services',
+            'slug' => 'services',
+            'group' => 'header',
             'order' => 3,
-            'is_active' => true,
-            'icon' => 'heroicon-o-chart-bar',
-            'group' => 'Explore Zabbix',
+            'type' => 'dropdown',
+            'icon' => 'heroicon-o-cog-6-tooth',
         ]);
 
         Navbar::create([
-            'title' => 'Integrations',
-            'slug' => '/product/integrations',
-            'parent_id' => $product->id,
+            'title' => 'Web Development',
+            'slug' => 'services/web-development',
+            'manual_slug' => '/services/web-development',
+            'group' => 'header',
+            'parent_id' => $services->id,
+            'order' => 1,
+            'type' => 'link',
+            'icon' => 'heroicon-o-code-bracket',
+        ]);
+
+        Navbar::create([
+            'title' => 'Mobile Apps',
+            'slug' => 'services/mobile-apps',
+            'manual_slug' => '/services/mobile-apps',
+            'group' => 'header',
+            'parent_id' => $services->id,
+            'order' => 2,
+            'type' => 'link',
+            'icon' => 'heroicon-o-device-phone-mobile',
+        ]);
+
+        Navbar::create([
+            'title' => 'SEO Optimization',
+            'slug' => 'services/seo',
+            'manual_slug' => '/services/seo',
+            'group' => 'header',
+            'parent_id' => $services->id,
+            'order' => 3,
+            'type' => 'link',
+            'icon' => 'heroicon-o-magnifying-glass',
+        ]);
+
+        // =============================
+        // 3. Mega menu
+        // =============================
+        $products = Navbar::create([
+            'title' => 'Products',
+            'slug' => 'products',
+            'group' => 'header',
             'order' => 4,
-            'is_active' => true,
-            'icon' => 'heroicon-o-cube-transparent',
-            'group' => 'Explore Zabbix',
+            'type' => 'mega',
+            'icon' => 'heroicon-o-archive-box',
         ]);
 
-        // Kolom 2 - Monitor anything
         Navbar::create([
-            'title' => 'Network',
-            'slug' => '/monitor/network',
-            'parent_id' => $product->id,
+            'title' => 'Laptops',
+            'slug' => 'products/laptops',
+            'manual_slug' => '/products/laptops',
+            'group' => 'header',
+            'parent_id' => $products->id,
             'order' => 1,
-            'is_active' => true,
-            'group' => 'Monitor Anything',
+            'type' => 'link',
+            'icon' => 'heroicon-o-computer-desktop',
         ]);
 
         Navbar::create([
-            'title' => 'Server',
-            'slug' => '/monitor/server',
-            'parent_id' => $product->id,
+            'title' => 'Smartphones',
+            'slug' => 'products/smartphones',
+            'manual_slug' => '/products/smartphones',
+            'group' => 'header',
+            'parent_id' => $products->id,
             'order' => 2,
-            'is_active' => true,
-            'group' => 'Monitor Anything',
+            'type' => 'link',
+            'icon' => 'heroicon-o-device-phone-mobile',
         ]);
 
         Navbar::create([
-            'title' => 'Cloud',
-            'slug' => '/monitor/cloud',
-            'parent_id' => $product->id,
+            'title' => 'Accessories',
+            'slug' => 'products/accessories',
+            'manual_slug' => '/products/accessories',
+            'group' => 'header',
+            'parent_id' => $products->id,
             'order' => 3,
-            'is_active' => true,
-            'group' => 'Monitor Anything',
-        ]);
-
-        // Kolom 3 - About product
-        Navbar::create([
-            'title' => 'What’s new in Zabbix',
-            'slug' => '/product/whats-new',
-            'parent_id' => $product->id,
-            'order' => 1,
-            'is_active' => true,
-            'group' => 'About Product',
-        ]);
-
-        Navbar::create([
-            'title' => 'Release Notes',
-            'slug' => '/product/release-notes',
-            'parent_id' => $product->id,
-            'order' => 2,
-            'is_active' => true,
-            'group' => 'About Product',
+            'type' => 'link',
+            'icon' => 'heroicon-o-paper-clip',
         ]);
     }
 }

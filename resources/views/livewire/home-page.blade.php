@@ -7,9 +7,10 @@
 
 
     <livewire:components.show-blog />
+    <livewire:components.showservices />
 
 
-    <livewire:components.float-button />
+
 
     <livewire:components.subscribe />
     <livewire:components.footer />

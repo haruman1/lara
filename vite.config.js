@@ -14,9 +14,9 @@ export default defineConfig({
                 "resources/js/bahasa.js",
                 "resources/js/auth/login.js",
                 "resources/js/theme.js",
-                "resources/js/navbar.js",
+                "resources/js/Navbar.js",
                 "resources/js/Modal.js",
-                "resources/js/dropdown.js",
+
                 "resources/js/admin.js",
                 "resources/css/blog.css",
                 "resources/css/filament/admin/theme.css",

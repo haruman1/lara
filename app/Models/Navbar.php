@@ -3,36 +3,23 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
 
 class Navbar extends Model
 {
-    protected $fillable = ['title', 'slug', 'parent_id', 'order', 'is_active', 'icon', 'manual_slug'];
-
-    protected static function booted()
-    {
-        static::saving(function ($model) {
-            // Jika manual_slug diisi → slugify & jadikan slug utama
-            if (!empty($model->manual_slug)) {
-                $model->manual_slug = Str::slug($model->manual_slug);
-                $model->slug = $model->manual_slug;
-            }
-        });
-    }
-
-    public function pageLink()
-    {
-        return $this->belongsTo(Pages::class, 'slug', 'slug');
-    }
+    protected $fillable = [
+        'title',
+        'slug',
+        'manual_slug',
+        'group',
+        'parent_id',
+        'order',
+        'icon',
+        'type'
+    ];
 
     public function children()
     {
         return $this->hasMany(Navbar::class, 'parent_id')->orderBy('order');
-    }
-
-    public function page()
-    {
-        return $this->belongsTo(Pages::class, 'page_id');
     }
 
     public function parent()
@@ -40,8 +27,15 @@ class Navbar extends Model
         return $this->belongsTo(Navbar::class, 'parent_id');
     }
 
-    public function getResolvedSlugAttribute()
+    // getter untuk URL final (ambil manual_slug kalau ada, kalau tidak pakai slug)
+    public function getUrlAttribute()
     {
-        return $this->manual_slug ?: ($this->page?->slug ?? $this->slug);
+        if (!empty($this->manual_slug)) {
+            return url($this->manual_slug);
+        }
+        if (!empty($this->slug)) {
+            return url($this->slug);
+        }
+        return '#';
     }
 }

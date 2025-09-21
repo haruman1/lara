@@ -1,38 +1,26 @@
 import "./bootstrap";
 import "preline";
 import "@preline/toggle-password";
-import "@preline/collapse";
+
+// ❌ hapus ini kalau kamu mau pakai custom collapse
+// import "@preline/collapse";
+import { initNavbar } from "./Navbar";
 import { setLanguage, initLanguage } from "./bahasa";
 import * as Preline from "preline";
-import { initNavbar } from "./Navbar";
-import { initDropdown } from "./dropdown";
+
 window.Preline = Preline;
+
 document.addEventListener("DOMContentLoaded", () => {
-    initNavbar();
     // init bahasa
-
     initLanguage();
-    window.setLanguage = setLanguage;
-
-    window.addEventListener("load", function () {
-        document.querySelectorAll("[data-collapse-toggle]").forEach((btn) => {
-            btn.addEventListener("click", function () {
-                const targetId = btn.getAttribute("data-collapse-toggle");
-                const target = document.querySelector(targetId);
-
-                if (!target) return;
-
-                // tutup kalau lagi open
-                if (!target.classList.contains("hidden")) {
-                    target.classList.add("hidden");
-                    btn.querySelector("svg")?.classList.remove("rotate-180");
-                } else {
-                    target.classList.remove("hidden");
-                    btn.querySelector("svg")?.classList.add("rotate-180");
-                }
-            });
-        });
-    });
+    if (window.HSStaticMethods?.autoInit) {
+        try {
+            window.HSStaticMethods.autoInit();
+        } catch (e) {
+            /* ignore */
+        }
+    }
+    initNavbar();
 });
 
 // ketika Livewire sudah siap (awal booting)
@@ -44,6 +32,7 @@ document.addEventListener("livewire:load", () => {
 document.addEventListener("livewire:navigated", () => {
     initLanguage();
 });
+
 // === THEME HANDLER ===
 window.setTheme = function (themeName) {
     const htmlElement = document.documentElement;

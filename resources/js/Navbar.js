@@ -1,29 +1,31 @@
 export function initNavbar() {
-    const toggleBtn = document.getElementById("hs-header-scrollspy-collapse");
-    const collapseEl = document.getElementById("hs-header-scrollspy");
+    const toggleBtn = document.querySelector("#hs-header-base-collapse");
+    const navbarCollapse = document.querySelector("#navbar-collapse-main");
 
-    if (!toggleBtn || !collapseEl) return;
+    if (!toggleBtn || !navbarCollapse) return;
 
-    toggleBtn.addEventListener("click", () => {
-        const isClosed = collapseEl.classList.contains("hidden");
+    toggleBtn.addEventListener("click", (e) => {
+        e.preventDefault();
 
-        if (isClosed) {
-            // Buka
-            collapseEl.classList.remove("hidden");
-            collapseEl.style.maxHeight = collapseEl.scrollHeight + "px";
-            collapseEl.style.opacity = "1";
+        // coba pakai HSStaticMethods kalau ada
+        if (window.HSStaticMethods?.autoInit) {
+            try {
+                window.HSStaticMethods.autoInit();
+                return; // biar HSUI yang handle
+            } catch (err) {
+                console.warn("HSUI error, fallback ke custom JS:", err);
+            }
+        }
+
+        // fallback custom
+        if (navbarCollapse.classList.contains("hidden")) {
+            navbarCollapse.classList.remove("hidden");
+            navbarCollapse.classList.add("block");
+            toggleBtn.setAttribute("aria-expanded", "true");
         } else {
-            // Tutup (dengan animasi)
-            collapseEl.style.maxHeight = collapseEl.scrollHeight + "px"; // set tinggi sekarang
-            setTimeout(() => {
-                collapseEl.style.maxHeight = "0px";
-                collapseEl.style.opacity = "0";
-            }, 10);
-
-            // Setelah animasi selesai, baru hidden
-            setTimeout(() => {
-                collapseEl.classList.add("hidden");
-            }, 500);
+            navbarCollapse.classList.add("hidden");
+            navbarCollapse.classList.remove("block");
+            toggleBtn.setAttribute("aria-expanded", "false");
         }
     });
 }

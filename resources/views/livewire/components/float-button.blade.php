@@ -1,6 +1,5 @@
-<!-- Floating Buttons Container -->
-{{-- @vite(['resources/js/bahasa.js', 'resources/js/theme.js']) --}}
-<div class="fixed bottom-5 right-5 z-50 flex items-center space-x-2">
+<!-- ========== END HEADER ========== -->
+<div class="fixed bottom-5 right-5 z-300 flex items-center space-x-2">
     <livewire:components.loading-overlay />
     <!-- Language Button -->
     <div class="hs-dropdown relative inline-flex">

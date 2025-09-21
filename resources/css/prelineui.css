@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @source "./node_modules/preline/dist/*.js";
 @import "preline/variants.css";
+
 @import "tailwindcss-animated";
 /* Aktifkan dark mode berbasis class di html */
 @custom-variant dark (&:where(.dark, .dark *));
@@ -46,6 +47,12 @@ body,
         transform 0.12s ease;
     opacity: 1;
 }
+#hs-header-base {
+    overflow: visible !important;
+}
 /* .nav-link.active {
     @apply text-blue-600 active:text-blue-600 dark:active:text-blue-500 font-semibold;
 } */
+.active-nav {
+    @apply bg-neutral-500 text-gray-800 dark:bg-neutral-900 dark:text-neutral-200;
+}

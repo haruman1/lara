@@ -12,22 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('navbars', function (Blueprint $table) {
-            $table->id();
-            $table->string('title'); // Nama menu
-            $table->string('slug')->nullable(); // URL atau #
-            $table->unsignedBigInteger('parent_id')->nullable(); // Relasi ke parent
-            $table->integer('order')->default(0); // Urutan menu
-            $table->boolean('is_active')->default(true); // Bisa aktif/nonaktif
-            $table->string('icon')->nullable(); // Icon menu (opsional)
-            $table->enum('type', ['link', 'dropdown', 'mega'])->default('link');
-            $table->string('group')->nullable(); // untuk kolom/section pada mega menu
-
+            $table->id(); // BIGINT UNSIGNED
+            $table->string('title');
+            $table->string('slug')->nullable();
+            $table->string('manual_slug')->nullable();
+            $table->string('group')->nullable();
+            $table->foreignId('parent_id')->nullable()->constrained('navbars')->nullOnDelete();
+            $table->integer('order')->default(0);
+            $table->string('icon')->nullable();
+            $table->string('type')->default('link'); // link | dropdown | mega
             $table->timestamps();
-
-            // Foreign key untuk parent
-            $table->foreign('parent_id')
-                ->references('id')->on('pages')
-                ->onDelete('set null');
         });
     }
 
