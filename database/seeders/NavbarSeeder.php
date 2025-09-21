@@ -83,6 +83,50 @@ class NavbarSeeder extends Seeder
         // =============================
         // 3. Mega menu
         // =============================
+        $about = Navbar::create([
+            'title' => 'About',
+            'slug' => 'about',
+            'group' => 'header',
+            'order' => 4,
+            'type' => 'mega',
+            'icon' => 'heroicon-o-archive-box',
+        ]);
+
+        Navbar::create([
+            'title' => 'Laptops',
+            'slug' => 'products/laptops',
+            'manual_slug' => '/products/laptops',
+            'group' => 'header',
+            'parent_id' => $about->id,
+            'order' => 1,
+            'type' => 'link',
+            'icon' => 'heroicon-o-computer-desktop',
+        ]);
+
+        Navbar::create([
+            'title' => 'Smartphones',
+            'slug' => 'products/smartphones',
+            'manual_slug' => '/products/smartphones',
+            'group' => 'header',
+            'parent_id' => $about->id,
+            'order' => 2,
+            'type' => 'link',
+            'icon' => 'heroicon-o-device-phone-mobile',
+        ]);
+
+        Navbar::create([
+            'title' => 'Accessories',
+            'slug' => 'products/accessories',
+            'manual_slug' => '/products/accessories',
+            'group' => 'header',
+            'parent_id' => $about->id,
+            'order' => 3,
+            'type' => 'link',
+            'icon' => 'heroicon-o-paper-clip',
+        ]);
+        // =============================
+        // 4. Mega menu with different parent (Products)
+        // =============================
         $products = Navbar::create([
             'title' => 'Products',
             'slug' => 'products',

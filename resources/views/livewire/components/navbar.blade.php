@@ -52,7 +52,8 @@
                             @elseif($menu->type === 'dropdown')
                                 <!-- Dropdown -->
                                 <div class="hs-dropdown relative">
-                                    <button id="dropdownToggle-{{ $menu->id }}" type="button"
+                                    <button id="dropdownToggle" type="button"
+                                        data-dropdown-toggle="dropdown-{{ $menu->id }}"
                                         class="hs-dropdown-toggle p-2 flex items-center text-sm text-gray-800 hover:bg-gray-100 rounded-lg dark:text-neutral-200 dark:hover:bg-neutral-700">
                                         @svg($menu->icon, 'shrink-0 size-4 me-2')
                                         {{ $menu->title }}
@@ -62,8 +63,8 @@
                                             <path d="m6 9 6 6 6-6" />
                                         </svg>
                                     </button>
-                                    <div
-                                        class="hs-dropdown-menu hidden absolute bg-white shadow-md mt-2 rounded-lg py-2 w-48 dark:bg-neutral-800">
+                                    <div class="hs-dropdown-menu hidden absolute bg-white shadow-md mt-2 rounded-lg py-2 w-48 dark:bg-neutral-800"
+                                        data-dropdown-menu="dropdown-{{ $menu->id }}">
                                         @foreach ($menu->children as $child)
                                             <a href="{{ $child->url }}"
                                                 class="flex items-center px-4 py-2 text-sm text-gray-800 hover:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-700">
@@ -79,10 +80,11 @@
                                 <div
                                     class="hs-dropdown [--strategy:static] md:[--strategy:absolute] [--adaptive:none] [--is-collapse:true] md:[--is-collapse:false]">
                                     <button id="megaMenuToggle" type="button"
+                                        data-mega-toggle="megaMenu-{{ $menu->id }}"
                                         class="hs-dropdown-toggle w-full p-2 flex items-center text-sm text-gray-800 hover:bg-gray-100 rounded-lg dark:text-neutral-200 dark:hover:bg-neutral-700">
                                         @svg($menu->icon, 'shrink-0 size-4 me-2')
                                         {{ $menu->title }}
-                                        <svg id="dropdownIcon"
+                                        <svg id="dropdownIcon-{{ $menu->id }}"
                                             class="hs-dropdown-open:-rotate-180 duration-300 shrink-0 size-4 ms-auto md:ms-1"
                                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                             stroke="currentColor" stroke-width="2">
@@ -90,7 +92,7 @@
                                         </svg>
                                     </button>
 
-                                    <div id="megaMenu"
+                                    <div id="megaMenu" data-mega-menu="megaMenu-{{ $menu->id }}"
                                         class="hs-dropdown-menu hidden opacity-0 relative w-full min-w-60 z-10 top-full start-0 transition-all duration-300">
                                         <div
                                             class="md:mx-6 lg:mx-8 md:bg-white md:rounded-lg md:shadow-md dark:md:bg-neutral-800">
@@ -149,13 +151,12 @@
     document.addEventListener("DOMContentLoaded", () => {
         const mobileToggle = document.getElementById("mobileMenuToggle");
         const navbarMenu = document.getElementById("navbarMenu");
-        const megaToggle = document.getElementById("megaMenuToggle");
-        const megaMenu = document.getElementById("megaMenu");
         const iconHamburger = mobileToggle.querySelector(".icon-hamburger");
         const iconClose = mobileToggle.querySelector(".icon-close");
-        const dropdownIcon = document.getElementById("dropdownIcon");
         const sections = document.querySelectorAll("section[id]");
         const navLinks = document.querySelectorAll("#navbarMenu a");
+
+        // Intersection Observer untuk active nav
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 const id = entry.target.getAttribute("id");
@@ -167,9 +168,10 @@
             });
         }, {
             threshold: 0.6
-
         });
+
         sections.forEach(section => observer.observe(section));
+
         // Toggle Mobile Menu
         mobileToggle.addEventListener("click", () => {
             navbarMenu.classList.toggle("hidden");
@@ -181,13 +183,14 @@
                 iconClose.classList.remove("hidden");
             }
         });
+
+        // Smooth scroll link
         navLinks.forEach(link => {
             link.addEventListener("click", function(e) {
                 const url = new URL(this.href);
                 const targetId = url.hash.substring(1);
                 const target = document.getElementById(targetId);
 
-                // Kalau section ada di halaman yang sama
                 if (target && window.location.pathname === url.pathname) {
                     e.preventDefault();
                     target.scrollIntoView({
@@ -197,25 +200,34 @@
                 }
             });
         });
-        // Mega Menu Toggle
-        megaToggle?.addEventListener("click", (e) => {
-            e.preventDefault();
-            megaMenu.classList.toggle("hidden");
-            dropdownIcon.classList.toggle("-rotate-180");
-            setTimeout(() => {
-                megaMenu.classList.toggle("opacity-0");
-            }, 10);
-        });
+        // === END ===
+        // === MEGA MENU HANDLER (MULTIPLE) ===
 
-        // Klik di luar hanya untuk mega menu
-        document.addEventListener("click", (e) => {
-            if (megaMenu && !megaMenu.contains(e.target) && !megaToggle.contains(e.target)) {
-                if (!megaMenu.classList.contains("hidden")) {
-                    dropdownIcon.classList.remove("-rotate-180");
-                    megaMenu.classList.add("hidden");
-                    megaMenu.classList.add("opacity-0");
+        const megaToggles = document.querySelectorAll("[data-mega-toggle]");
+        megaToggles.forEach(toggle => {
+            const id = toggle.getAttribute("data-mega-toggle");
+            const megaMenu = document.querySelector(`[data-mega-menu="${id}"]`);
+            const dropdownIcon = toggle.querySelector(".dropdown-icon");
+
+            if (!megaMenu) return;
+
+            // Toggle open/close
+            toggle.addEventListener("click", (e) => {
+                e.preventDefault();
+                megaMenu.classList.toggle("hidden");
+                setTimeout(() => megaMenu.classList.toggle("opacity-0"), 10);
+                dropdownIcon?.classList.toggle("-rotate-180");
+            });
+
+            // Klik di luar close menu
+            document.addEventListener("click", (e) => {
+                if (!megaMenu.contains(e.target) && !toggle.contains(e.target)) {
+                    if (!megaMenu.classList.contains("hidden")) {
+                        megaMenu.classList.add("hidden", "opacity-0");
+                        dropdownIcon?.classList.remove("-rotate-180");
+                    }
                 }
-            }
+            });
         });
     });
 </script>

@@ -123,9 +123,16 @@
                 <div class="flex flex-wrap justify-between items-center gap-3">
                     <div class="mt-3 sm:hidden">
                         <a class="flex-none font-semibold text-xl text-black focus:outline-hidden focus:opacity-80 dark:text-white"
-                            href="#" aria-label="Brand">Brand</a>
+                            href="#" aria-label="Brand">
+                            <img src="/images/icon/zd3rcd6ftavhpy4xgki9.webp" class="w-28 h-auto dark:hidden"
+                                width="116" height="32" alt="Logo Light">
+
+                            <!-- Logo Dark -->
+                            <img src="/images/icon/wcern2cczvex3oqhqzpf.webp" class="w-28 h-auto hidden dark:block"
+                                width="116" height="32" alt="Logo Dark">
+                        </a>
                         <p class="mt-1 text-xs sm:text-sm text-gray-600 dark:text-neutral-400">
-                            © 2025 Preline Labs.
+                            © 2025 Bcompnetsolutions Indonesia
                         </p>
                     </div>
 
