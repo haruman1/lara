@@ -9,6 +9,10 @@
     <meta name="description" content="{{ $seoDescription ?? 'Default description' }}">
     <meta name="keywords" content="{{ $seoKeywords ?? '' }}">
 
+    <link rel="icon" type="image/x-icon" href="/images/icon/favicon.ico" id="favicon_.ico">
+    <link rel="icon" type="image/svg+xml" href="/images/icon/favicon.ico" id="favicon_.svg">
+    <link rel="shortcut icon" href="/images/icon/favicon.ico" id="favicon_.ico">
+    <link rel="apple-touch-icon" href="/images/icon/favicon.ico" id="favicon_apple">
     <!-- Open Graph -->
     <meta property="og:title" content="{{ $seoOgTitle ?? '' }}">
     <meta property="og:description" content="{{ $seoOgDescription ?? '' }}">
@@ -31,11 +35,6 @@
     <div id="scrollspy"> {{ $slot }} @livewireScripts @livewireScriptConfig </div>
     <livewire:components.float-button />
 </body>
-{{-- <script>
-    window.addEventListener("load", () => {
-        console.log("Page fully loaded, running HSStaticMethods.autoInit...");
-        window.HSStaticMethods.autoInit();
-    });
-</script> --}}
+
 
 </html>

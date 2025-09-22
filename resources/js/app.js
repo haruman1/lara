@@ -1,16 +1,18 @@
 import "./bootstrap";
 import "preline";
 import "@preline/toggle-password";
-
+import { setLanguage, initLanguage } from "./bahasa";
 // ❌ hapus ini kalau kamu mau pakai custom collapse
 // import "@preline/collapse";
 import { initNavbar } from "./Navbar";
-import { setLanguage, initLanguage } from "./bahasa";
+
 import * as Preline from "preline";
 
 window.Preline = Preline;
+window.setLanguage = setLanguage;
 
 document.addEventListener("DOMContentLoaded", () => {
+    initLanguage();
     // init bahasa
     initLanguage();
     if (window.HSStaticMethods?.autoInit) {
@@ -26,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // ketika Livewire sudah siap (awal booting)
 document.addEventListener("livewire:load", () => {
     console.log("Livewire loaded, running navbar init...");
+    initLanguage();
 });
 
 // setiap kali berpindah halaman dengan wire:navigate
