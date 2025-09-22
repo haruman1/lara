@@ -12,9 +12,9 @@ class SeoPageSeeder extends Seeder
 
 
         SeoPage::updateOrCreate(
-            ['slug' => '/'],
+            ['slug' => 'home'],
             [
-                'manual_slug' => '/',
+                'manual_slug' => 'home',
                 'title' => 'Beranda - Bcompnetsolutions Indonesia',
                 'meta_description' => 'Bcompnetsolutions Indonesia adalah perusahaan teknologi terkemuka yang menyediakan solusi IT inovatif untuk bisnis Anda. Kami memahami kebutuhan Anda dan memberikan solusi terbaik dengan teknologi terbaru.',
                 'meta_keywords' => 'home, beranda, website, Bcompnetsolutions, solusi IT, teknologi, bisnis',

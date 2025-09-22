@@ -79,7 +79,7 @@
                                 <!-- Mega Menu -->
                                 <div
                                     class="hs-dropdown [--strategy:static] md:[--strategy:absolute] [--adaptive:none] [--is-collapse:true] md:[--is-collapse:false]">
-                                    <button id="megaMenuToggle" type="button"
+                                    <button id="megaMenuToggle-{{ $menu->id }}" type="button"
                                         data-mega-toggle="megaMenu-{{ $menu->id }}"
                                         class="hs-dropdown-toggle w-full p-2 flex items-center text-sm text-gray-800 hover:bg-gray-100 rounded-lg dark:text-neutral-200 dark:hover:bg-neutral-700">
                                         @svg($menu->icon, 'shrink-0 size-4 me-2')
@@ -92,7 +92,9 @@
                                         </svg>
                                     </button>
 
-                                    <div id="megaMenu" data-mega-menu="megaMenu-{{ $menu->id }}"
+                                    {{-- id unik untuk setiap mega menu --}}
+                                    <div id="megaMenu-{{ $menu->id }}"
+                                        data-mega-menu="megaMenu-{{ $menu->id }}"
                                         class="hs-dropdown-menu hidden opacity-0 relative w-full min-w-60 z-10 top-full start-0 transition-all duration-300">
                                         <div
                                             class="md:mx-6 lg:mx-8 md:bg-white md:rounded-lg md:shadow-md dark:md:bg-neutral-800">

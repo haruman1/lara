@@ -27,9 +27,9 @@ use App\Livewire\Components\ContactUs;
 */
 
 Route::middleware('seo')->group(function () {
-    Route::get('/', HomePage::class)->name('home');
+    Route::get('/', HomePage::class)->name('home')->defaults('slug', 'home');
     Route::get('/about', AboutUs::class)->name('page.about')->defaults('slug', 'about');
-    Route::get('/services', Services::class)->name('page.services');
+    Route::get('/services', Services::class)->name('page.services')->defaults('slug', 'services');
     Route::get('/contact', ContactUs::class)->name('page.contact')->defaults('slug', 'contact');
     Route::get('test-demo', TestDemo::class)->name('test.demo');
 });
