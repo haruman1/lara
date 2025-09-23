@@ -3,8 +3,6 @@ import "preline";
 import "@preline/toggle-password";
 import { setLanguage, initLanguage } from "./bahasa";
 import { initTheme, setTheme } from "./theme";
-// ❌ hapus ini kalau kamu mau pakai custom collapse
-// import "@preline/collapse";
 
 import * as Preline from "preline";
 
