@@ -7,13 +7,12 @@ import { initTheme, setTheme } from "./theme";
 import * as Preline from "preline";
 
 document.addEventListener("DOMContentLoaded", () => {
+    initLanguage();
+    initLanguage();
+    initTheme();
     window.Preline = Preline;
     window.setLanguage = setLanguage;
     window.setTheme = setTheme;
-    initLanguage();
-    // init bahasa
-    initLanguage();
-    initTheme();
     if (window.HSStaticMethods?.autoInit) {
         try {
             window.HSStaticMethods.autoInit();
