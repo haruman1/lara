@@ -2,19 +2,20 @@ import "./bootstrap";
 import "preline";
 import "@preline/toggle-password";
 import { setLanguage, initLanguage } from "./bahasa";
+import { initTheme, setTheme } from "./theme";
 // ❌ hapus ini kalau kamu mau pakai custom collapse
 // import "@preline/collapse";
-import { initNavbar } from "./Navbar";
 
 import * as Preline from "preline";
 
-window.Preline = Preline;
-window.setLanguage = setLanguage;
-
 document.addEventListener("DOMContentLoaded", () => {
+    window.Preline = Preline;
+    window.setLanguage = setLanguage;
+    window.setTheme = setTheme;
     initLanguage();
     // init bahasa
     initLanguage();
+    initTheme();
     if (window.HSStaticMethods?.autoInit) {
         try {
             window.HSStaticMethods.autoInit();
@@ -22,7 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
             /* ignore */
         }
     }
-    initNavbar();
 });
 
 // ketika Livewire sudah siap (awal booting)
@@ -35,30 +35,3 @@ document.addEventListener("livewire:load", () => {
 document.addEventListener("livewire:navigated", () => {
     initLanguage();
 });
-
-// === THEME HANDLER ===
-window.setTheme = function (themeName) {
-    const htmlElement = document.documentElement;
-    const preferredTheme = window.matchMedia("(prefers-color-scheme: dark)")
-        .matches
-        ? "dark"
-        : "light";
-
-    if (themeName === "dark") {
-        htmlElement.classList.add("dark");
-        localStorage.setItem("hs_theme", "dark");
-    } else if (themeName === "light") {
-        htmlElement.classList.remove("dark");
-        localStorage.setItem("hs_theme", "light");
-    } else {
-        localStorage.removeItem("hs_theme");
-        htmlElement.classList.toggle("dark", preferredTheme);
-    }
-
-    // trigger perubahan theme
-    window.dispatchEvent(new Event("on-hs-appearance-change"));
-};
-
-// load theme yang tersimpan
-const savedTheme = localStorage.getItem("hs_theme") || "auto";
-window.setTheme(savedTheme);
