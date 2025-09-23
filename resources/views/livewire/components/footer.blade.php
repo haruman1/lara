@@ -1,5 +1,5 @@
 <section id="footer">
-    <div class="relative bg-white dark:bg-gray-900 bg-gray-50 transition-colors duration-500">
+    <div class="relative bg-white dark:bg-neutral-800 bg-gray-50 transition-colors duration-500">
         <!-- ========== FOOTER ========== -->
         <footer class="mt-auto w-full max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 mx-auto">
             <!-- Grid -->

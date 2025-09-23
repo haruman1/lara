@@ -1,8 +1,8 @@
-<section id="landing" class="w-full top-0 bg-white dark:bg-gray-900 px-4 py-16 sm:px-6 lg:px-8">
+<section id="landing" class="w-full top-0 bg-white dark:bg-gray-900 ">
     <!-- Hero -->
     <!-- Hero -->
     <div
-        class="w-full max-w-full mx-auto px-4 sm:px-6 lg:px-8 bg-white dark:bg-neutral-900 bg-gray-50 transition-colors duration-500">
+        class="w-full max-w-full mx-auto px-4 py-16 sm:px-6 lg:px-8 bg-white dark:bg-neutral-900 bg-gray-50 transition-colors duration-500">
         <!-- Grid -->
         <div class="grid lg:grid-cols-7 lg:gap-x-8 xl:gap-x-12 lg:items-center">
             <div class="lg:col-span-3">

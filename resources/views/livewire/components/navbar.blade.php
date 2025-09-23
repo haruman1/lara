@@ -1,6 +1,6 @@
 <!-- ========== HEADER ========== -->
 <header
-    class="sticky top-0 md:top-0 md:sticky md:flex flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full bg-white border-b border-gray-400 px-4 md:px-6 lg:px-8 dark:bg-neutral-800 dark:border-neutral-700 md:gap-3 py-2 px-4 sm:px-6 lg:px-8">
+    class="sticky top-0 md:top-0 md:sticky md:flex flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full bg-white border-b border-gray-400 px-4 md:px-6 lg:px-8 dark:bg-neutral-900 dark:border-neutral-700 md:gap-3 py-2 px-4 sm:px-6 lg:px-8">
     <nav
         class="relative max-w-[85rem] w-full mx-auto md:flex md:items-center md:justify-between md:gap-3 py-2 px-4 sm:px-6 lg:px-8">
 
@@ -50,30 +50,59 @@
                                     {{ $menu->title }}
                                 </a>
                             @elseif($menu->type === 'dropdown')
-                                <!-- Dropdown -->
-                                <div class="hs-dropdown relative">
-                                    <button id="dropdownToggle" type="button"
-                                        data-dropdown-toggle="dropdown-{{ $menu->id }}"
+                                <!-- DESKTOP DROPDOWN (Hidden on mobile) -->
+                                <div class="hs-dropdown relative hidden md:inline-flex [--trigger:hover]">
+                                    <button type="button"
                                         class="hs-dropdown-toggle p-2 flex items-center text-sm text-gray-800 hover:bg-gray-100 rounded-lg dark:text-neutral-200 dark:hover:bg-neutral-700">
-                                        @svg($menu->icon, 'shrink-0 size-4 me-2')
+                                        @svg($menu->icon, 'shrink-0 size-4 me-2 ini-svg-dropdown')
                                         {{ $menu->title }}
-                                        <svg class="shrink-0 size-4 ms-1 transition-transform hs-dropdown-open:-rotate-180"
+                                        <svg class="shrink-0 size-4 ms-1 transition-transform hs-dropdown-open:rotate-180"
                                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                             stroke="currentColor" stroke-width="2">
                                             <path d="m6 9 6 6 6-6" />
                                         </svg>
                                     </button>
-                                    <div class="hs-dropdown-menu hidden absolute bg-white shadow-md mt-2 rounded-lg py-2 w-48 dark:bg-neutral-800"
-                                        data-dropdown-menu="dropdown-{{ $menu->id }}">
+
+                                    <div
+                                        class="hs-dropdown-menu transition-[opacity,margin] duration-300 opacity-0 hidden hs-dropdown-open:opacity-100 absolute top-full end-0 min-w-48 mt-2 z-50 bg-white rounded-lg shadow-md dark:bg-neutral-800 before:absolute before:-top-2 before:left-0 before:w-full before:h-2">
                                         @foreach ($menu->children as $child)
                                             <a href="{{ $child->url }}"
-                                                class="flex items-center px-4 py-2 text-sm text-gray-800 hover:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-700">
-                                                @svg($child->icon, 'shrink-0 size-4 me-2')
+                                                class="flex items-center px-4 py-2.5 text-sm text-gray-800 hover:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-700 first:rounded-t-lg last:rounded-b-lg">
+                                                @svg($child->icon, 'shrink-0 size-4 me-2 ini-svg-dropdown-child')
                                                 <span>{{ $child->title }}</span>
                                             </a>
                                         @endforeach
                                     </div>
+                                </div>
 
+                                <!-- MOBILE ACCORDION (Hidden on desktop) -->
+                                <div class="hs-accordion relative md:hidden w-full"
+                                    id="hs-accordion-{{ $menu->id }}">
+                                    <button
+                                        class="hs-accordion-toggle w-full p-2 flex items-center text-sm text-gray-800 hover:bg-gray-100 rounded-lg dark:text-neutral-200 dark:hover:bg-neutral-700"
+                                        type="button" aria-controls="hs-accordion-collapse-{{ $menu->id }}">
+                                        @svg($menu->icon, 'shrink-0 size-4 me-2 ini-svg-dropdown')
+                                        {{ $menu->title }}
+                                        <svg class="hs-accordion-active:rotate-180 shrink-0 size-4 ms-auto transition-transform"
+                                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke="currentColor" stroke-width="2">
+                                            <path d="m6 9 6 6 6-6" />
+                                        </svg>
+                                    </button>
+
+                                    <div id="hs-accordion-collapse-{{ $menu->id }}"
+                                        class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
+                                        aria-labelledby="hs-accordion-{{ $menu->id }}">
+                                        <div class="pl-6 space-y-1">
+                                            @foreach ($menu->children as $child)
+                                                <a href="{{ $child->url }}"
+                                                    class="block p-2 text-sm text-gray-800 hover:bg-gray-100 rounded-lg dark:text-neutral-200 dark:hover:bg-neutral-700">
+                                                    @svg($child->icon, 'shrink-0 size-4 me-2 ini-svg-dropdown-child')
+                                                    {{ $child->title }}
+                                                </a>
+                                            @endforeach
+                                        </div>
+                                    </div>
                                 </div>
                             @elseif($menu->type === 'mega')
                                 <!-- Mega Menu -->
@@ -82,7 +111,7 @@
                                     <button id="megaMenuToggle-{{ $menu->id }}" type="button"
                                         data-mega-toggle="megaMenu-{{ $menu->id }}"
                                         class="hs-dropdown-toggle w-full p-2 flex items-center text-sm text-gray-800 hover:bg-gray-100 rounded-lg dark:text-neutral-200 dark:hover:bg-neutral-700">
-                                        @svg($menu->icon, 'shrink-0 size-4 me-2')
+                                        @svg($menu->icon, 'shrink-0 size-4 me-2 ini-svg-mega-menu')
                                         {{ $menu->title }}
                                         <svg id="dropdownIcon-{{ $menu->id }}"
                                             class="hs-dropdown-open:-rotate-180 duration-300 shrink-0 size-4 ms-auto md:ms-1"
@@ -92,7 +121,6 @@
                                         </svg>
                                     </button>
 
-                                    {{-- id unik untuk setiap mega menu --}}
                                     <div id="megaMenu-{{ $menu->id }}"
                                         data-mega-menu="megaMenu-{{ $menu->id }}"
                                         class="hs-dropdown-menu hidden opacity-0 relative w-full min-w-60 z-10 top-full start-0 transition-all duration-300">
@@ -109,7 +137,7 @@
                                                             <a href="{{ $child->url }}"
                                                                 class="p-2 flex items-center gap-x-2 hover:bg-gray-100 rounded-lg dark:hover:bg-neutral-700">
                                                                 @if ($child->icon)
-                                                                    @svg($child->icon, 'size-4 text-gray-500 dark:text-neutral-300')
+                                                                    @svg($child->icon, 'size-4 text-gray-500 dark:text-neutral-300 ini-svg-mega-menu-child')
                                                                 @endif
                                                                 <span
                                                                     class="text-sm text-gray-800 dark:text-neutral-200">
@@ -158,7 +186,7 @@
         const sections = document.querySelectorAll("section[id]");
         const navLinks = document.querySelectorAll("#navbarMenu a");
 
-        // Intersection Observer untuk active nav
+        // ========== INTERSECTION OBSERVER UNTUK ACTIVE NAV ==========
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 const id = entry.target.getAttribute("id");
@@ -171,10 +199,9 @@
         }, {
             threshold: 0.6
         });
-
         sections.forEach(section => observer.observe(section));
 
-        // Toggle Mobile Menu
+        // ========== TOGGLE MOBILE MENU ==========
         mobileToggle.addEventListener("click", () => {
             navbarMenu.classList.toggle("hidden");
             if (navbarMenu.classList.contains("hidden")) {
@@ -186,7 +213,7 @@
             }
         });
 
-        // Smooth scroll link
+        // ========== SMOOTH SCROLL ==========
         navLinks.forEach(link => {
             link.addEventListener("click", function(e) {
                 const url = new URL(this.href);
@@ -202,18 +229,16 @@
                 }
             });
         });
-        // === END ===
-        // === MEGA MENU HANDLER (MULTIPLE) ===
 
+        // ========== MEGA MENU HANDLER ==========
         const megaToggles = document.querySelectorAll("[data-mega-toggle]");
         megaToggles.forEach(toggle => {
             const id = toggle.getAttribute("data-mega-toggle");
             const megaMenu = document.querySelector(`[data-mega-menu="${id}"]`);
-            const dropdownIcon = toggle.querySelector(".dropdown-icon");
+            const dropdownIcon = toggle.querySelector("svg");
 
             if (!megaMenu) return;
 
-            // Toggle open/close
             toggle.addEventListener("click", (e) => {
                 e.preventDefault();
                 megaMenu.classList.toggle("hidden");
@@ -221,7 +246,6 @@
                 dropdownIcon?.classList.toggle("-rotate-180");
             });
 
-            // Klik di luar close menu
             document.addEventListener("click", (e) => {
                 if (!megaMenu.contains(e.target) && !toggle.contains(e.target)) {
                     if (!megaMenu.classList.contains("hidden")) {
@@ -231,5 +255,21 @@
                 }
             });
         });
+
+        // ========== DROPDOWN HANDLER (MOBILE ONLY) ==========
+        document.querySelectorAll("[id^='dropdownToggle-']").forEach(toggle => {
+            toggle.addEventListener("click", function(e) {
+                const id = this.id.split("-")[1];
+                const collapse = document.getElementById("collapse-" + id);
+
+                if (window.innerWidth < 768 && collapse) {
+                    e.preventDefault();
+                    collapse.classList.toggle("hidden");
+                }
+            });
+        });
+
+
+
     });
 </script>

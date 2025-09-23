@@ -1,4 +1,4 @@
-<section id="news" class="relative bg-dark-50 dark:bg-dark-900 transition-colors duration-500">
+<section id="news" class="relative bg-dark-50 dark:bg-neutral-900 transition-colors duration-500">
     <!-- Card Blog -->
     <!-- Card Blog -->
     <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">

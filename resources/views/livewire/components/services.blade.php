@@ -21,10 +21,7 @@
                     <div class="h-52 flex flex-col justify-center items-center bg-blue-600 rounded-t-xl">
                         <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128"
                             class="size-28">
-                            <!-- Background putih -->
-                            <rect width="128" height="128" rx="20" fill="white" />
-
-                            <!-- Gelombang sinyal abstrak berwarna-warni -->
+                            <rect width="128" height="128" rx="20" fill="#fff" />
                             <circle cx="64" cy="64" r="10" fill="#36C5F0" />
                             <circle cx="64" cy="64" r="20" fill="none" stroke="#2EB67D"
                                 stroke-width="6" />
