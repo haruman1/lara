@@ -7,6 +7,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 use \App\Http\Middleware\PreventRouteCollision;
+use App\Http\Middleware\LogUserActivity;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -20,6 +21,7 @@ return Application::configure(basePath: dirname(__DIR__))
             'roleAccess' => RoleBasedAccess::class,
             'seo' => SeoMiddleware::class,
             'prevent.collision' => PreventRouteCollision::class,
+            'user.activity' => LogUserActivity::class
 
 
         ]);

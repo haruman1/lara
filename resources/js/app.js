@@ -8,7 +8,6 @@ import * as Preline from "preline";
 
 document.addEventListener("DOMContentLoaded", () => {
     initLanguage();
-    initLanguage();
     initTheme();
     window.Preline = Preline;
     window.setLanguage = setLanguage;

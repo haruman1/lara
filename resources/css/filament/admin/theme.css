@@ -6,3 +6,21 @@
 @source '../../../../vendor/wire-elements/**/*.blade.php';
 @source '../../../../app/Filament/**/*';
 @source '../../../../resources/views/filament/**/*';
+/* Hilangkan padding/margin di main content */
+@layer components {
+    /* Hilangkan padding/margin di container utama */
+    .fi-main {
+        @apply pl-0;
+    }
+
+    .fi-main-content {
+        @apply ml-0 pl-0;
+    }
+
+    .fi-sidebar {
+        @apply border-r border-gray-200 dark:border-gray-700 mr-0 pr-0;
+    }
+    .fi-simple-main {
+        @apply sm:max-w-3xl;
+    }
+}
