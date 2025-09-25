@@ -8,7 +8,7 @@ mount(function () {
 });
 ?>
 
-<section id="aboutus" class="w-full top-0 bg-white dark:bg-gray-900">
+<section id="aboutus" id="about-us" class="w-full top-0 bg-white dark:bg-gray-900">
     <livewire:components.navbar />
     <div class="max-w-6xl mx-auto px-6 lg:px-8 py-16">
         <!-- Header -->

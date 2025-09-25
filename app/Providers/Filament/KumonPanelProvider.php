@@ -17,6 +17,7 @@ use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
 use Filament\Widgets\AccountWidget;
 use Filament\Widgets\FilamentInfoWidget;
+use App\Filament\Widgets\UserActivityChart;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
@@ -24,6 +25,10 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Pboivin\FilamentPeek\FilamentPeekPlugin;
+use Illuminate\Support\Facades\Auth;
+use pxlrbt\FilamentSpotlight\SpotlightPlugin;
+use Leandrocfe\FilamentApexCharts\FilamentApexChartsPlugin;
+use App\Http\Middleware\LogUserActivity;
 
 class KumonPanelProvider extends PanelProvider
 {
@@ -34,10 +39,27 @@ class KumonPanelProvider extends PanelProvider
             ->id('kumon')
             ->path('kumon')
             ->userMenuItems([
-                'logout' => fn(Action $action) => $action->label('Log out ')->url(route('logout'))->icon('heroicon-o-arrow-left-on-rectangle'),
-                // ...
-            ])
+                'logout' => fn() => Action::make('logout')
+                    ->label('Log out')
+                    ->icon('heroicon-o-arrow-left-on-rectangle')
+                    ->color('danger')
+                    ->requiresConfirmation() // wajib biar modal muncul
+                    ->modalHeading('Log out')
+                    ->modalDescription('Are you sure you want to log out?')
+                    ->modalSubmitActionLabel('Yes, log out')
+                    ->action(function () {
+                        Auth::guard('web')->logout();
 
+                        session()->invalidate();
+                        session()->regenerateToken();
+
+                        return redirect()->route('login');
+                    }),
+            ])
+            ->brandLogo('/images/icon/zd3rcd6ftavhpy4xgki9.webp')
+            ->darkModeBrandLogo('/images/icon/wcern2cczvex3oqhqzpf.webp')
+            ->brandLogoHeight('2rem')
+            ->favicon('/images/icon/favicon.ico')
             ->colors([
                 'primary' => Color::Teal,
             ])
@@ -49,15 +71,18 @@ class KumonPanelProvider extends PanelProvider
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\Filament\Widgets')
             ->widgets([
                 AccountWidget::class,
+                UserActivityChart::class,
                 // FilamentInfoWidget::class,
             ])->plugins([
+                SpotlightPlugin::make(),
                 FilamentPeekPlugin::make()
                     ->disablePluginStyles(),
-
+                FilamentApexChartsPlugin::make(),
                 StickyHeaderPlugin::make()
                     ->stickOnListPages(false),
             ])
             ->middleware([
+                LogUserActivity::class,
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,
                 StartSession::class,
@@ -70,8 +95,11 @@ class KumonPanelProvider extends PanelProvider
             ])
             ->viteTheme('resources/css/filament/admin/theme.css')
             ->authMiddleware([
-                Authenticate::class,
+                // Authenticate::class,
                 RoleBasedAccess::class . ':admin',
-            ])->authGuard('web');
+            ])->authGuard('web')
+            ->sidebarWidth('16rem')
+            ->sidebarFullyCollapsibleOnDesktop()
+            ->collapsedSidebarWidth('8rem');
     }
 }

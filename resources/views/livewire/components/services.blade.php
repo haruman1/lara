@@ -1,4 +1,5 @@
-<section id="services">
+<section id="services" class="w-full top-0 bg-white dark:bg-gray-900">
+    <livewire:components.navbar />
     <!-- Card Blog -->
     <div class="relative group bg-white dark:bg-neutral-900 bg-gray-50 transition-colors duration-500">
         <div class=" max-w-full px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
@@ -20,10 +21,7 @@
                     <div class="h-52 flex flex-col justify-center items-center bg-blue-600 rounded-t-xl">
                         <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128"
                             class="size-28">
-                            <!-- Background putih -->
-                            <rect width="128" height="128" rx="20" fill="white" />
-
-                            <!-- Gelombang sinyal abstrak berwarna-warni -->
+                            <rect width="128" height="128" rx="20" fill="#fff" />
                             <circle cx="64" cy="64" r="10" fill="#36C5F0" />
                             <circle cx="64" cy="64" r="20" fill="none" stroke="#2EB67D"
                                 stroke-width="6" />
@@ -322,4 +320,5 @@
         </div>
     </div>
     <!-- End Card Blog -->
+    <livewire:components.float-button />
 </section>

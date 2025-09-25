@@ -9,7 +9,7 @@ class AboutUs extends Component
     public function render()
     {
         return view('livewire.components.about-us')->layout('layouts.app', [
-            'title' => 'About Us nich',
+            'title' => 'About',
         ]);
     }
 }

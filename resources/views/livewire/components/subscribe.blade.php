@@ -1,4 +1,4 @@
-<section id="subscribe" class="bg-gray-50 dark:bg-neutral-900 py-16">
+<section id="subscribe" class="bg-gray-50 dark:bg-neutral-900 py-16 duration-500">
     <div class="max-w-2xl mx-auto px-6 lg:px-8 text-center">
         <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4" data-lang-key="subscribe-header">Berlangganan
             Newsletter Kami</h2>

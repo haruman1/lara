@@ -28,7 +28,7 @@ class RoleBasedAccess
             return redirect(Filament::getHomeUrl());
         }
 
-        if ($user->hasAnyRole(['users',])) {
+        if ($user->hasAnyRole(['users'])) {
             return redirect('/users');
         }
 

@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @source "./node_modules/preline/dist/*.js";
 @import "preline/variants.css";
+
 @import "tailwindcss-animated";
 /* Aktifkan dark mode berbasis class di html */
 @custom-variant dark (&:where(.dark, .dark *));
@@ -16,6 +17,42 @@ body,
     transition-duration: 400ms;
     transition-timing-function: ease;
 }
+.hs-dropdown-menu {
+    overflow: visible !important;
+    z-index: 1200 !important;
+    will-change: transform;
+}
+
+/* tombol toggle tidak memotong icon */
+.hs-dropdown-toggle {
+    overflow: visible;
+}
+
+/* target rotasi untuk panah (kita tambahkan class ini via JS) */
+.rotate-target {
+    display: inline-block;
+    transform-origin: center;
+    transition: transform 0.22s ease;
+}
+
+/* class untuk memutar 180 deg */
+.rotate-target.rotated {
+    transform: rotate(180deg);
+}
+
+/* optional: beri animasi fade / scale untuk menu portal */
+.dropdown-portal {
+    transition:
+        opacity 0.12s ease,
+        transform 0.12s ease;
+    opacity: 1;
+}
+#hs-header-base {
+    overflow: visible !important;
+}
 /* .nav-link.active {
     @apply text-blue-600 active:text-blue-600 dark:active:text-blue-500 font-semibold;
 } */
+.active-nav {
+    @apply bg-neutral-500 text-gray-800 dark:bg-neutral-900 dark:text-neutral-200;
+}

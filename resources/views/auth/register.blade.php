@@ -4,8 +4,9 @@
             <h1 class="block text-2xl font-bold text-gray-800 dark:text-white">Sign up</h1>
             <p class="mt-2 text-sm text-gray-600 dark:text-neutral-400">
                 Already have an account?
-                <a class="text-blue-600 decoration-2 hover:underline focus:outline-hidden focus:underline font-medium dark:text-blue-500"
-                    href="../examples/html/signin.html">
+                <a wire:navigate="{{ route('login') }}"
+                    class="text-blue-600 decoration-2 hover:underline focus:outline-hidden focus:underline font-medium dark:text-blue-500"
+                    href="{{ route('login') }}">
                     Sign in here
                 </a>
             </p>
