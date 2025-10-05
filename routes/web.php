@@ -85,7 +85,7 @@ Route::prefix('blog')->group(function () {
 | User / Guest Dashboard
 |--------------------------------------------------------------------------
 */
-Route::middleware(['roleAccess:users'])->prefix('users')->group(function () {
+Route::prefix('users')->group(function () {
     Route::get('/', UserDashboard::class)->name('user.dashboard');
     Route::get('/profile', UserProfile::class)->name('user.profile');
 });
@@ -106,5 +106,5 @@ Route::fallback(function () {
 */
 
 Route::get('/{slug}', [PageController::class, 'show'])
-    ->middleware('prevent.collision')
+    ->middleware('prevent.collision', 'seo')
     ->name('page.show');

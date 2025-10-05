@@ -20,7 +20,7 @@ class NavbarResource extends Resource
     protected static ?string $model = Navbar::class;
 
     protected static string|BackedEnum|null $navigationIcon = 'eva-menu';
-    protected static string|UnitEnum|null $navigationGroup = 'Pengaturan Website';
+    protected static string|UnitEnum|null $navigationGroup = 'Pengaturan';
     protected static ?string $recordTitleAttribute = 'Navbar';
 
     public static function form(Schema $schema): Schema

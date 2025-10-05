@@ -20,9 +20,9 @@ class SeoPageResource extends Resource
     protected static ?string $model = SeoPage::class;
 
     protected static string|BackedEnum|null $navigationIcon = 'iconpark-seo-o';
-    protected static string|UnitEnum|null $navigationGroup = 'Pengaturan Website';
+    protected static string|UnitEnum|null $navigationGroup = 'Pengaturan';
     protected static ?string $recordTitleAttribute = 'SEO';
-    protected static ?string $modelLabel = 'SEO Page';
+    protected static ?string $modelLabel = 'SEO';
 
     public static function form(Schema $schema): Schema
     {
@@ -45,6 +45,7 @@ class SeoPageResource extends Resource
     {
         return [
             'index' => ListSeoPages::route('/'),
+            'view' => ListSeoPages::route('/{record}'),
             'create' => CreateSeoPage::route('/create'),
             'edit' => EditSeoPage::route('/{record}/edit'),
         ];

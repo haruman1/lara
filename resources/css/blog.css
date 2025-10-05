@@ -20,11 +20,6 @@
     --main-nav-height: 4rem;
 }
 
-a,
-.prose a {
-    @apply text-green-800 no-underline font-medium;
-}
-
 .prose img {
     @apply bg-gray-200;
 }

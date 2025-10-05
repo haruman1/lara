@@ -6,6 +6,11 @@ use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
 use App\Models\Navbar;
 use Illuminate\Support\Facades\Gate; // <-- Import Gate
+use Spatie\Health\Facades\Health;
+use Spatie\Health\Checks\Checks\OptimizedAppCheck;
+use Spatie\Health\Checks\Checks\DebugModeCheck;
+use Spatie\Health\Checks\Checks\EnvironmentCheck;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -28,6 +33,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        Health::checks([
+            OptimizedAppCheck::new(),
+            DebugModeCheck::new(),
+            EnvironmentCheck::new(),
+        ]);
         Gate::before(function ($user, $ability) {
             // Jika user memiliki role 'super-admin', berikan akses penuh
             return $user->hasRole('super_admin') ? true : null;

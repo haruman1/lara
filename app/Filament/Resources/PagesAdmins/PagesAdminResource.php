@@ -22,7 +22,7 @@ class PagesAdminResource extends Resource
     protected static ?string $model = Pages::class;
 
     protected static string|\BackedEnum|null $navigationIcon = 'bi-stack';
-    protected static string | \UnitEnum | null $navigationGroup = 'Pengaturan Website';
+    protected static string | \UnitEnum | null $navigationGroup = 'Pengaturan';
     protected static ?string $recordTitleAttribute = 'Page Dynamic';
 
     public static function form(Schema $schema): Schema

@@ -27,6 +27,7 @@ use Illuminate\Support\Facades\Auth;
 use pxlrbt\FilamentSpotlight\SpotlightPlugin;
 use Leandrocfe\FilamentApexCharts\FilamentApexChartsPlugin;
 use App\Http\Middleware\LogUserActivity;
+use ShuvroRoy\FilamentSpatieLaravelHealth\FilamentSpatieLaravelHealthPlugin;
 
 
 
@@ -75,7 +76,8 @@ class KumonPanelProvider extends PanelProvider
                 // FilamentInfoWidget::class,
             ])->plugins([
                 FilamentShieldPlugin::make(),
-
+                FilamentSpatieLaravelHealthPlugin::make()
+                    ->authorize(fn(): bool => Auth::user()->can('manage_website')),
                 SpotlightPlugin::make(),
                 FilamentPeekPlugin::make()
                     ->disablePluginStyles(),
@@ -104,6 +106,6 @@ class KumonPanelProvider extends PanelProvider
             ])->authGuard('web')
             ->sidebarWidth('16rem')
             ->sidebarFullyCollapsibleOnDesktop()
-            ->collapsedSidebarWidth('8rem');
+            ->collapsedSidebarWidth('9rem');
     }
 }
