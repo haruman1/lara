@@ -5,6 +5,7 @@ namespace App\Filament\Resources\SeoPages;
 use App\Filament\Resources\SeoPages\Pages\CreateSeoPage;
 use App\Filament\Resources\SeoPages\Pages\EditSeoPage;
 use App\Filament\Resources\SeoPages\Pages\ListSeoPages;
+use App\Filament\Resources\SeoPages\Pages\ViewSeoPage;
 use App\Filament\Resources\SeoPages\Schemas\SeoPageForm;
 use App\Filament\Resources\SeoPages\Tables\SeoPagesTable;
 use App\Models\SeoPage;
@@ -45,8 +46,8 @@ class SeoPageResource extends Resource
     {
         return [
             'index' => ListSeoPages::route('/'),
-            'view' => ListSeoPages::route('/{record}'),
             'create' => CreateSeoPage::route('/create'),
+            'view' => ViewSeoPage::route('/{record}'),
             'edit' => EditSeoPage::route('/{record}/edit'),
         ];
     }
