@@ -30,7 +30,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Gate::before(function ($user, $ability) {
             // Jika user memiliki role 'super-admin', berikan akses penuh
-            return $user->hasRole('super-admin') ? true : null;
+            return $user->hasRole('super_admin') ? true : null;
         });
         Event::listen(function (\SocialiteProviders\Manager\SocialiteWasCalled $event) {
             $event->extendSocialite('twitter', \SocialiteProviders\Twitter\Provider::class);

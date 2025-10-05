@@ -20,8 +20,8 @@ class SuperAdminSeeder extends Seeder
             ]
         );
 
-        // Cari atau buat role 'super-admin'
-        $superAdminRole = Role::firstOrCreate(['name' => 'super-admin']);
+        // Cari atau buat role 'super_admin'
+        $superAdminRole = Role::firstOrCreate(['name' => 'super_admin']);
 
         // Berikan role 'super-admin' ke pengguna tersebut
         $superAdminUser->assignRole($superAdminRole);

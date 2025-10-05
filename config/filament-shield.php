@@ -50,6 +50,7 @@ return [
     */
 
     'auth_provider_model' => 'App\\Models\\User',
+    'pages_admin_model' => 'App\\Models\\Pages',
     'category_model' => 'App\\Models\\Category',
     'menu_model' => 'App\\Models\\Menu',
     'post_model' => 'App\\Models\\Post',
@@ -73,7 +74,7 @@ return [
     'super_admin' => [
         'enabled' => true,
         'name' => 'super_admin',
-        'define_via_gate' => false,
+        'define_via_gate' => true,
         'intercept_gate' => 'before',
     ],
 
@@ -228,7 +229,6 @@ return [
         'prefix' => 'view',
         'exclude' => [
             \Filament\Widgets\AccountWidget::class,
-            \Filament\Widgets\FilamentInfoWidget::class,
         ],
     ],
 

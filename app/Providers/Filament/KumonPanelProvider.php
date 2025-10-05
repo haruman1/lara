@@ -72,7 +72,6 @@ class KumonPanelProvider extends PanelProvider
             ->widgets([
                 AccountWidget::class,
                 UserActivityChart::class,
-
                 // FilamentInfoWidget::class,
             ])->plugins([
                 FilamentShieldPlugin::make(),
@@ -100,8 +99,8 @@ class KumonPanelProvider extends PanelProvider
             ])
             ->viteTheme('resources/css/filament/admin/theme.css')
             ->authMiddleware([
-                // 'role:admin|super_dede|blogger|billing_admin',
-                // RoleBasedAccess::class . ':admin|super_dede|blogger|billing_admin', // <-- Ganti 'admin' dengan role yang sesuai
+                'role:admin|super_admin|blogger|billing_admin',
+
             ])->authGuard('web')
             ->sidebarWidth('16rem')
             ->sidebarFullyCollapsibleOnDesktop()
