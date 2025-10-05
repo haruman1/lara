@@ -4,9 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use Spatie\Permission\Traits\HasRoles;
 
 class SeoPage extends Model
 {
+    use HasRoles;
     protected $table = 'seo_pages';
 
     protected $fillable = [

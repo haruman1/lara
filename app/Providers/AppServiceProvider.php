@@ -5,7 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
 use App\Models\Navbar;
-
+use Illuminate\Support\Facades\Gate; // <-- Import Gate
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -28,6 +28,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        Gate::before(function ($user, $ability) {
+            // Jika user memiliki role 'super-admin', berikan akses penuh
+            return $user->hasRole('super-admin') ? true : null;
+        });
         Event::listen(function (\SocialiteProviders\Manager\SocialiteWasCalled $event) {
             $event->extendSocialite('twitter', \SocialiteProviders\Twitter\Provider::class);
             $event->extendSocialite('github', \SocialiteProviders\GitHub\Provider::class);

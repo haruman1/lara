@@ -2,10 +2,9 @@
 
 namespace App\Providers\Filament;
 
-use App\Filament\Pages\Auth\Login;
-use App\Http\Middleware\RedirectIfAuthenticated;
-use App\Http\Middleware\RoleBasedAccess;
+
 use Awcodes\StickyHeader\StickyHeaderPlugin;
+use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
 use Filament\Actions\Action;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
@@ -16,7 +15,6 @@ use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
 use Filament\Widgets\AccountWidget;
-use Filament\Widgets\FilamentInfoWidget;
 use App\Filament\Widgets\UserActivityChart;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
@@ -29,6 +27,8 @@ use Illuminate\Support\Facades\Auth;
 use pxlrbt\FilamentSpotlight\SpotlightPlugin;
 use Leandrocfe\FilamentApexCharts\FilamentApexChartsPlugin;
 use App\Http\Middleware\LogUserActivity;
+
+
 
 class KumonPanelProvider extends PanelProvider
 {
@@ -72,14 +72,19 @@ class KumonPanelProvider extends PanelProvider
             ->widgets([
                 AccountWidget::class,
                 UserActivityChart::class,
+
                 // FilamentInfoWidget::class,
             ])->plugins([
+                FilamentShieldPlugin::make(),
+
                 SpotlightPlugin::make(),
                 FilamentPeekPlugin::make()
                     ->disablePluginStyles(),
                 FilamentApexChartsPlugin::make(),
                 StickyHeaderPlugin::make()
                     ->stickOnListPages(false),
+
+
             ])
             ->middleware([
                 LogUserActivity::class,
@@ -95,8 +100,8 @@ class KumonPanelProvider extends PanelProvider
             ])
             ->viteTheme('resources/css/filament/admin/theme.css')
             ->authMiddleware([
-                // Authenticate::class,
-                RoleBasedAccess::class . ':admin',
+                // 'role:admin|super_dede|blogger|billing_admin',
+                // RoleBasedAccess::class . ':admin|super_dede|blogger|billing_admin', // <-- Ganti 'admin' dengan role yang sesuai
             ])->authGuard('web')
             ->sidebarWidth('16rem')
             ->sidebarFullyCollapsibleOnDesktop()

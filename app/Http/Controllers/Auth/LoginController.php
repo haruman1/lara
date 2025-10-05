@@ -38,7 +38,7 @@ class LoginController extends Controller
             $request->session()->regenerate();
             $user = Auth::user();
 
-            if ($user->hasRole('admin')) {
+            if ($user->hasAnyRole(['super-admin', 'admin', 'super_dede', 'blogger', 'billing_admin'])) {
                 return redirect()->intended(Filament::getHomeUrl() ?? '/admin');
             }
 

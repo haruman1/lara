@@ -17,8 +17,9 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->alias([
-            'role' => RedirectIfAuthenticated::class,
-            'roleAccess' => RoleBasedAccess::class,
+            'role' => \Spatie\Permission\Middleware\RoleMiddleware::class,
+            'permission' => \Spatie\Permission\Middleware\PermissionMiddleware::class,
+            'role_or_permission' => \Spatie\Permission\Middleware\RoleOrPermissionMiddleware::class,
             'seo' => SeoMiddleware::class,
             'prevent.collision' => PreventRouteCollision::class,
             'user.activity' => LogUserActivity::class

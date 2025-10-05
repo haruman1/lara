@@ -20,6 +20,18 @@ class RolePermissionSeeder extends Seeder
         // Create permissions
         $permissions = [
             'view_admin_dashboard',
+            'manage_admin',
+            'view_billing_admin',
+            'manage_billing_admin',
+            'make_payments',
+            'make_refunds',
+            'manage_website',
+            'manage_blog',
+            'create_blog',
+            'edit_blog',
+            'delete_blog',
+            'publish_blog',
+            'manage_pages',
             'manage_users',
             'manage_roles',
             'view_user_dashboard',
@@ -33,13 +45,45 @@ class RolePermissionSeeder extends Seeder
                 'guard_name' => 'web'
             ]);
         }
-
+        $superAdminRole = Role::create([
+            'name' => 'super_dede',
+            'guard_name' => 'web'
+        ]);
+        $superAdminRole->givePermissionTo(Permission::all());
         // Create roles and assign permissions
         $adminRole = Role::create([
             'name' => 'admin',
             'guard_name' => 'web'
         ]);
-        $adminRole->givePermissionTo(Permission::all());
+        $adminRole->givePermissionTo([
+            'view_admin_dashboard',
+            'manage_website',
+            'manage_pages',
+            'manage_users',
+            'manage_roles',
+            'view_reports',
+        ]);
+        $blogger = Role::create([
+            'name' => 'blogger',
+            'guard_name' => 'web'
+        ]);
+        $blogger->givePermissionTo([
+            'manage_blog',
+            'create_blog',
+            'edit_blog',
+            'delete_blog',
+            'publish_blog',
+        ]);
+        $billingAdminRole = Role::create([
+            'name' => 'billing_admin',
+            'guard_name' => 'web'
+        ]);
+        $billingAdminRole->givePermissionTo([
+            'view_billing_admin',
+            'manage_billing_admin',
+            'make_payments',
+            'make_refunds',
+        ]);
 
         $userRole = Role::create([
             'name' => 'users',
@@ -57,6 +101,30 @@ class RolePermissionSeeder extends Seeder
         $guestRole->givePermissionTo([
             'view_user_dashboard',
         ]);
+
+        $SuperAdmin = User::create([
+            'name' => 'Super Admin Uenary',
+            'email' => 'superadmin@kumon.com',
+            'author_id' => 'SUP001',
+            'password' => Hash::make('password'),
+        ]);
+        $SuperAdmin->assignRole('super_dede');
+
+        $blogger = User::create([
+            'name' => 'Blogger User',
+            'email' => 'blogger@kumon.com',
+            'author_id' => 'BLO001',
+            'password' => Hash::make('password'),
+        ]);
+        $blogger->assignRole('blogger');
+
+        $billingAdmin = User::create([
+            'name' => 'Billing Admin',
+            'email' => 'billingadmin@kumon.com',
+            'author_id' => 'BIL001',
+            'password' => Hash::make('password'),
+        ]);
+        $billingAdmin->assignRole('billing_admin');
 
         // Create default admin user
         $admin = User::create([

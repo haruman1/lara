@@ -32,6 +32,12 @@ Route::middleware('seo')->group(function () {
     Route::get('/services', Services::class)->name('page.services')->defaults('slug', 'services');
     Route::get('/contact', ContactUs::class)->name('page.contact')->defaults('slug', 'contact');
     Route::get('test-demo', TestDemo::class)->name('test.demo');
+    Route::middleware('guest')->group(function () {
+        Route::get('/sign-in', [AuthLoginController::class, 'showLoginForm'])->name('login');
+        Route::get('/sign-up', [AuthRegisterController::class, 'showRegisterForm'])->name('signup');
+        Route::post('/sign-in', [AuthLoginController::class, 'login'])->name('login.post');
+        Route::post('/sign-up', [AuthRegisterController::class, 'register'])->name('signup.post');
+    });
 });
 
 
@@ -57,12 +63,7 @@ Route::prefix('auth')->group(function () {
 | Authentication
 |--------------------------------------------------------------------------
 */
-Route::middleware('guest')->group(function () {
-    Route::get('/sign-in', [AuthLoginController::class, 'showLoginForm'])->name('login');
-    Route::get('/sign-up', [AuthRegisterController::class, 'showRegisterForm'])->name('signup');
-    Route::post('/sign-in', [AuthLoginController::class, 'login'])->name('login.post');
-    Route::post('/sign-up', [AuthRegisterController::class, 'register'])->name('signup.post');
-});
+
 
 Route::middleware('auth')->group(function () {
     Route::post('/sign-out', [AuthLoginController::class, 'logout'])->name('logout');
