@@ -8,7 +8,12 @@
 @source '../../../../resources/views/filament/**/*';
 /* Hilangkan padding/margin di main content */
 :root {
-    --sidebar-width: 18rem; /* Defaultnya sekitar 20rem atau 22rem */
+    --font-family: "Inter Variable";
+    --mono-font-family: "ui-monospace";
+    --serif-font-family: "ui-serif";
+    --sidebar-width: 16rem;
+    --collapsed-sidebar-width: 9rem;
+    --default-theme-mode: dark;
 }
 @layer components {
     /* Hilangkan padding/margin di container utama */
