@@ -1,11 +1,13 @@
 <?php
-
+// Controllers
 use App\Http\Controllers\Auth\LoginController as AuthLoginController;
+use App\Http\Controllers\Auth\RegisterController as AuthRegisterController;
+
 use App\Http\Controllers\Auth\SocialAuthController;
 use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
-use App\Http\Middleware\RoleBasedAccess;
+
 use Illuminate\Support\Facades\Route;
 
 // Livewire Components
@@ -13,7 +15,10 @@ use App\Livewire\HomePage;
 use App\Livewire\Components\TestDemo;
 use App\Livewire\UserDashboard;
 use App\Livewire\UserProfile;
+use App\Livewire\Components\Services;
 use App\Livewire\Components\AboutUs;
+
+use App\Livewire\Components\ContactUs;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,16 +26,27 @@ use App\Livewire\Components\AboutUs;
 |--------------------------------------------------------------------------
 */
 
-Route::get('/', HomePage::class)->name('home');
-Route::get('/about', AboutUs::class)->name('about.page');
-Route::get('/contact', [PageController::class, 'contact'])->name('page.contact');
-Route::get('test-demo', TestDemo::class)->name('test.demo');
+Route::middleware('seo')->group(function () {
+    Route::get('/', HomePage::class)->name('home')->defaults('slug', 'home');
+    Route::get('/about', AboutUs::class)->name('page.about')->defaults('slug', 'about');
+    Route::get('/services', Services::class)->name('page.services')->defaults('slug', 'services');
+    Route::get('/contact', ContactUs::class)->name('page.contact')->defaults('slug', 'contact');
+    Route::get('test-demo', TestDemo::class)->name('test.demo');
+    Route::middleware('guest')->group(function () {
+        Route::get('/sign-in', [AuthLoginController::class, 'showLoginForm'])->name('login');
+        Route::get('/sign-up', [AuthRegisterController::class, 'showRegisterForm'])->name('signup');
+        Route::post('/sign-in', [AuthLoginController::class, 'login'])->name('login.post');
+        Route::post('/sign-up', [AuthRegisterController::class, 'register'])->name('signup.post');
+    });
+});
+
 
 /*
 |--------------------------------------------------------------------------
 | Change Language/Locale
 |--------------------------------------------------------------------------
 */
+
 Route::get('translations/{locale}', [LocalizationController::class, 'changeLocale'])
     ->name('lang.switch');
 /*
@@ -47,14 +63,11 @@ Route::prefix('auth')->group(function () {
 | Authentication
 |--------------------------------------------------------------------------
 */
-Route::middleware('guest')->group(function () {
-    Route::get('/sign-in', [AuthLoginController::class, 'showLoginForm'])->name('login');
-    Route::post('/sign-in', [AuthLoginController::class, 'login'])->name('login.post');
-});
+
 
 Route::middleware('auth')->group(function () {
     Route::post('/sign-out', [AuthLoginController::class, 'logout'])->name('logout');
-    Route::get('/sign-out', [AuthLoginController::class, 'logout'])->name('logout');
+    Route::get('/sign-out', [AuthLoginController::class, 'logout'])->name('logout.get');
 });
 
 /*
@@ -72,7 +85,7 @@ Route::prefix('blog')->group(function () {
 | User / Guest Dashboard
 |--------------------------------------------------------------------------
 */
-Route::middleware(['roleAccess:users'])->prefix('users')->group(function () {
+Route::prefix('users')->group(function () {
     Route::get('/', UserDashboard::class)->name('user.dashboard');
     Route::get('/profile', UserProfile::class)->name('user.profile');
 });
@@ -91,4 +104,7 @@ Route::fallback(function () {
 | Dynamic Page Slug (keep last)
 |--------------------------------------------------------------------------
 */
-Route::get('/{slug}', [PageController::class, 'show'])->name('page.show');
+
+Route::get('/{slug}', [PageController::class, 'show'])
+    ->middleware('prevent.collision', 'seo')
+    ->name('page.show');

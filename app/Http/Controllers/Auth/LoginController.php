@@ -15,10 +15,7 @@ class LoginController extends Controller
         return view('auth.login');
     }
 
-    public function showRegisterForm()
-    {
-        return view('auth.register');
-    }
+
 
     protected function sendFailedLoginResponse(Request $request)
     {
@@ -41,7 +38,7 @@ class LoginController extends Controller
             $request->session()->regenerate();
             $user = Auth::user();
 
-            if ($user->hasRole('admin')) {
+            if ($user->can('access_panel')) {
                 return redirect()->intended(Filament::getHomeUrl() ?? '/admin');
             }
 

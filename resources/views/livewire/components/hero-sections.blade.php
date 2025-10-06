@@ -1,33 +1,23 @@
-<section id="landing" class="w-full">
+<section id="landing" class="w-full top-0 bg-white dark:bg-gray-900 ">
     <!-- Hero -->
     <!-- Hero -->
     <div
-        class="max-w-full mx-auto px-4 sm:px-6 lg:px-8 bg-white dark:bg-neutral-900 bg-gray-50 transition-colors duration-500">
+        class="w-full max-w-full mx-auto px-4 py-16 sm:px-6 lg:px-8 bg-white dark:bg-neutral-900 bg-gray-50 transition-colors duration-500">
         <!-- Grid -->
         <div class="grid lg:grid-cols-7 lg:gap-x-8 xl:gap-x-12 lg:items-center">
             <div class="lg:col-span-3">
                 <h1 class="block text-3xl font-bold text-gray-800 sm:text-4xl md:text-5xl lg:text-6xl dark:text-white"
-                    data-lang-key="hero-title">
+                    data-lang-key="hero-title"> Solusi Teknologi Terintegrasi
                 </h1>
-                <p class="mt-3 text-lg text-gray-800 dark:text-neutral-400" data-lang-key="hero-subtitle"></p>
+                <p class="mt-3 text-lg text-gray-800 dark:text-neutral-400" data-lang-key="hero-subtitle">Bisnis yang
+                    lebih Andal</p>
 
-                <div class="mt-5 lg:mt-8 flex flex-col items-center gap-2 sm:flex-row sm:gap-3">
-                    <div class="w-full sm:w-auto">
-                        <label for="hero-input" class="sr-only">Search</label>
-                        <input type="text" id="hero-input" name="hero-input"
-                            class="py-2.5 sm:py-3 px-4 block w-full min-w-80 border-gray-200 rounded-md sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
-                            placeholder="Enter work email">
-                    </div>
-                    <a class="w-full sm:w-auto py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-hidden focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
-                        href="#">
-                        Request demo
-                    </a>
-                </div>
+
 
                 <!-- Brands -->
                 <div class="mt-6 lg:mt-12">
                     <span class="text-xs font-medium text-gray-800 uppercase dark:text-neutral-200"
-                        data-lang-key="hero-trust"></span>
+                        data-lang-key="hero-trust">Dipercaya oleh:</span>
 
                     <div class="mt-4 flex gap-x-8">
                         <svg class="w-20 h-auto" width="106" height="36" viewBox="0 0 106 36" fill="none"

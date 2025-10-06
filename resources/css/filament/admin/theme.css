@@ -3,6 +3,49 @@
 @import "../../../../vendor/pboivin/filament-peek/resources/css/plugin.css";
 
 @import "../../../../vendor/awcodes/filament-sticky-header/resources/css/plugin.css";
-
+@source '../../../../vendor/wire-elements/**/*.blade.php';
 @source '../../../../app/Filament/**/*';
 @source '../../../../resources/views/filament/**/*';
+/* Hilangkan padding/margin di main content */
+:root {
+    --font-family: "Inter Variable";
+    --mono-font-family: "ui-monospace";
+    --serif-font-family: "ui-serif";
+    --sidebar-width: 16rem;
+    --collapsed-sidebar-width: 9rem;
+    --default-theme-mode: dark;
+}
+@layer components {
+    /* Hilangkan padding/margin di container utama */
+    .fi-main {
+        @apply pl-0;
+    }
+
+    .fi-main-content {
+        @apply ml-0 pl-0;
+    }
+    .fi-app-layout {
+        @apply px-0;
+    }
+    .fi-sidebar {
+        @apply border-r border-gray-200 dark:border-gray-700   mr-5 pr-4;
+    }
+    /* .fi-simple-main {
+        @apply sm:max-w-3xl;
+    }
+    .filament-sidebar-nav::-webkit-scrollbar {
+        width: 6px;
+        background-color: #fff;
+    }
+    /* Customize Thumb */
+    /* .filament-sidebar-nav::-webkit-scrollbar-thumb {
+        background-color: #cccccc;
+        border-radius: 10px;
+    }
+    .filament-sidebar-nav::-webkit-scrollbar-thumb:hover {
+        background-color: #cccccc;
+    }
+    .filament-sidebar-nav::-webkit-scrollbar-thumb:active {
+        background-color: #cccccc;
+    } */
+}

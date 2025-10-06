@@ -2,12 +2,30 @@
 <html lang="id" class="h-full bg-gray-100 dark:bg-neutral-900">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title data-lang-key="title">Bcomptech Solutions Sign In</title>
 
-    @vite(['resources/css/prelineui.css', 'resources/js/app.js'])
+    <title>{{ $seoTitle ?? 'Bcomptech Solutions Sign In' }}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="{{ $seoDescription ?? 'Default description' }}">
+    <meta name="keywords" content="{{ $seoKeywords ?? '' }}">
+
+    <link rel="icon" type="image/x-icon" href="/images/icon/favicon.ico" id="favicon_.ico">
+    <link rel="icon" type="image/svg+xml" href="/images/icon/favicon.ico" id="favicon_.svg">
+    <link rel="shortcut icon" href="/images/icon/favicon.ico" id="favicon_.ico">
+    <link rel="apple-touch-icon" href="/images/icon/favicon.ico" id="favicon_apple">
+    <!-- Open Graph -->
+    <meta property="og:title" content="{{ $seoOgTitle ?? '' }}">
+    <meta property="og:description" content="{{ $seoOgDescription ?? '' }}">
+    <meta property="og:type" content="{{ $seoOgType ?? 'website' }}">
+    <meta property="og:url" content="{{ $seoOgUrl ?? url()->current() }}">
+    <meta property="og:image" content="{{ $seoOgImage ?? asset('default-og.png') }}">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="{{ $seoTwitterCard ?? 'summary' }}">
+    <meta name="twitter:title" content="{{ $seoTwitterTitle ?? '' }}">
+    <meta name="twitter:description" content="{{ $seoTwitterDescription ?? '' }}">
+    <meta name="twitter:image" content="{{ $seoTwitterImage ?? asset('default-twitter.png') }}">
+    @vite(['resources/css/prelineui.css', 'resources/js/auth/login.js', 'resources/js/app.js'])
 </head>
 
 <body class="h-full">
@@ -37,7 +55,7 @@
                         <p class="mt-2 text-sm text-gray-600 dark:text-neutral-400" data-lang-key="sign-in-sub">
                             Don't have an account yet?
                             <a class="text-blue-600 decoration-2 hover:underline focus:outline-hidden focus:underline font-medium dark:text-blue-500"
-                                href="{{ route('login') }}" data-lang-key="sign-up">
+                                href="{{ route('signup') }}">
                                 Sign up here
                             </a>
                         </p>
@@ -130,7 +148,8 @@
                                     @if ($errors->has('email'))
                                         <p class="text-xs text-red-600 mt-2">{{ $errors->first('email') }}</p>
                                     @else
-                                        <p class="hidden text-xs text-red-600 mt-2">Please include a valid email address
+                                        <p class="hidden text-xs text-red-600 mt-2">Please include a valid email
+                                            address
                                             so we can get back to you</p>
                                     @endif
                                 </div>
@@ -141,20 +160,39 @@
                                     <div class="flex flex-wrap justify-between items-center gap-2">
                                         <label for="password"
                                             class="block text-sm mb-2 dark:text-white">Password</label>
-                                        <a class="inline-flex items-center gap-x-1 text-sm text-blue-600 decoration-2 hover:underline focus:outline-hidden focus:underline font-medium dark:text-blue-500"
-                                            href="{{ route('login') }}">Forgot password?</a>
+                                        <button type="button" id="forgotOpenModalBtn"
+                                            class="inline-flex items-center gap-x-1 text-sm text-blue-600 decoration-2 hover:underline focus:outline-hidden focus:underline font-medium dark:text-blue-500"
+                                            aria-haspopup="dialog" aria-expanded="false"
+                                            aria-controls="hs-modal-recover-account"
+                                            data-hs-overlay="#hs-modal-recover-account">Forgot password?</button>
+
                                     </div>
                                     <div class="relative">
                                         <input type="password" id="password" name="password"
-                                            class="py-2.5 sm:py-3 px-4 block w-full border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                                            class="py-2.5 sm:py-3 px-4 block w-full border-gray-200 rounded-lg sm:text-sm 
+           focus:border-blue-500 focus:ring-blue-500 
+           disabled:opacity-50 disabled:pointer-events-none 
+           dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 
+           dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
                                             required aria-describedby="password-error">
-                                        <div class="hidden absolute inset-y-0 end-0 pointer-events-none pe-3">
-                                            <svg class="size-5 text-red-500" width="16" height="16"
-                                                fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+
+                                        <!-- Tombol toggle -->
+                                        <button type="button" id="togglePassword"
+                                            class="absolute inset-y-0 end-0 flex items-center pe-3 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">
+                                            <!-- icon mata -->
+                                            <svg id="eyeOpen" class="w-5 h-5" fill="none" stroke="currentColor"
+                                                stroke-width="2" viewBox="0 0 24 24">
                                                 <path
-                                                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
+                                                    d="M1.5 12s4.5-7.5 10.5-7.5S22.5 12 22.5 12s-4.5 7.5-10.5 7.5S1.5 12 1.5 12z" />
+                                                <circle cx="12" cy="12" r="3" />
                                             </svg>
-                                        </div>
+                                            <!-- icon mata dicoret -->
+                                            <svg id="eyeClosed" class="w-5 h-5 hidden" fill="none"
+                                                stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                                <path
+                                                    d="M17.94 17.94A10.94 10.94 0 0 1 12 19.5c-6 0-10.5-7.5-10.5-7.5a21.9 21.9 0 0 1 5.06-5.94M9.88 9.88A3 3 0 0 1 12 9c1.66 0 3 1.34 3 3a3 3 0 0 1-.88 2.12M6 6l12 12" />
+                                            </svg>
+                                        </button>
                                     </div>
                                     @if ($errors->has('email'))
                                         <p class="text-xs text-red-600 mt-2">{{ $errors->first('password') }}</p>
@@ -189,7 +227,7 @@
         </div>
     </div>
 
-
+    @extends('auth.recover')
 </body>
 {{-- Social Login --}}
 

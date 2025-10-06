@@ -2,47 +2,40 @@
 <html lang="{{ app()->getLocale() }}">
 
 <head>
+    <!-- Basic -->
+    <title>{{ $seoTitle ?? 'Default Title' }}</title>
+
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <!-- Primary Meta Tags -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title data-lang-key="title">{{ $title ?? 'Default Title' }}</title>
-    <meta name="title" content="bcompnetsolutions Best Solutions for your website" />
-    <meta name="description" data-lang-key="description" content="Bcompnet merupakan jasa jasa" />
-    <meta name="keywords"
-        content="bcompnet, bcompnetsolutions, bcomptech, bcomptechsolutions, jasa pembuatan website, jasa pembuatan aplikasi, jasa pembuatan sistem informasi" />
-    <meta name="author" content="haruman" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="{{ $seoDescription ?? 'Default description' }}">
+    <meta name="keywords" content="{{ $seoKeywords ?? '' }}">
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="http://demo.bcompnetsolutions.com/" />
-    <meta property="og:title" content="bcompnetsolutions Best Solutions for your website" />
-    <meta property="og:description" content="Bcompnet merupakan jasa jasa" />
-    <meta property="og:image" content="/images/icon/wcern2cczvex3oqhqzpf.webp" />
+    <link rel="icon" type="image/x-icon" href="/images/icon/favicon.ico" id="favicon_.ico">
+    <link rel="icon" type="image/svg+xml" href="/images/icon/favicon.ico" id="favicon_.svg">
+    <link rel="shortcut icon" href="/images/icon/favicon.ico" id="favicon_.ico">
+    <link rel="apple-touch-icon" href="/images/icon/favicon.ico" id="favicon_apple">
+    <!-- Open Graph -->
+    <meta property="og:title" content="{{ $seoOgTitle ?? '' }}">
+    <meta property="og:description" content="{{ $seoOgDescription ?? '' }}">
+    <meta property="og:type" content="{{ $seoOgType ?? 'website' }}">
+    <meta property="og:url" content="{{ $seoOgUrl ?? url()->current() }}">
+    <meta property="og:image" content="{{ $seoOgImage ?? asset('default-og.png') }}">
 
-    <!-- X (Twitter) -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="http://demo.bcompnetsolutions.com/" />
-    <meta property="twitter:title" content="bcompnetsolutions Best Solutions for your website" />
-    <meta property="twitter:description" content="Bcompnet merupakan jasa jasa" />
-    {{-- <meta property="twitter:image" content="https://metatags.io/images/meta-tags.png" /> --}}
-
-
-
-
-
+    <!-- Twitter -->
+    <meta name="twitter:card" content="{{ $seoTwitterCard ?? 'summary' }}">
+    <meta name="twitter:title" content="{{ $seoTwitterTitle ?? '' }}">
+    <meta name="twitter:description" content="{{ $seoTwitterDescription ?? '' }}">
+    <meta name="twitter:image" content="{{ $seoTwitterImage ?? asset('default-twitter.png') }}">
     @vite(['resources/css/prelineui.css', 'resources/js/app.js'])
+
     @livewireStyles
     @livewireScriptConfig
 </head>
 
-<body
-    class="antialiased font-sans text-gray-800 bg-gray-100 w-full flex flex-col min-h-screen items-center justify-center">
-
-    {{ $slot }}
-    @livewireScripts
-    @livewireScriptConfig
-
+<body class="antialiased font-sans text-gray-800 bg-gray-100 w-full flex flex-col min-h-screen">
+    <div id="scrollspy"> {{ $slot }} @livewireScripts @livewireScriptConfig </div>
+    <livewire:components.float-button />
 </body>
+
 
 </html>

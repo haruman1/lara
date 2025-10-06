@@ -21,3 +21,7 @@ export function setTheme(themeName) {
 
     window.dispatchEvent(new Event("on-hs-appearance-change"));
 }
+export function initTheme() {
+    const savedTheme = localStorage.getItem("hs_theme") || "auto";
+    setTheme(savedTheme);
+}

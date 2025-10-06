@@ -13,7 +13,7 @@ class RoleBasedAccess
     public function handle(Request $request, Closure $next, string $role): Response
     {
         if (!Auth::check()) {
-            return redirect(route('login'))->with('error', 'Unauthorized access. Please log in.');
+            return redirect(route('login'))->with('error', 'Unauthorized access. Please log in (error disini).');
         }
 
         $user = Auth::user();
@@ -24,16 +24,16 @@ class RoleBasedAccess
         }
 
         // Kalau role tidak sesuai, cek fallback role user
-        if ($user->hasRole('admin')) {
+        if ($user->hasAnyRole(['admin', 'IamHuman', 'blogger', 'billing_admin'])) {
             return redirect(Filament::getHomeUrl());
         }
 
-        if ($user->hasAnyRole(['users',])) {
+        if ($user->hasAnyRole(['users'])) {
             return redirect('/users');
         }
 
         // Jika tidak ada role valid, logout
         Auth::logout();
-        return redirect(route('login'))->with('error', 'Unauthorized access.');
+        return redirect(route('login'))->with('error', 'Unauthorized access. (error 2 disini)');
     }
 }

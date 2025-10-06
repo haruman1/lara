@@ -11,20 +11,28 @@
     "require": {
         "php": "^8.2",
         "awcodes/filament-sticky-header": "*",
+        "bezhansalleh/filament-shield": "^4.0",
+        "blade-ui-kit/blade-heroicons": "^2.6",
+        "blade-ui-kit/blade-icons": "^1.8",
         "brunocfalcao/blade-feather-icons": "^5.0",
+        "codeat3/blade-iconpark": "^1.7",
         "codeat3/blade-ikonate": "^1.6",
         "codeat3/blade-simple-icons": "^7.9",
         "codeat3/blade-system-uicons": "^1.8",
         "davidhsianturi/blade-bootstrap-icons": "^2.1",
         "filament/filament": "^4.0",
+        "filament/widgets": "^4.0",
         "hasnayeen/blade-eva-icons": "^2.1",
         "laravel/framework": "^12.0",
         "laravel/socialite": "^5.23",
         "laravel/tinker": "^2.10.1",
+        "leandrocfe/filament-apex-charts": "4.x-dev",
         "livewire/livewire": "^3.6",
         "livewire/volt": "*",
         "mews/purifier": "^3.4",
         "pboivin/filament-peek": "3.0",
+        "pxlrbt/filament-spotlight": "^2.0",
+        "shuvroroy/filament-spatie-laravel-health": "^3.1",
         "socialiteproviders/github": "*",
         "socialiteproviders/google": "*",
         "socialiteproviders/twitter": "*",
@@ -54,8 +62,7 @@
     "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover --ansi",
-            "@php artisan filament:upgrade"
+            "@php artisan package:discover --ansi"
         ],
         "post-update-cmd": [
             "@php artisan vendor:publish --tag=laravel-assets --ansi --force"

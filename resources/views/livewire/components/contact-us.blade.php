@@ -1,4 +1,5 @@
-<section id="contact">
+<section id="contact" class="w-full top-0 bg-white dark:bg-gray-900">
+    <livewire:components.navbar />
     <div class="bg-white dark:bg-neutral-900 bg-gray-50 transition-colors duration-500">
         <!-- Contact Us -->
         <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
@@ -188,4 +189,6 @@
             </div>
         </div>
     </div>
+    <livewire:components.footer />
+    <livewire:components.float-button />
 </section>

@@ -1,115 +1,275 @@
 <!-- ========== HEADER ========== -->
 <header
-    class="sticky top-4 inset-x-0 flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full before:absolute before:inset-0 before:max-w-5xl before:mx-2 lg:before:mx-auto before:rounded-[26px] before:bg-neutral-800/30 before:backdrop-blur-md">
-    <nav class="relative max-w-5xl w-full flex flex-wrap md:flex-nowrap basis-full items-center justify-between py-2 ps-5 pe-2 md:py-0 mx-2 lg:mx-auto"
-        id="navbar">
+    class="sticky top-0 md:top-0 md:sticky md:flex flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full bg-white border-b border-gray-400 px-4 md:px-6 lg:px-8 dark:bg-neutral-900 dark:border-neutral-700 md:gap-3 py-2 px-4 sm:px-6 lg:px-8">
+    <nav
+        class="relative max-w-[85rem] w-full mx-auto md:flex md:items-center md:justify-between md:gap-3 py-2 px-4 sm:px-6 lg:px-8">
 
         <!-- Logo -->
-        <div class="flex items-center">
-            <a class="flex-none rounded-md text-xl inline-block font-semibold focus:outline-hidden focus:opacity-80"
-                href="#landing" aria-label="Preline">
-                <!-- Logo Light -->
-                <img src="/images/icon/zd3rcd6ftavhpy4xgki9.webp" class="w-28 h-auto dark:hidden" width="116"
-                    height="32" alt="Logo Light">
-
-                <!-- Logo Dark -->
-                <img src="/images/icon/wcern2cczvex3oqhqzpf.webp" class="w-28 h-auto hidden dark:block" width="116"
-                    height="32" alt="Logo Dark">
+        <div class="flex justify-between items-center gap-x-3">
+            <a class="flex-none font-semibold text-xl text-black focus:outline-hidden focus:opacity-80 dark:text-white"
+                href="{{ url('/') }}" aria-label="Brand">
+                <img src="/images/icon/zd3rcd6ftavhpy4xgki9.webp" class="w-28 dark:hidden" alt="Logo Light">
+                <img src="/images/icon/wcern2cczvex3oqhqzpf.webp" class="w-28 hidden dark:block" alt="Logo Dark">
             </a>
-        </div>
-        <!-- End Logo -->
 
-        <!-- Button Group -->
-        <div class="md:order-3 flex items-center gap-x-3">
-            <div class="md:ps-6">
-                <a class="group inline-flex items-center gap-x-2 py-2 px-3 bg-[#ff0] font-medium text-sm text-nowrap text-neutral-800 rounded-full focus:outline-hidden"
-                    data-lang-key="sign-in" href="{{ route('login') }}" wire:navigate>
-                    Sign In
-                </a>
-            </div>
-
-            <div class="md:hidden">
-                <button type="button"
-                    class="hs-collapse-toggle size-9 flex justify-center items-center text-sm font-semibold rounded-full bg-neutral-800 text-white disabled:opacity-50 disabled:pointer-events-none"
-                    id="hs-navbar-floating-dark-collapse" aria-expanded="false" aria-controls="hs-navbar-floating-dark"
-                    aria-label="Toggle navigation" data-hs-collapse="#hs-navbar-floating-dark">
-                    <svg class="hs-collapse-open:hidden shrink-0 size-4" xmlns="http://www.w3.org/2000/svg"
-                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="3" x2="21" y1="6" y2="6" />
-                        <line x1="3" x2="21" y1="12" y2="12" />
-                        <line x1="3" x2="21" y1="18" y2="18" />
-                    </svg>
-                    <svg class="hs-collapse-open:block hidden shrink-0 size-4" xmlns="http://www.w3.org/2000/svg"
-                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M18 6 6 18" />
-                        <path d="m6 6 12 12" />
-                    </svg>
-                </button>
-            </div>
+            <!-- Collapse Button -->
+            <button type="button"
+                class="hs-collapse-toggle md:hidden relative size-9 flex justify-center items-center font-medium text-sm rounded-lg border border-gray-200 text-gray-800 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 dark:text-white dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700"
+                id="mobileMenuToggle" aria-expanded="false" aria-controls="hs-header-base"
+                aria-label="Toggle navigation" data-hs-collapse="#hs-header-base">
+                <svg class="icon-hamburger size-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor" stroke-width="2">
+                    <line x1="3" x2="21" y1="6" y2="6" />
+                    <line x1="3" x2="21" y1="12" y2="12" />
+                    <line x1="3" x2="21" y1="18" y2="18" />
+                </svg>
+                <svg class="icon-close shrink-0 hidden size-4" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6 6 18" />
+                    <path d="m6 6 12 12" />
+                </svg>
+                <span class="sr-only">Toggle navigation</span>
+            </button>
         </div>
-        <!-- End Button Group -->
 
         <!-- Collapse -->
-        <div id="hs-navbar-floating-dark"
-            class="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow md:block"
-            aria-labelledby="hs-navbar-floating-dark-collapse">
-            <div class="flex flex-col md:flex-row md:items-center md:justify-end gap-y-3 py-2 md:py-0 md:ps-7">
+        <div id="navbarMenu" class="hs-collapse hidden overflow-hidden transition-all duration-300 md:block"
+            aria-labelledby="hs-header-base-collapse">
+            <div class="grow">
+                <div
+                    class="overflow-hidden overflow-y-auto max-h-[75vh] [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500">
+                    <div class="py-2 md:py-0 flex flex-col md:flex-row md:items-center gap-y-1 md:gap-x-6">
+                        {{--  --}}
+                        <!-- Loop menu dari database -->
+                        @foreach ($menus as $menu)
+                            @if ($menu->type === 'link')
+                                <!-- Single Link -->
+                                <a href="{{ $menu->url }}"
+                                    class="p-2 flex items-center text-sm text-gray-800 hover:bg-gray-100 rounded-lg dark:text-neutral-200 dark:hover:bg-neutral-700">
+                                    @svg($menu->icon, 'shrink-0 size-4 me-2 block ')
+                                    {{ $menu->title }}
+                                </a>
+                            @elseif($menu->type === 'dropdown')
+                                <!-- DESKTOP DROPDOWN (Hidden on mobile) -->
+                                <div class="hs-dropdown relative hidden md:inline-flex [--trigger:hover]">
+                                    <button type="button"
+                                        class="hs-dropdown-toggle p-2 flex items-center text-sm text-gray-800 hover:bg-gray-100 rounded-lg dark:text-neutral-200 dark:hover:bg-neutral-700">
+                                        @svg($menu->icon, 'shrink-0 size-4 me-2 ini-svg-dropdown')
+                                        {{ $menu->title }}
+                                        <svg class="shrink-0 size-4 ms-1 transition-transform hs-dropdown-open:rotate-180"
+                                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke="currentColor" stroke-width="2">
+                                            <path d="m6 9 6 6 6-6" />
+                                        </svg>
+                                    </button>
 
-                <!-- Navigation Links -->
-                <a href="{{ route('home') }}" wire:navigate data-target="landing" data-lang-key="link-1"
-                    aria-current="{{ request()->is('/') || request()->is('home') ? 'page' : 'false' }}"
-                    class="pe-3 ps-px sm:px-3 md:py-4 text-sm 
-          text-white hover:text-neutral-300 focus:outline-hidden
-          border-b-2 border-transparent 
-          aria-[current=page]:border-[#ff0] aria-[current=page]:text-[#ff0]">
-                    Home
-                </a>
+                                    <div
+                                        class="hs-dropdown-menu transition-[opacity,margin] duration-300 opacity-0 hidden hs-dropdown-open:opacity-100 absolute top-full end-0 min-w-48 mt-2 z-50 bg-white rounded-lg shadow-md dark:bg-neutral-800 before:absolute before:-top-2 before:left-0 before:w-full before:h-2">
+                                        @foreach ($menu->children as $child)
+                                            <a href="{{ $child->url }}"
+                                                class="flex items-center px-4 py-2.5 text-sm text-gray-800 hover:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-700 first:rounded-t-lg last:rounded-b-lg">
+                                                @svg($child->icon, 'shrink-0 size-4 me-2 ini-svg-dropdown-child')
+                                                <span>{{ $child->title }}</span>
+                                            </a>
+                                        @endforeach
+                                    </div>
+                                </div>
 
+                                <!-- MOBILE ACCORDION (Hidden on desktop) -->
+                                <div class="hs-accordion relative md:hidden w-full"
+                                    id="hs-accordion-{{ $menu->id }}">
+                                    <button
+                                        class="hs-accordion-toggle w-full p-2 flex items-center text-sm text-gray-800 hover:bg-gray-100 rounded-lg dark:text-neutral-200 dark:hover:bg-neutral-700"
+                                        type="button" aria-controls="hs-accordion-collapse-{{ $menu->id }}">
+                                        @svg($menu->icon, 'shrink-0 size-4 me-2 ini-svg-dropdown')
+                                        {{ $menu->title }}
+                                        <svg class="hs-accordion-active:rotate-180 shrink-0 size-4 ms-auto transition-transform"
+                                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke="currentColor" stroke-width="2">
+                                            <path d="m6 9 6 6 6-6" />
+                                        </svg>
+                                    </button>
 
-                <a href="/services" wire:navigate data-target="services" data-lang-key="link-2"
-                    class="pe-3 ps-px sm:px-3 md:py-4 text-sm 
-                   text-white hover:text-neutral-300 focus:outline-hidden
-                   border-b-2 border-transparent 
-                   aria-[current=page]:border-[#ff0] aria-[current=page]:text-[#ff0]">
-                    Layanan kami
-                </a>
+                                    <div id="hs-accordion-collapse-{{ $menu->id }}"
+                                        class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
+                                        aria-labelledby="hs-accordion-{{ $menu->id }}">
+                                        <div class="pl-6 space-y-1">
+                                            @foreach ($menu->children as $child)
+                                                <a href="{{ $child->url }}"
+                                                    class="block p-2 text-sm text-gray-800 hover:bg-gray-100 rounded-lg dark:text-neutral-200 dark:hover:bg-neutral-700">
+                                                    @svg($child->icon, 'shrink-0 size-4 me-2 ini-svg-dropdown-child')
+                                                    {{ $child->title }}
+                                                </a>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </div>
+                            @elseif($menu->type === 'mega')
+                                <!-- Mega Menu -->
+                                <div
+                                    class="hs-dropdown [--strategy:static] md:[--strategy:absolute] [--adaptive:none] [--is-collapse:true] md:[--is-collapse:false]">
+                                    <button id="megaMenuToggle-{{ $menu->id }}" type="button"
+                                        data-mega-toggle="megaMenu-{{ $menu->id }}"
+                                        class="hs-dropdown-toggle w-full p-2 flex items-center text-sm text-gray-800 hover:bg-gray-100 rounded-lg dark:text-neutral-200 dark:hover:bg-neutral-700">
+                                        @svg($menu->icon, 'shrink-0 size-4 me-2 ini-svg-mega-menu')
+                                        {{ $menu->title }}
+                                        <svg id="dropdownIcon-{{ $menu->id }}"
+                                            class="hs-dropdown-open:-rotate-180 duration-300 shrink-0 size-4 ms-auto md:ms-1"
+                                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke="currentColor" stroke-width="2">
+                                            <path d="m6 9 6 6 6-6" />
+                                        </svg>
+                                    </button>
 
-                <a href="{{ route('about.page') }}" wire:navigate data-target="aboutus" data-lang-key="link-3"
-                    class="pe-3 ps-px sm:px-3 md:py-4 text-sm 
-                   text-white hover:text-neutral-300 focus:outline-hidden
-                   border-b-2 border-transparent 
-                   aria-[current=page]:border-[#ff0] aria-[current=page]:text-[#ff0]">
-                    Tentang kami
-                </a>
+                                    <div id="megaMenu-{{ $menu->id }}"
+                                        data-mega-menu="megaMenu-{{ $menu->id }}"
+                                        class="hs-dropdown-menu hidden opacity-0 relative w-full min-w-60 z-10 top-full start-0 transition-all duration-300">
+                                        <div
+                                            class="md:mx-6 lg:mx-8 md:bg-white md:rounded-lg md:shadow-md dark:md:bg-neutral-800">
+                                            <div class="py-4 md:p-6 md:grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                                @foreach ($menu->children->groupBy('group') as $group => $items)
+                                                    <div class="flex flex-col">
+                                                        <h4
+                                                            class="mb-3 font-semibold text-sm uppercase text-gray-700 dark:text-neutral-200">
+                                                            {{ $group }}
+                                                        </h4>
+                                                        @foreach ($items as $child)
+                                                            <a href="{{ $child->url }}"
+                                                                class="p-2 flex items-center gap-x-2 hover:bg-gray-100 rounded-lg dark:hover:bg-neutral-700">
+                                                                @if ($child->icon)
+                                                                    @svg($child->icon, 'size-4 text-gray-500 dark:text-neutral-300 ini-svg-mega-menu-child')
+                                                                @endif
+                                                                <span
+                                                                    class="text-sm text-gray-800 dark:text-neutral-200">
+                                                                    {{ $child->title }}
+                                                                </span>
+                                                            </a>
+                                                        @endforeach
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
+                        @endforeach
 
-                <a href="/acak" wire:navigate data-target="informations" data-lang-key="link-4"
-                    class="pe-3 ps-px sm:px-3 md:py-4 text-sm 
-                   text-white hover:text-neutral-300 focus:outline-hidden
-                   border-b-2 border-transparent 
-                   aria-[current=page]:border-[#ff0] aria-[current=page]:text-[#ff0]">
-                    Informasi
-                </a>
-                <a href="{{ route('post.index') }}" wire:navigate data-target="news"
-                    class="pe-3 ps-px sm:px-3 md:py-4 text-sm 
-                   text-white hover:text-neutral-300 focus:outline-hidden
-                   border-b-2 border-transparent 
-                   aria-[current=page]:border-[#ff0] aria-[current=page]:text-[#ff0]">
-                    News
-                </a>
-                <a href="/acal" wire:navigate data-target="contact" data-lang-key="link-5"
-                    class="pe-3 ps-px sm:px-3 md:py-4 text-sm 
-                   text-white hover:text-neutral-300 focus:outline-hidden
-                   border-b-2 border-transparent 
-                   aria-[current=page]:border-[#ff0] aria-[current=page]:text-[#ff0]">
-                    Kontak
-                </a>
-                <!-- End Navigation Links -->
+                        <!-- Separator -->
+                        <div class="hidden md:block md:mx-3">
+                            <div class="w-px h-5 bg-gray-300 dark:bg-neutral-700"></div>
+                        </div>
 
+                        <!-- Button Group -->
+                        <div class="flex items-center space-x-4">
+                            <a class="py-[7px] px-3 inline-flex items-center font-medium text-sm rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-700"
+                                href="{{ route('login') }}">
+                                Sign in
+                            </a>
+                            <a class="py-2 px-3 inline-flex items-center font-medium text-sm rounded-lg bg-blue-600 text-white hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600"
+                                href="{{ route('signup') }}">
+                                Get started
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <!-- End Collapse -->
     </nav>
 </header>
-<!-- ========== END HEADER ========== -->
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const mobileToggle = document.getElementById("mobileMenuToggle");
+        const navbarMenu = document.getElementById("navbarMenu");
+        const iconHamburger = mobileToggle.querySelector(".icon-hamburger");
+        const iconClose = mobileToggle.querySelector(".icon-close");
+        const sections = document.querySelectorAll("section[id]");
+        const navLinks = document.querySelectorAll("#navbarMenu a");
+
+        // ========== INTERSECTION OBSERVER UNTUK ACTIVE NAV ==========
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const id = entry.target.getAttribute("id");
+                const navItem = document.querySelector(`#navbarMenu a[href*="#${id}"]`);
+                if (entry.isIntersecting) {
+                    navLinks.forEach(link => link.classList.remove("active-nav"));
+                    if (navItem) navItem.classList.add("active-nav");
+                }
+            });
+        }, {
+            threshold: 0.6
+        });
+        sections.forEach(section => observer.observe(section));
+
+        // ========== TOGGLE MOBILE MENU ==========
+        mobileToggle.addEventListener("click", () => {
+            navbarMenu.classList.toggle("hidden");
+            if (navbarMenu.classList.contains("hidden")) {
+                iconHamburger.classList.remove("hidden");
+                iconClose.classList.add("hidden");
+            } else {
+                iconHamburger.classList.add("hidden");
+                iconClose.classList.remove("hidden");
+            }
+        });
+
+        // ========== SMOOTH SCROLL ==========
+        navLinks.forEach(link => {
+            link.addEventListener("click", function(e) {
+                const url = new URL(this.href);
+                const targetId = url.hash.substring(1);
+                const target = document.getElementById(targetId);
+
+                if (target && window.location.pathname === url.pathname) {
+                    e.preventDefault();
+                    target.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
+                }
+            });
+        });
+
+        // ========== MEGA MENU HANDLER ==========
+        const megaToggles = document.querySelectorAll("[data-mega-toggle]");
+        megaToggles.forEach(toggle => {
+            const id = toggle.getAttribute("data-mega-toggle");
+            const megaMenu = document.querySelector(`[data-mega-menu="${id}"]`);
+            const dropdownIcon = toggle.querySelector("svg");
+
+            if (!megaMenu) return;
+
+            toggle.addEventListener("click", (e) => {
+                e.preventDefault();
+                megaMenu.classList.toggle("hidden");
+                setTimeout(() => megaMenu.classList.toggle("opacity-0"), 10);
+                dropdownIcon?.classList.toggle("-rotate-180");
+            });
+
+            document.addEventListener("click", (e) => {
+                if (!megaMenu.contains(e.target) && !toggle.contains(e.target)) {
+                    if (!megaMenu.classList.contains("hidden")) {
+                        megaMenu.classList.add("hidden", "opacity-0");
+                        dropdownIcon?.classList.remove("-rotate-180");
+                    }
+                }
+            });
+        });
+
+        // ========== DROPDOWN HANDLER (MOBILE ONLY) ==========
+        document.querySelectorAll("[id^='dropdownToggle-']").forEach(toggle => {
+            toggle.addEventListener("click", function(e) {
+                const id = this.id.split("-")[1];
+                const collapse = document.getElementById("collapse-" + id);
+
+                if (window.innerWidth < 768 && collapse) {
+                    e.preventDefault();
+                    collapse.classList.toggle("hidden");
+                }
+            });
+        });
+
+
+
+    });
+</script>
